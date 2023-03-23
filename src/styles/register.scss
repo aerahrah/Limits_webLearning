@@ -1,13 +1,20 @@
 @import "colors";
 
+
+@mixin font-scale($min-vw, $min-px) {
+  font-size: min($min-px, $min-vw);
+}
+
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    outline: 0;
 }
 header .title{
+    @include font-scale(20vw, 7rem);
     color: $font-primary-color;
-    font-size: min(16vw, 7rem);
 }
 main{
     height: 70vh;
@@ -18,9 +25,40 @@ main{
 }
 
 section.menu{
+    @include font-scale(6vw, 1.75rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    font-size: min(6vw, 1.75rem);
+}
+input{
+    font-family: 'Bebas Neue', cursive;
+    @include font-scale(4vw, 1.5rem);
+    transition: all ease 200ms;
+    &[type="text"],&[type="password"]{    
+        display: block;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        padding: 4px;
+        width: min(350px, 80vw);
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #AAA;
+        font-family: 'Roboto', sans-serif;
+        transition: 0.2s ease;
+    }
+    &[type="submit"]{
+        font-size: min(6vw, 1.75rem);
+        display: block;
+        margin: 0 auto;
+        margin-top: 3rem;
+        padding: min(1.5vw, .35rem) min(5vw, 2.5rem);
+        background-color: $primary-color;
+        color: $font-white-secondary-color;
+        border: 4px solid $border-color;
+        border-radius: 5px;
+    }
+    &:focus{
+        border-bottom: 1px solid $primary-color;
+    }
 }
