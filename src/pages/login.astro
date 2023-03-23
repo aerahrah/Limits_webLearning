@@ -1,21 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import '../styles/register.scss';
+import '../styles/login.scss';
 ---
 
 <BaseLayout>
     <main class="fluid-container">
         <Header>
-           Register
+           Login
         </Header>
         <section class="menu">
-            <input type="text" id="username" name="username" placeholder="Username" />
             <input type="text" id="email" name="email" placeholder="E-mail" />
             <input type="password" id="password" name="password" placeholder="Password" />
-            <input type="submit" id='saveData' class="btn btn-saveData" name="signUp_submit" value="Sign Up" />
+            <input type="submit" id='login' class="btn btn-login" name="login" value="Login" />
         </section>
     </main>
     <script src="../scripts/register.js"></script>
 </BaseLayout>
-

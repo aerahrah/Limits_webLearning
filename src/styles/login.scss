@@ -1,0 +1,38 @@
+@import "./components/colors";
+@import "./components/button";
+@import "./components/wrapperDesign";
+
+
+*{
+    outline: 0;
+}
+
+header .title{
+    @include font-scale(20vw, 7rem);
+    color: $font-primary-color;
+}
+
+input{
+    font-family: 'Bebas Neue', cursive;
+    @include font-scale(4vw, 1.5rem);
+    transition: all ease 200ms;
+    &[type="text"],&[type="password"]{    
+        display: block;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        padding: 4px;
+        width: min(350px, 80vw);
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #AAA;
+        font-family: 'Roboto', sans-serif;
+        transition: 0.2s ease;
+        &:focus{
+            border-bottom: 1px solid $primary-color;
+        }
+    }
+    &[type="submit"]{
+        margin: 0 auto;
+        margin-top: 3rem;
+    }
+}
