@@ -1,4 +1,5 @@
 @import "colors";
+@import "./components/button";
 
 *{
     box-sizing: border-box;
@@ -12,6 +13,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
 }
 
 header .title{
@@ -25,20 +27,4 @@ section.menu{
     gap: 20px;
     font-size: min(6vw, 1.75rem);
 }
-a.secondary-text{
-    font-family: 'Bebas Neue', cursive;
-    text-transform: uppercase;
-    text-align: center;
-    padding: min(1.5vw, .35rem) min(5vw, 2.5rem);
-    text-decoration: none;
-    border: 4px solid $border-color;
-    border-radius: 5px;
-    &.login{
-        background-color: $primary-color;
-       color: $font-white-secondary-color;
-    }
-    &.register{
-        background-color: $secondary-color;
-        color: $font-secondary-color;
-    }
-}
+

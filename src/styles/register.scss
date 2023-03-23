@@ -1,5 +1,5 @@
 @import "colors";
-
+@import "./components/button";
 
 @mixin font-scale($min-vw, $min-px) {
   font-size: min($min-px, $min-vw);
@@ -22,14 +22,15 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
 }
 
-section.menu{
+section.form{
     @include font-scale(6vw, 1.75rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+
 }
 input{
     font-family: 'Bebas Neue', cursive;
@@ -46,19 +47,13 @@ input{
         border-bottom: 1px solid #AAA;
         font-family: 'Roboto', sans-serif;
         transition: 0.2s ease;
+        &:focus{
+            border-bottom: 1px solid $primary-color;
+        }
     }
     &[type="submit"]{
-        font-size: min(6vw, 1.75rem);
-        display: block;
         margin: 0 auto;
         margin-top: 3rem;
-        padding: min(1.5vw, .35rem) min(5vw, 2.5rem);
-        background-color: $primary-color;
-        color: $font-white-secondary-color;
-        border: 4px solid $border-color;
-        border-radius: 5px;
     }
-    &:focus{
-        border-bottom: 1px solid $primary-color;
-    }
+
 }
