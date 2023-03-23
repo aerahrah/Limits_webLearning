@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+nav{
+    background-color: $primary-color;
+    height: min(30vh, 40px);
+}
 main{
     height: 70vh;
     display: flex;

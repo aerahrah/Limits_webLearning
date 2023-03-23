@@ -1,0 +1,51 @@
+@import "./components/colors";
+
+@mixin font-scale($min-vw, $min-px) {
+    font-size: min($min-px, $min-vw);
+  }
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+nav.navbar{
+    background-color: #247974 !important;
+    height: min(50vh, 60px);
+}
+div{
+    &.nav-header{
+        padding: 0;
+        background-color: #247974 !important;
+
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
+            @include font-scale(4vw, 1.35rem);
+            color: #f1f1f1 !important;
+            transition: 0.2s;
+        }
+        
+    }
+}
+
+ .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .navbar-toggler {
+    border-color: rgb(255,255,255);
+  } 
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+@media screen and (max-width: 992px) {
+    ul{
+        li:not(:last-child){
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid $secondary-color;
+        }
+    } 
+}
