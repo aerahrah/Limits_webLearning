@@ -1,0 +1,25 @@
+@mixin font-scale($min-vw, $min-px) {
+    font-size: min($min-px, $min-vw);
+  }
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+section.menu{
+    @include font-scale(6vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
