@@ -1,0 +1,26 @@
+@import "colors";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header .title{
+    color: $font-primary-color;
+    font-size: min(16vw, 7rem);
+}
+main{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    font-size: min(6vw, 1.75rem);
+}

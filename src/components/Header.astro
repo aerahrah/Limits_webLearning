@@ -1,0 +1,21 @@
+---
+import '../styles/_colors.scss';
+---
+    <style>
+        header .title{
+            font-family: 'Bebas Neue', cursive;
+            color: $font-primary-color;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-size: min(22vw, 10rem);
+            letter-spacing: 3px;
+            text-align: center;
+            letter-spacing: 5px;
+    }
+    </style>
+    <header >
+        <h1 class="title">
+            <slot />
+        </h1>
+    </header>
