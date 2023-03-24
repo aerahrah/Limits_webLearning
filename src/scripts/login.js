@@ -17,6 +17,7 @@
   };
 
   // Initialize Firebase
+  const login = document.getElementById('login')
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
   const auth = getAuth();

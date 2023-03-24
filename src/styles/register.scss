@@ -7,14 +7,14 @@
 }
 
 header .title{
-    @include font-scale(20vw, 7rem);
+    @include font-scale(20vw, 8rem);
     color: $font-primary-color;
 }
 
 input{
     font-family: 'Bebas Neue', cursive;
     @include font-scale(4vw, 1.5rem);
-    transition: all ease 200ms;
+    transition: all 10ms;
     &[type="text"],&[type="password"]{    
         display: block;
         box-sizing: border-box;
@@ -27,7 +27,7 @@ input{
         font-family: 'Roboto', sans-serif;
         transition: 0.2s ease;
         &:focus{
-            border-bottom: 1px solid $primary-color;
+            border-bottom: 4px solid $primary-color;
         }
     }
     &[type="submit"]{
