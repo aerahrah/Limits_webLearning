@@ -34,7 +34,7 @@
           update(ref(database, 'users/' + user.uid),{
            last_login: dt,
          })
-           window.location.href = "dashboard";
+           window.location.href = "start";
           alert('User loged in!');
          // ...
        })

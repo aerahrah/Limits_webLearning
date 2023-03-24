@@ -1,0 +1,60 @@
+@import "./components/colors";
+@import "./components/button";
+
+@mixin font-scale($min-vw, $min-px) {
+    font-size: min($min-px, $min-vw);
+  }
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header .title{
+    @include font-scale(30vw, 10rem);
+    color: $font-primary-color;
+}
+
+nav{
+    background-color: $primary-color;
+    height: min(30vh, 40px);
+}
+header .title{
+    margin-bottom: -1.1rem;
+}
+div.header-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+    .header-title{
+        margin-bottom: -1rem;
+        @include font-scale(10vw, 2.5rem);
+        letter-spacing: min(.5vw, 13px);
+        color: $primary-color;
+    }
+    .header-text{
+        @include font-scale(2.5vw, .9rem); 
+    }
+}
+section.menu{
+    @include font-scale(3vw, 1.35rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: min(1084px, 80vw);
+    margin: 0 auto;
+}
+a.btn{
+    margin: 0 auto;
+}
+p{
+    font-family: 'Poppins', sans-serif;
+    &.description-title{
+        background-color: $primary-color;
+        color: #f1f1f1;
+    }
+}
+

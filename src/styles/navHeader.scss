@@ -16,7 +16,7 @@ nav.navbar{
 }
 div{
     &.nav-header{
-        padding: 0;
+        padding-left: 5rem;
         background-color: #247974 !important;
 
         .nav-link {
@@ -41,6 +41,11 @@ div{
     opacity: 0.8;
 }
 @media screen and (max-width: 992px) {
+    div{
+        &.nav-header{
+            padding:0;
+        }
+    }
     ul{
         li:not(:last-child){
             margin: 0;
