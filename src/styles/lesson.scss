@@ -12,32 +12,65 @@ main{
     margin-top: 3rem;
     padding: 0;
     width: min(90vw, 960px);
-    @include font-scale(3vw, 1.5rem);
     font-family: 'poppins', sans-serif;
     font-weight: 600;
     row-gap: 50px;
     &--item{
         position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         list-style: none;
-        color: $font-primary-color;
-        background-color: $primary-color-shade;
-        padding: 1.5rem 3rem !important;
         margin: 0 1vw !important;
+        padding: .75rem 3vw !important;
         border-radius: 3rem;
+        background-color: $primary-color-shade;
+        text-transform: uppercase;
+
         &::after{
-            position: absolute;
-            transform: translateX(-50%);
+            content: "";
             z-index: -1;
+            position: absolute;
             top: 60%;
             left: 50%;
-            content: "";
-            height: 60px;
+            transform: translateX(-50%);
+            height: min(60px, 10vw);
             width: 100%;
-            border-bottom-left-radius: 2rem;
-            border-bottom-right-radius: 2rem;
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
             background-color: $secondary-color-light;
+           
         }
-      
+
+        &-1{
+            width: min(680px, 60vw);
+            @include font-scale(3vw, 1.5rem);
+            color: $font-primary-color; 
+            padding: min(1vw,.5rem) min(4vw, 1rem);
+        }
+        &-2{
+            
+            &,
+            &:link,
+            &:visited{
+                color: $font-white-color;
+            }
+            &:hover{
+                color: $font-white-secondary-color;
+                background-color: $primary-color-light-green-shade;
+            }
+            &:active{
+                outline: none;
+                transform: scale(.98);
+            }
+            @include font-scale(2.6vw, 1.15rem);
+            transition: all 120ms;   
+            padding: min(1vw,.5rem) min(4vw, 2rem);
+            border-radius: 3rem;
+            background-color: $primary-color-light-green;
+            text-decoration: none;
+
+        }    
     }
 
     &::-webkit-scrollbar {
@@ -56,5 +89,4 @@ main{
         background-color: #C8C5B5;
     }
 }
-  
   
