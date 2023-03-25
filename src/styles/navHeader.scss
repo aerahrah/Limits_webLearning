@@ -18,6 +18,7 @@ nav.navbar{
 .nav-header{
     padding-left: 5rem;
     background-color: #247974 !important;
+    z-index: 999;
     .nav-link {
         @include font-scale(4vw, 1.35rem);
         font-family: 'Poppins', sans-serif;
