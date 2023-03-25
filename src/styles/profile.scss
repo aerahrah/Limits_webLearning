@@ -25,7 +25,6 @@ main{
 .img{
     display: flex;
     flex-direction: column;
-    justify-self: center;
     align-items: center;
     gap: .5rem;
     
@@ -45,7 +44,7 @@ main{
     grid-area: 1 / 2 / 2 / 4;
     &-title{
         text-transform: uppercase;
-        font-size: 1.5rem;
+        font-size: min(3vw,1.5rem);
         width: 80%;
         padding:1.25rem 3rem;
         margin: 0 auto;
@@ -56,7 +55,7 @@ main{
     }
     &-box{
         border-radius: 2rem;
-        padding: 1.25rem 3rem;
+        padding: 1.25rem min(4vw,3rem);
         background-color:$primary-color-shade;  
 
     }
@@ -86,7 +85,8 @@ main{
 }
 .card-container{
     display: flex;
-    justify-content: space-around;
+  
+    align-items: center;
     flex-wrap: wrap;
     gap: 2vw;
 
@@ -111,6 +111,9 @@ main{
      
         background-color:$primary-card-color;   
     }
+    &--6{
+        background-color:$primary-card-color;    
+    }
 
 }
 .card-item{
@@ -122,7 +125,7 @@ main{
     height: min(35vw, 150px);
     border-radius: 1rem;
     &--number{
-        font-size: 3.5rem;
+        font-size: min(8vw,3.5rem);
     }
 }
   
@@ -143,5 +146,6 @@ main{
     }
     .card-container{
         grid-area: 3 / 1 / 4 / 3;
+        justify-content: center;
     }
 }
