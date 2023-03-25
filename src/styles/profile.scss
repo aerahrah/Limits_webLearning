@@ -1,56 +1,97 @@
 @import "./components/colors";
 @import "./components/button";
-@import "./components/wrapperDesign";
+
 
 main{
-    height: 80vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
 }
 .profile-container{
+    margin-top: 3rem;
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    overflow-y: scroll;
-    margin-top: 3rem;
     padding: 0;
     width: min(90vw, 960px);
     font-family: 'poppins', sans-serif;
     font-weight: 600;
     row-gap: 50px;
+    padding: 1rem;
 
-    &::-webkit-scrollbar {
-        width: 0.3em;
-        border-radius: 3rem;
-        background-color: #F5F5F5;
-    }
-    &::-webkit-scrollbar-thumb {
-        height: .2rem;
-        border-radius: 3rem;
-        background-color: $font-primary-color;
-    }
-    &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.02);
-        border-radius: 10px;
-        background-color: #C8C5B5;
-    }
 }
 .dashboard-items{
     grid-area: 1 / 2 / 2 / 6;
+    &-title{
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        width: 80%;
+        padding:1.25rem 3rem;
+        margin: 0 auto;
+        margin-bottom: -1rem;
+        border-radius: 2rem;
+        background-color:$primary-color-shade;  
+
+    }
+    &-box{
+        border-radius: 2rem;
+        padding: 1.25rem 3rem;
+        background-color:$primary-color-shade;  
+
+    }
+    &--container{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+    }
+}
+.item-container{
+    color: $font-white-color;
+    &--white{
+        background-color: white;
+    }
+    &--1{
+        padding: .5rem 3rem;
+        background-color: $primary-color-light-green;
+    }
+    &--2{
+        padding: .5rem 3rem;
+        background-color: $violet-light-color;
+    }
+    p{
+        margin: 0;
+    }
 }
 .card-container{
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+
     grid-area: 2 / 1 / 3 / 6;
     &--1{
       
-    background-color:$primary-color;  
+    background-color:$primary-color-shade;  
     }
     &--2{
       
-    background-color:$primary-color;  
+    background-color:$primary-card-color;  
     }
     &--3{
      
-    background-color:$primary-color;   
+    background-color:$primary-card-color;   
+    }
+    &--4{
+     
+        background-color:$primary-card-color;   
+    }
+    &--5{
+     
+        background-color:$primary-card-color;   
     }
 
 }
@@ -61,7 +102,7 @@ main{
     justify-content: center;
     width: min(30vw, 150px);
     height: min(30vw, 150px);
-
+    border-radius: 1rem;
     &--number{
         font-size: 3.5rem;
     }
