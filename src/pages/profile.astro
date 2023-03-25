@@ -1,13 +1,37 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LimitsHeader from '../components/LimitsHeader.astro'
-import '../styles/login.scss';
+import '../styles/profile.scss';
 ---
 
 <BaseLayout>
     <LimitsHeader />
     <main class="fluid-container">
-
+        <div class="profile-container">
+            <div class="img">
+                <img src="" alt="">
+                <p>hailey</p>
+            </div>
+            <div class="dashboard-items">
+                <div class="dashboard-items--1"><p>topics learned</p></div>
+                <div class="dashboard-item--2"><p>spaced repetition</p></div>
+            </div>
+            <div class="card-container">
+                <div class="card-item card-container--1">
+                    <div class="card-item--number">87</div>
+                    <p class="text">asdfasdf</p>
+                </div>
+                <div class="card-item card-container--2">
+                    <div class="card-item--number">87</div>
+                    <p class="text">asdfsadf</p>
+                </div>
+                <div class="card-item card-container--3">
+                    <div class="card-item--number">87</div>
+                    <p class="text">asdfasdf</p>
+                </div>
+            </div>
+            
+        </div>
     </main>
     <script src="../scripts/login.js"></script>
 </BaseLayout>
