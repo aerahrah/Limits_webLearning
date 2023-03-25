@@ -39,6 +39,22 @@ main{
         }
       
     }
+
+    &::-webkit-scrollbar {
+        width: 0.3em;
+        border-radius: 3rem;
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-thumb {
+        height: .2rem;
+        border-radius: 3rem;
+        background-color: $font-primary-color;
+    }
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.02);
+        border-radius: 10px;
+        background-color: #C8C5B5;
+    }
 }
   
   
