@@ -3,13 +3,13 @@
 @import "./components/wrapperDesign";
 
 main{
-    height: 80vh;
+    height: 90vh;
 }
 .lessons{
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    margin-top: 3rem;
+    margin: 6rem 0 3rem;
     padding: 0;
     width: min(90vw, 960px);
     font-family: 'poppins', sans-serif;

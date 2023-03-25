@@ -11,6 +11,9 @@
     padding: 0;
 }
 nav.navbar{
+    z-index: 999;
+    position: fixed;
+    width: 100vw;
     background-color: #247974 !important;
     height: min(50vh, 60px);
     padding: 0 !important;
@@ -18,7 +21,7 @@ nav.navbar{
 .nav-header{
     padding-left: 5rem;
     background-color: #247974 !important;
-    z-index: 999;
+
     .nav-link {
         @include font-scale(4vw, 1.35rem);
         font-family: 'Poppins', sans-serif;
