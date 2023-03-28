@@ -1,6 +1,4 @@
-@mixin font-scale($min-vw, $min-px) {
-    font-size: min($min-px, $min-vw);
-  }
+
 
 *{
     box-sizing: border-box;
@@ -22,7 +20,7 @@ main{
 }
 
 section.menu{
-    @include font-scale(6vw, 1.75rem);
+   
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,11 +1,5 @@
-@import "./components/colors";
-@import "./components/button";
-@import "./components/wrapperDesign";
+@import "./components/imports";
 
-header .title{
-    color: $font-primary-color;
-    font-size: min(26vw, 12rem);
-}
 
 section.menu{
     gap: 20px;

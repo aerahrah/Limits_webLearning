@@ -1,9 +1,5 @@
-@import "./components/colors";
-@import "./components/button";
+@import "./components/imports";
 
-@mixin font-scale($min-vw, $min-px) {
-    font-size: min($min-px, $min-vw);
-  }
 
 *{
     box-sizing: border-box;
@@ -13,15 +9,19 @@
 
 header .title{
     @include font-scale(30vw, 10rem);
+    margin-bottom: -1.5rem;
     color: $font-primary-color;
+}
+
+main{
+    gap: 0;
+    display: block;
+    height: auto;
 }
 
 nav{
     background-color: $primary-color;
     height: min(30vh, 40px);
-}
-header .title{
-    margin-bottom: -1.1rem;
 }
 div.header-container{
     display: flex;

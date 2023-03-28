@@ -1,6 +1,4 @@
-@import "./components/colors";
-@import "./components/button";
-
+@import "./components/imports";
 
 main{
     display: flex;
@@ -8,6 +6,7 @@ main{
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    height: auto;
 }
 .profile-container{
     margin: 6rem 0 3rem;

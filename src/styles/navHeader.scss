@@ -1,4 +1,5 @@
-@import "./components/colors";
+@import "./components/imports";
+
 
 @mixin font-scale($min-vw, $min-px) {
     font-size: min($min-px, $min-vw);
