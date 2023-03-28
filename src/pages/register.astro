@@ -1,16 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
 import '../styles/register.scss';
 ---
 
 <BaseLayout>
     <nav class="fluid-container"></nav>
     <main class="fluid-container">
-        <Header>
-           Register
-        </Header>
-        <section class="menu">
+        <header >
+            <h1 class="secondary-title">
+                register
+            </h1>
+        </header>
+        <section class="secondary-text menu">
             <input type="text" id="username" name="username" placeholder="Username" />
             <input type="text" id="email" name="email" placeholder="E-mail" />
             <input type="password" id="password" name="password" placeholder="Password" />

@@ -1,16 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
 import '../styles/login.scss';
 ---
 
 <BaseLayout>
     <nav class="fluid-container"></nav>
     <main class="fluid-container">
-        <Header>
-           Login
-        </Header>
-        <section class="menu">
+        <header >
+            <h1 class="secondary-title">
+                Login
+            </h1>
+        </header>
+        <section class="secondary-text menu">
             <input type="text" id="email" name="email" placeholder="E-mail" />
             <input type="password" id="password" name="password" placeholder="Password" />
             <input type="submit" id='login' class="btn btn--green" name="login" value="Login" />
