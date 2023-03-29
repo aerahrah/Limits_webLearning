@@ -24,6 +24,7 @@
 }
 
 .secondary-title{
+    margin-top: 3rem;
     @include font-scale(22vw, 10rem);
 }
 
@@ -39,3 +40,44 @@
     @include font-scale(2vw, 1.25rem);
     font-family: 'poppins', sans-serif;
 }
+
+
+.alert{
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    color: $primary-black;
+    a{
+        transition: all 100ms;
+        display: inline-block;
+        text-decoration: none !important;
+        &.black{
+            color: $primary-black;
+            &:hover{
+                color: $font-black-color;
+                transform: translateY(-1px);
+            }
+        }
+        &.green{
+            color: $primary-color-light-green;
+            &:hover{
+                color: $primary-color-light-green-shade;
+                transform: translateY(-1px);
+            }
+        }
+    }  
+}
+
+.notify{
+    transition: all 100ms;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    color: $primary-black;
+    transform: scale(0);
+    &-failed{
+        color: $red-light-color ;
+    }
+    &-success{
+        color: $primary-color-light-green;
+    }
+}
+

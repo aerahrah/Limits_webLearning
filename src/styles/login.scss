@@ -6,7 +6,6 @@
 
 
 input{
-
     transition: all ease 80ms;
     &[type="text"],&[type="password"]{    
         display: block;
@@ -24,6 +23,5 @@ input{
     }
     &[type="submit"]{
         margin: 0 auto;
-        margin-top: 3rem;
     }
 }
