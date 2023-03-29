@@ -44,7 +44,7 @@ main{
     &-title{
         text-transform: uppercase;
         font-size: min(4vw,1.5rem);
-        width: 80%;
+        width: 85%;
         padding:1.25rem 3rem;
         margin: 0 auto;
         margin-bottom: -1.5rem;
@@ -91,26 +91,27 @@ main{
     row-gap: min(3vw, 2rem);
     grid-area: 2 / 1 / 3 / 4;
     &--1{
-    background-color:$primary-color-shade;  
+    background-color:$red-light-color;   
+    
     }
     &--2{
-      
-    background-color:$primary-card-color;  
+    background-color:$yellow-light-color;  
+    
     }
     &--3{
-     
-    background-color:$teal-light-color;   
+    background-color:$cyan-light-color;  
+      
     }
     &--4{
-     
-        background-color:$lime-light-color;   
+        background-color:$teal-light-color; 
+         
     }
     &--5{
-     
-        background-color:$yellow-light-color;   
+        background-color:$violet-light-color; 
+        
     }
     &--6{
-        background-color:$orange-light-color;    
+        background-color:$primary-color-light-green;   
     }
 
 
@@ -126,7 +127,9 @@ main{
     transition: all 150ms;
     padding: 1vw 5vw;
     &--number{
-        font-size: min(13vw,4.5rem);
+        font-weight: 700;
+        font-size: min(16vw,5rem);
+        margin-bottom: -15px;
     }
     &:hover{
         transform: translateY(-1px) scale(1.01);

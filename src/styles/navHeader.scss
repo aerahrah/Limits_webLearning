@@ -1,11 +1,6 @@
 @import "./components/imports";
 
 
-@mixin font-scale($min-vw, $min-px) {
-    font-size: min($min-px, $min-vw);
-  }
-
-
 *{
     box-sizing: border-box;
     margin: 0;
@@ -16,7 +11,7 @@ nav.navbar{
     position: fixed;
     width: 100vw;
     background-color: #247974 !important;
-    height: min(50vh, 60px);
+    height: min(50vh, 70px);
     padding: 0 !important;
 }
 .nav-header{
