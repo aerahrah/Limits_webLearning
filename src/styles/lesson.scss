@@ -42,6 +42,7 @@ main{
         }
 
         &-1{
+            font-weight: 700;
             width: min(680px, 60vw);
             @include font-scale(3vw, 1.5rem);
             color: $font-primary-color; 
