@@ -22,30 +22,48 @@
   const auth = getAuth();
 
   saveData.addEventListener('click',(e) => {
+      let notifyClass = document.querySelector('.notify');
+      let email = document.getElementById('email').value;
+      let password = document.getElementById('password').value;
+      let username = document.getElementById('username').value;
 
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-      var username = document.getElementById('username').value;
 
+ 
+      removeActiveClasses();
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
       // Signed in 
           const user = userCredential.user;
 
-          set(ref(database, 'users/' + user.uid),{
-              username: username,
-              email: email
-          })
+        set(ref(database, 'users/' + user.uid),{
+            username: username,
+            email: email
+        })
 
-          alert('user created!');
-          // ...
+        notifyClass.style.transform ="scale(1)"
+        notifyClass.classList.add('notify-success') 
+        notifyClass.textContent='Successfully created user!';
+
+        setTimeout(() => {
+            notifyClass.style.transform ="scale(0)"
+        }, 3000)
       })
       .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
 
-          alert(errorMessage);
-      // ..
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const cleanedErrorMessage = errorMessage.replace("Firebase: ", "");
+        notifyClass.style.transform ="scale(1)"
+        notifyClass.textContent=cleanedErrorMessage;
+        notifyClass.classList.add('notify-failed')
+        setTimeout(() => {
+            notifyClass.style.transform ="scale(0)"
+          }, 3000)
       });
+      function removeActiveClasses(){
+        notifyClass.classList.remove('notify-success');
+        notifyClass.classList.remove('notify-failed');
+        }
 
   });
+
