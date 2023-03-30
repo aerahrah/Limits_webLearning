@@ -225,13 +225,15 @@ const quizData = [
 
 const quiz= document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
-const quizContainer = document.getElementById("quiz-container");
+const quizContainer = document.querySelector(".quiz-container");
 const questionEl = document.querySelector('.quiz-container-header')
 const quizImage = document.getElementById("quiz-image");
 const a_text = document.getElementById('a_text')
 const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
+const promptId = document.querySelector(".prompt-card")
+const realQ = document.getElementById('real-quiz')
 const submitBtn = document.getElementById('submit')
 
 
@@ -240,7 +242,10 @@ let score = 0
 
 let currentQuestionIndex = -1;
 
-
+realQ.addEventListener('click', ()=>{
+    promptId.classList.remove('active');
+    quizContainer.classList.add('active');
+})
 answerEls.forEach((answerEl) => {
     answerEl.addEventListener('change', () => {
       if(answerEl.checked) submitBtn.disabled = false;
