@@ -3,7 +3,9 @@
     &,
     &:link,
     &:visited{
+        display: block;
         width: min(30vw, 180px);
+        margin: 0 auto;
         transition: all 200ms;
         cursor: pointer;
         font-size: min(6vw, 1.75rem);
