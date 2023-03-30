@@ -9,37 +9,36 @@ import '../assets/q1.png';
     <LimitsHeader />
     <main class="fluid-container">
         <div class="quiz-container" id="quiz">
-            <div class="quiz-header">
-              <h2 id="question">Question Text</h2>    
-                <div 
-                class="image_class">
-                <img src="/images/img_quiz/q1.png" id="quiz-image">
-                </div>
+            <div class="quiz-container-body">
+            <h2  class="primary-text quiz-container-header">Question Text</h2>    
+            <div class="image-container">
+                <img src="" id="quiz-image">
+            </div>
               <ul class="question-container">
                 <li>
                   <input type="radio" name="answer" id="a" class="answer">
-                  <label for="a" class="answer-label" id="a_text">Answer</label>
+                  <label for="a" class="secondary-text answer-label" id="a_text">Answer</label>
                 </li>
         
                 <li>
                   <input type="radio" name="answer" id="b" class="answer">
-                  <label for="b" class="answer-label" id="b_text">Answer</label>
+                  <label for="b" class="secondary-text answer-label" id="b_text">Answer</label>
                 </li>
         
                 <li>
                   <input type="radio" name="answer" id="c" class="answer">
-                  <label for="c" class="answer-label" id="c_text">Answer</label>
+                  <label for="c" class="secondary-text answer-label" id="c_text">Answer</label>
                 </li>
         
                 <li>
                   <input type="radio" name="answer" id="d" class="answer">
-                  <label for="d" class="answer-label" id="d_text">Answer</label>
+                  <label for="d" class="secondary-text answer-label" id="d_text">Answer</label>
                 </li>
         
               </ul>
+              <button disabled class="btn btn--green" id="submit">Next</button>
              </div>
-            <button id="submit">Submit</button>
            </div>
     </main>
-    <!-- <script src="../scripts/quizLoader.js"></script> -->
+    <script src="../scripts/quizLoader.js"></script>
 </BaseLayout>
