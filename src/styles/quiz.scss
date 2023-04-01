@@ -2,12 +2,37 @@
 
 
 body{
-    overflow-y: hidden;
     position: relative;
+
 }
 main{
-    height: 90vh;
+    min-height:90vh;
+    margin: 2rem;
+}
+.score-card, .prompt-card, .quiz-container{
+    &.active{
+        transform: translate(-50%,-50%) scale(1);
+    }
 
+} 
+.score-card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.3);
+    transition: all 300ms !important;
+    border: 8px solid $primary-color;
+    background-color: #fff;
+    border-radius: 10px;
+
+    .btn{
+        width: min(240px, 50vw);
+    }
+    .scoreText{
+        color:$font-primary-color;
+        font-size: min(8vw, 3rem );
+    }
 }
 .prompt-card{
     position: absolute;
@@ -28,12 +53,9 @@ main{
     .btn{
         width: min(240px, 50vw);
     }
-    &.active{
-        transform: translate(-50%,-50%) scale(1);
-    }
-
 }
  .quiz-container{
+    margin: 2rem 0;
     transition: all 300ms;
     position: absolute;
     top: 50%;
@@ -43,12 +65,10 @@ main{
     border-radius: 10px;
     box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
     width: min(85vw, 600px);
+    
     overflow: hidden;
-    &.active{
-        transform: translate(-50%,-50%) scale(1);
-    }
     &-body{
-        padding: min(5vw,2.5rem);
+        padding: min(5vw,2rem);
         .btn{
             width: min(280px, 50vw);
         }
@@ -68,7 +88,7 @@ main{
     }
     
   }
-  
+
   .question-container{
     font-family: 'Bebas Neue', cursive;
     display: grid;
@@ -101,5 +121,9 @@ main{
         background-color: #c9c5b6;
         transform: scale(1.03);
       }
+  }
+
+  div.footer{
+    display: none;
   }
   
