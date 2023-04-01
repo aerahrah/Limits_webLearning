@@ -1,0 +1,202 @@
+[
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q1.png",
+        "answer": [
+            {"a": "1", "correct": false},
+            {"b": "2", "correct": false},
+            {"c": "3", "correct": true},
+            {"d": "4", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q2.png",
+        "answer": [
+            {"a": "-∞", "correct": true},
+            {"b": "+∞", "correct": false},
+            {"c": "0", "correct": false},
+            {"d": "dne", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q3.png",
+        "answer": [
+            {"a": "1/5", "correct": false},
+            {"b": "2/5", "correct": true},
+            {"c": "3/5", "correct": false},
+            {"d": "4/5", "correct": false}
+        ]
+    },
+    {
+        "question": "Find: ",
+        "img": "/images/img_quiz/q4.png",
+        "answer": [
+            {"a": "2", "correct": false},
+            {"b": "3", "correct": false},
+            {"c": "4", "correct": false},
+            {"d": "5", "correct": true}
+        ]
+    },
+    {
+        "question": "Find: ",
+        "img": "/images/img_quiz/q5.png",
+        "answer": [
+            {"a": "2", "correct": false},
+            {"b": "3", "correct": true},
+            {"c": "4", "correct": false},
+            {"d": "5", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q6.png",
+        "answer": [
+            {"a": "0", "correct": true},
+            {"b": "1", "correct": false},
+            {"c": "2", "correct": false},
+            {"d": "3", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q7.png",
+        "answer": [
+            {"a": "5/4", "correct": false},
+            {"b": "1/4", "correct": true},
+            {"c": "3/4", "correct": false},
+            {"d": "7/4", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q8.png",
+        "answer": [
+            {"a": "-√7/4", "correct": false},
+            {"b": "-√5/8", "correct": false},
+            {"c": "-√11/6", "correct": false},
+            {"d": "-√3/2", "correct": true}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q9.png",
+        "answer": [
+            {"a": "1/3", "correct": false},
+            {"b": "2/3", "correct": true},
+            {"c": "9/10", "correct": false},
+            {"d": "9/5", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q10.png",
+        "answer": [
+            {"a": "1", "correct": true},
+            {"b": "2", "correct": false},
+            {"c": "3", "correct": false},
+            {"d": "4", "correct": false}
+        ]
+    },
+    {
+        "question": "Find: ",
+        "img": "/images/img_quiz/q11.png",
+        "answer": [
+            {"a": "0", "correct": false},
+            {"b": "1", "correct": false},
+            {"c": "2", "correct": false},
+            {"d": "dne", "correct": true}
+        ]
+    },
+    {
+        "question": "Find: ",
+        "img": "/images/img_quiz/q12.png",
+        "answer": [
+            {"a": "dne", "correct": false},
+            {"b": "0", "correct": true},
+            {"c": "1", "correct": false},
+            {"d": "2", "correct": false}
+        ]
+    },
+    {
+        "question": "Find: ",
+        "img": "/images/img_quiz/q13.png",
+        "answer": [
+            {"a": "-1", "correct": false},
+            {"b": "0", "correct": false},
+            {"c": "1", "correct": true},
+            {"d": "2", "correct": false}
+        ]
+    },
+    {
+        "question": "Find: ",
+        "img": "/images/img_quiz/q14.png",
+        "answer": [
+            {"a": "-5", "correct": false},
+            {"b": "-4", "correct": false},
+            {"c": "-3", "correct": false},
+            {"d": "-2", "correct": true}
+        ]
+    },
+    {
+        "question": "Find: ",
+        "img": "/images/img_quiz/q15.png",
+        "answer": [
+            {"a": "3", "correct": true},
+            {"b": "2", "correct": false},
+            {"c": "1", "correct": false},
+            {"d": "0", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q16.png",
+        "answer": [
+            {"a": "-5/6", "correct": true},
+            {"b": "-1/4", "correct": false},
+            {"c": "-5/8", "correct": false},
+            {"d": "-7/9", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q17.png",
+        "answer": [
+            {"a": "-∞", "correct": false},
+            {"b": "+∞", "correct": false},
+            {"c": "1", "correct": false},
+            {"d": "dne", "correct": true}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q18.png",
+        "answer": [
+            {"a": "-1/8", "correct": true},
+            {"b": "-3/8", "correct": false},
+            {"c": "-5/8", "correct": false},
+            {"d": "-7/8", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q19.png",
+        "answer": [
+            {"a": "3/7", "correct": false},
+            {"b": "-3/7", "correct": false},
+            {"c": "7/3", "correct": true},
+            {"d": "-7/3", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_quiz/q20.png",
+        "answer": [
+            {"a": "1", "correct": false},
+            {"b": "2", "correct": false},
+            {"c": "3", "correct": false},
+            {"d": "dne", "correct": true}
+        ]
+    }    
+]
