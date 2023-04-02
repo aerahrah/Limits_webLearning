@@ -8,26 +8,31 @@ import '../assets/q1.png';
 <BaseLayout>
     <LimitsHeader />
     <main class="fluid-container">
-        <div class="prompt-card active">
+        <div id="reminder-card" class="card-container">
+          <h1 class="primary-text">Warning:</h1>
+          <p class="secondary-text">Once you take the quiz you will not be able to go back to the page until you finish taking the quiz</p>
+          <h1 id="take-quiz" class="btn btn--green secondary-text">take quiz</h1>
+        </div>
+        <div id="prompt-card" class="card-container active">
             <div class="prompt-card--container">
-                <h1 id="practice-quiz" class="btn btn--green primary-text">practice quiz</h1>
-                <h1 id="real-quiz" class="btn btn--green primary-text">quiz</h1>
+                <h1 id="practice-quiz" class="btn btn--green secondary-text">practice quiz</h1>
+                <h1 id="real-quiz" class="btn btn--green secondary-text">quiz</h1>
             </div>
         </div>
-        <div class="score-card">
+        <div id="score-card" class="card-container">
           <div class="prompt-card--container">
-              <h1 class="scoreText primary-text text-center">
+              <h1 class="score-text primary-text text-center">
               </h1>
-              <a class="btn btn--green primary-text">View result</a>
+              <a class="btn btn--green secondary-text">View result</a>
           </div>
       </div>
-        <div class="quiz-container" id="quiz">
+        <div id="quiz-container" class="card-container" id="quiz">
             <div class="quiz-container-body">
             <h2  class="primary-text quiz-container-header">Question Text</h2>    
             <div class="image-container">
                 <img src="" id="quiz-image">
             </div>
-              <ul class="question-container">
+              <ul class="question-container text-center">
                 <li>
                   <input type="radio" name="answer" id="a" class="answer">
                   <label for="a" class="secondary-text answer-label" id="a_text">Answer</label>
