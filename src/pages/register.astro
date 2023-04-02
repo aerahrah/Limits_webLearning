@@ -1,25 +1,35 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import '../styles/register.scss';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/register.scss";
 ---
 
 <BaseLayout>
-    <nav class="nav-color fluid-container"></nav>
-    <main class="fluid-container">
-        <header >
-            <h1 class="secondary-title">
-                register
-            </h1>
-        </header>
-        <section class="secondary-text menu">
-            <input type="text" id="username" name="username" placeholder="Username" />
-            <input type="text" id="email" name="email" placeholder="E-mail" />
-            <input type="password" id="password" name="password" placeholder="Password" />
-            <p class="notify tertiary-text"></p>
-            <input type="submit" id='saveData' class="btn btn--beige" name="signUp_submit" value="Sign Up" />
-            <p class="alert tertiary-text">Click here to <a class="green" href="login">login</a></p>
-        </section>
-    </main>
-    <script src="../scripts/register.js"></script>
+  <nav class="nav-color fluid-container"></nav>
+  <main class="fluid-container">
+    <header>
+      <h1 class="secondary-title">register</h1>
+    </header>
+    <section class="secondary-text menu">
+      <input type="text" id="username" name="username" placeholder="Username" />
+      <input type="text" id="email" name="email" placeholder="E-mail" />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+      />
+      <p class="notify tertiary-text"></p>
+      <input
+        type="submit"
+        id="saveData"
+        class="btn btn--beige"
+        name="signUp_submit"
+        value="Sign Up"
+      />
+      <p class="alert tertiary-text">
+        Click here to <a class="green" href="login">login</a>
+      </p>
+    </section>
+  </main>
+  <script src="../scripts/register.js"></script>
 </BaseLayout>
-

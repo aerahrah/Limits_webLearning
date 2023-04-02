@@ -1,62 +1,59 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import LimitsHeader from '../components/LimitsHeader.astro'
-import '../styles/profile.scss';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LimitsHeader from "../components/LimitsHeader.astro";
+import "../styles/profile.scss";
 ---
 
 <BaseLayout>
-    <LimitsHeader />
-    <main class="fluid-container">
-        <div class="profile-container">
-            <div class="img">
-                <img src="" alt="">
-                <p id="username">loading...</p>
+  <LimitsHeader />
+  <main class="fluid-container">
+    <div class="profile-container">
+      <div class="img">
+        <img src="" alt="" />
+        <p id="username">loading...</p>
+      </div>
+      <div class="dashboard-items">
+        <div class="dashboard-items-title">daily studying goals</div>
+        <div class="dashboard-items-box">
+          <div class="dashboard-items--container">
+            <div class="item-container">
+              <p class="item-container--1">topics learned</p>
+              <div class="item-container--white">adsf</div>
             </div>
-            <div class="dashboard-items">
-                <div class="dashboard-items-title">
-                    daily studying goals
-                </div>
-                <div class="dashboard-items-box">
-                    <div class="dashboard-items--container">
-                        <div class="item-container">
-                            <p class="item-container--1">topics learned</p>
-                            <div class="item-container--white">adsf</div>
-                        </div>
-                        <div class="item-container">
-                            <p class="item-container--2">spaced repetition</p>
-                            <div class="item-container--white">adsf</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="item-container">
+              <p class="item-container--2">spaced repetition</p>
+              <div class="item-container--white">adsf</div>
             </div>
-            <div class="card-container-profile">
-                <div class="card-item card-container-profile--1">
-                    <div class="card-item--number">87</div>
-                    <p class="text">asdfasdf</p>
-                </div>
-                <div class="card-item card-container-profile--2">
-                    <div class="card-item--number">87</div>
-                    <p class="text">asdfsadf</p>
-                </div>
-                <div class="card-item card-container-profile--3">
-                    <div class="card-item--number">87</div>
-                    <p class="text">asdfasdf</p>
-                </div>
-                <div class="card-item card-container-profile--4">
-                    <div class="card-item--number">87</div>
-                    <p class="text">asdfasdf</p>
-                </div>
-                <div class="card-item card-container-profile--5">
-                    <div class="card-item--number">87</div>
-                    <p class="text">asdfasdf</p>
-                </div>
-                <div class="card-item card-container-profile--6">
-                    <div class="card-item--number">87</div>
-                    <p class="text">asdfasdf</p>
-                </div>
-            </div>
-            
+          </div>
         </div>
-    </main>
-    <script src="../scripts/dashboard.js"></script>
+      </div>
+      <div class="card-container-profile">
+        <div class="card-item card-container-profile--1">
+          <div class="card-item--number">87</div>
+          <p class="text">asdfasdf</p>
+        </div>
+        <div class="card-item card-container-profile--2">
+          <div class="card-item--number">87</div>
+          <p class="text">asdfsadf</p>
+        </div>
+        <div class="card-item card-container-profile--3">
+          <div class="card-item--number">87</div>
+          <p class="text">asdfasdf</p>
+        </div>
+        <div class="card-item card-container-profile--4">
+          <div class="card-item--number">87</div>
+          <p class="text">asdfasdf</p>
+        </div>
+        <div class="card-item card-container-profile--5">
+          <div class="card-item--number">87</div>
+          <p class="text">asdfasdf</p>
+        </div>
+        <div class="card-item card-container-profile--6">
+          <div class="card-item--number">87</div>
+          <p class="text">asdfasdf</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="../scripts/dashboard.js"></script>
 </BaseLayout>

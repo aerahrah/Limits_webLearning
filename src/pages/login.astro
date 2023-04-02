@@ -1,23 +1,34 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import '../styles/login.scss';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/login.scss";
 ---
 
 <BaseLayout>
-    <nav class="nav-color fluid-container"></nav>
-    <main class="fluid-container">
-        <header >
-            <h1 class="secondary-title">
-                Login
-            </h1>
-        </header>
-        <section class="secondary-text menu">
-            <input type="text" id="email" name="email" placeholder="E-mail" />
-            <input type="password" id="password" name="password" placeholder="Password" />
-            <p class="notify tertiary-text"></p>
-            <input type="submit" id='login' class="btn btn--green" name="login" value="Login" />
-            <p class="alert tertiary-text"><a class="black" href="login">forgot password</a></p>
-        </section>
-    </main>
-    <script src="../scripts/login.js"></script>
+  <nav class="nav-color fluid-container"></nav>
+  <main class="fluid-container">
+    <header>
+      <h1 class="secondary-title">Login</h1>
+    </header>
+    <section class="secondary-text menu">
+      <input type="text" id="email" name="email" placeholder="E-mail" />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+      />
+      <p class="notify tertiary-text"></p>
+      <input
+        type="submit"
+        id="login"
+        class="btn btn--green"
+        name="login"
+        value="Login"
+      />
+      <p class="alert tertiary-text">
+        <a class="black" href="login">forgot password</a>
+      </p>
+    </section>
+  </main>
+  <script src="../scripts/login.js"></script>
 </BaseLayout>
