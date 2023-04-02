@@ -1,27 +1,24 @@
-
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-nav.nav-color{
-    background-color: $primary-color;
-    height: min(30vh, 40px);
+nav.nav-color {
+  background-color: $primary-color;
+  height: min(30vh, 40px);
 }
-main{
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
+main {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
-section.menu{
-   
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+section.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

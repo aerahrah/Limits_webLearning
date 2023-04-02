@@ -1,41 +1,39 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    display: block;
+    width: min(30vw, 180px);
+    margin: 0 auto;
+    transition: all 200ms;
+    cursor: pointer;
+    font-size: min(6vw, 1.75rem);
+    font-family: "Bebas Neue", cursive;
 
-.btn{
-    &,
-    &:link,
-    &:visited{
-        display: block;
-        width: min(30vw, 180px);
-        margin: 0 auto;
-        transition: all 200ms;
-        cursor: pointer;
-        font-size: min(6vw, 1.75rem);
-        font-family: 'Bebas Neue', cursive;
-        
-        text-transform: uppercase;
-        text-align: center;
-        text-decoration: none;
-    
-        padding: min(1.5vw, .35rem) min(5vw, 2.5rem);
-        border: 4px solid $border-color !important;
-        border-radius: 5px;
-    }
-    &:hover {
-        transform: translateY(-2.5px);
-        box-shadow: 0 1rem 2rem rgba($primary-black-2,.15);
-    }
-    
-    &:active {
-        outline: none;
-        transform: translateY(-1px);
-        box-shadow: 0 .5rem 1rem rgba($primary-black-2,.15);
-    }
-    &--green{
-        background-color: $primary-color !important;
-        color: $font-white-secondary-color !important;
-    }
-    &--beige{
-        background-color: $secondary-color !important;
-        color: $font-secondary-color !important;
-    }
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
 
+    padding: min(1.5vw, 0.35rem) min(5vw, 2.5rem);
+    border: 4px solid $border-color !important;
+    border-radius: 5px;
+  }
+  &:hover {
+    transform: translateY(-2.5px);
+    box-shadow: 0 1rem 2rem rgba($primary-black-2, 0.15);
+  }
+
+  &:active {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($primary-black-2, 0.15);
+  }
+  &--green {
+    background-color: $primary-color !important;
+    color: $font-white-secondary-color !important;
+  }
+  &--beige {
+    background-color: $secondary-color !important;
+    color: $font-secondary-color !important;
+  }
 }

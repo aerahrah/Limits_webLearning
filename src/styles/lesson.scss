@@ -1,92 +1,87 @@
-
 @import "./components/imports";
 
-main{
-    height: 90vh;
+main {
+  height: 90vh;
 }
-.lessons{
+.lessons {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  margin: 6rem 0 3rem;
+  padding: 0;
+  width: min(90vw, 960px);
+
+  font-weight: 600;
+  row-gap: 50px;
+  &--item {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    margin: 6rem 0 3rem;
-    padding: 0;
-    width: min(90vw, 960px);
-    
-    font-weight: 600;
-    row-gap: 50px;
-    &--item{
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        list-style: none;
-        margin: 0 1vw !important;
-        padding: .75rem 3vw !important;
-        border-radius: 3rem;
-        background-color: $primary-color-shade;
-        text-transform: uppercase;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0 1vw !important;
+    padding: 0.75rem 3vw !important;
+    border-radius: 3rem;
+    background-color: $primary-color-shade;
+    text-transform: uppercase;
 
-        &::after{
-            content: "";
-            z-index: -1;
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translateX(-50%);
-            height: min(60px, 10vw);
-            width: 100%;
-            border-bottom-left-radius: 1.5rem;
-            border-bottom-right-radius: 1.5rem;
-            background-color: $secondary-color-light;
-           
-        }
-
-        &-1{
-            font-weight: 700;
-            width: min(680px, 60vw);
-            @include font-scale(3vw, 1.5rem);
-            color: $font-primary-color; 
-            padding: min(1vw,.5rem) min(4vw, 1rem);
-        }
-        &-2{
-            
-            &,
-            &:link,
-            &:visited{
-                color: $font-white-color;
-            }
-            &:hover{
-                color: $font-white-secondary-color;
-                background-color: $primary-color-light-green-shade;
-            }
-            &:active{
-                outline: none;
-                transform: scale(.98);
-            }
-            @include font-scale(2.6vw, 1.15rem);
-            transition: all 120ms;   
-            padding: min(1vw,.5rem) min(4vw, 2rem);
-            border-radius: 3rem;
-            background-color: $primary-color-light-green;
-            text-decoration: none;
-
-        }    
+    &::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: min(60px, 10vw);
+      width: 100%;
+      border-bottom-left-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+      background-color: $secondary-color-light;
     }
 
-    &::-webkit-scrollbar {
-        width: 0.3em;
-        border-radius: 3rem;
-        background-color: #F5F5F5;
+    &-1 {
+      font-weight: 700;
+      width: min(680px, 60vw);
+      @include font-scale(3vw, 1.5rem);
+      color: $font-primary-color;
+      padding: min(1vw, 0.5rem) min(4vw, 1rem);
     }
-    &::-webkit-scrollbar-thumb {
-        height: .2rem;
-        border-radius: 3rem;
-        background-color: $font-primary-color;
+    &-2 {
+      &,
+      &:link,
+      &:visited {
+        color: $font-white-color;
+      }
+      &:hover {
+        color: $font-white-secondary-color;
+        background-color: $primary-color-light-green-shade;
+      }
+      &:active {
+        outline: none;
+        transform: scale(0.98);
+      }
+      @include font-scale(2.6vw, 1.15rem);
+      transition: all 120ms;
+      padding: min(1vw, 0.5rem) min(4vw, 2rem);
+      border-radius: 3rem;
+      background-color: $primary-color-light-green;
+      text-decoration: none;
     }
-    &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.02);
-        border-radius: 10px;
-        background-color: #C8C5B5;
-    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.3em;
+    border-radius: 3rem;
+    background-color: #f5f5f5;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 0.2rem;
+    border-radius: 3rem;
+    background-color: $font-primary-color;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    background-color: #c8c5b5;
+  }
 }
-  

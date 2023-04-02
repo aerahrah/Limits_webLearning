@@ -1,86 +1,86 @@
 @import "colors";
 
 @mixin font-scale($min-vw, $min-px) {
-    font-size: min($min-px, $min-vw);
-  }
-
-
-.title, .secondary-title, .primary-text{
-    font-family: 'Bebas Neue', cursive;
+  font-size: min($min-px, $min-vw);
 }
 
-.title, .secondary-title{
-    color: $font-primary-color;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    letter-spacing: 3px;
-    text-align: center;
-    letter-spacing: 5px;
+.title,
+.secondary-title,
+.primary-text {
+  font-family: "Bebas Neue", cursive;
 }
 
-.title{
-    font-size: min(26vw, 12.5rem); 
+.title,
+.secondary-title {
+  color: $font-primary-color;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  letter-spacing: 3px;
+  text-align: center;
+  letter-spacing: 5px;
 }
 
-.secondary-title{
-    margin-top: 3rem;
-    @include font-scale(22vw, 10rem);
+.title {
+  font-size: min(26vw, 12.5rem);
 }
 
-.primary-text{
-    @include font-scale(6vw, 1.75rem);
+.secondary-title {
+  margin-top: 3rem;
+  @include font-scale(22vw, 10rem);
 }
 
-.secondary-text{
-    @include font-scale(4vw, 1.5rem);
-    font-family: 'poppins', sans-serif;
-}
-.tertiary-text{
-    @include font-scale(2vw, 1.25rem);
-    font-family: 'poppins', sans-serif;
+.primary-text {
+  @include font-scale(6vw, 1.75rem);
 }
 
-
-.alert{
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    color: $primary-black;
-    a{
-        transition: all 100ms;
-        display: inline-block;
-        text-decoration: none !important;
-        &.black{
-            color: $primary-black;
-            &:hover{
-                color: $font-black-color;
-                transform: translateY(-1px);
-            }
-        }
-        &.green{
-            color: $primary-color-light-green;
-            &:hover{
-                color: $primary-color-light-green-shade;
-                transform: translateY(-1px);
-            }
-        }
-    }  
+.secondary-text {
+  @include font-scale(4vw, 1.5rem);
+  font-family: "poppins", sans-serif;
+}
+.tertiary-text {
+  @include font-scale(2vw, 1.25rem);
+  font-family: "poppins", sans-serif;
 }
 
-.notify{
+.alert {
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+  color: $primary-black;
+  a {
     transition: all 100ms;
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    color: $primary-black;
-    transform: scale(0);
-    &-failed{
-        color: $red-light-color ;
+    display: inline-block;
+    text-decoration: none !important;
+    &.black {
+      color: $primary-black;
+      &:hover {
+        color: $font-black-color;
+        transform: translateY(-1px);
+      }
     }
-    &-success{
-        color: $primary-color-light-green;
+    &.green {
+      color: $primary-color-light-green;
+      &:hover {
+        color: $primary-color-light-green-shade;
+        transform: translateY(-1px);
+      }
     }
-}
-.text-center{
-    text-align: center;
+  }
 }
 
+.notify {
+  transition: all 100ms;
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+  color: $primary-black;
+  transform: scale(0);
+  &-failed {
+    color: $red-light-color;
+  }
+  &-success {
+    color: $primary-color-light-green;
+  }
+}
+.text-center {
+  text-align: center;
+}

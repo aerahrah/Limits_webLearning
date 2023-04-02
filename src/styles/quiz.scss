@@ -1,85 +1,80 @@
 @import "./components/imports";
 
-
-body{
-    position: relative;
-
+body {
+  position: relative;
 }
-main{
-    min-height:90vh;
+main {
+  min-height: 90vh;
 }
 
-.prompt-card--container{
-    display: flex;
-    flex-direction: column;
-    padding: min(5vw,2rem);
-    gap: 30px;
-    .btn{
-        width: min(55vw, 300px); 
-    }
+.prompt-card--container {
+  display: flex;
+  flex-direction: column;
+  padding: min(5vw, 2rem);
+  gap: 30px;
+  .btn {
+    width: min(55vw, 300px);
+  }
 }
-#reminder-card{
-    width: min(85vw, 600px);
-    .btn{
-        margin-top: 2.5rem;
-    }
+#reminder-card {
+  width: min(85vw, 600px);
+  .btn {
+    margin-top: 2.5rem;
+  }
 }
 
-#quiz-container{
-    display: block;
-    margin: 2rem 0;
-    width: min(85vw, 600px); 
-    .btn{
-        width: min(280px, 50vw);
-    }
-    .image-container{
-        img{
-            display: block;
-            width: min(200px, 40vw);
-            height: auto;
-            margin: 40px auto;
-            transform: scale(1.2);
-
-        }
+#quiz-container {
+  display: block;
+  margin: 2rem 0;
+  width: min(85vw, 600px);
+  .btn {
+    width: min(280px, 50vw);
+  }
+  .image-container {
+    img {
+      display: block;
+      width: min(200px, 40vw);
+      height: auto;
+      margin: 40px auto;
+      transform: scale(1.2);
     }
   }
+}
 
-  .question-container{
-  
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-items: center;
-    gap: 30px 0;
-    margin-bottom: 30px;
-    padding: 0;
-    li{
-        list-style: none;
-    }
+.question-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 30px 0;
+  margin-bottom: 30px;
+  padding: 0;
+  li {
+    list-style: none;
   }
+}
 
-  .answer {
-    display: none;
-    &-label {
-        transition: all 200ms;
-        font-weight: 700;
-        width: min(30vw, 220px);
-        background-color: #DFDBCA;
-        border-radius: 20px;
-        padding: 20px 10px;
-        cursor: pointer;
-      }
-      &:checked + &-label{
-        background-color: #c9c5b6;
-        transform: scale(1.03);
-      }
+.answer {
+  display: none;
+  &-label {
+    transition: all 200ms;
+    font-weight: 700;
+    width: min(30vw, 220px);
+    background-color: #dfdbca;
+    border-radius: 20px;
+    padding: 20px 10px;
+    cursor: pointer;
   }
-
-  div.footer{
-    display: none;
+  &:checked + &-label {
+    background-color: #c9c5b6;
+    transform: scale(1.03);
   }
+}
 
-  
+div.footer {
+  display: none;
+}
+
 //   @media screen and (max-width: 992px) {
 //     main{
 //         margin: 0;

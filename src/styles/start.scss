@@ -1,60 +1,58 @@
 @import "./components/imports";
 
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-header .title{
-    @include font-scale(30vw, 10rem);
-    margin-bottom: -1.5rem;
-    color: $font-primary-color;
+header .title {
+  @include font-scale(30vw, 10rem);
+  margin-bottom: -1.5rem;
+  color: $font-primary-color;
 }
 
-main{
-    gap: 0;
-    display: block;
-    height: auto;
+main {
+  gap: 0;
+  display: block;
+  height: auto;
 }
 
-nav{
+nav {
+  background-color: $primary-color;
+  height: min(30vh, 40px);
+}
+div.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  .header-title {
+    margin-bottom: -1rem;
+    @include font-scale(10vw, 2.5rem);
+    letter-spacing: min(0.5vw, 13px);
+    color: $primary-color;
+  }
+  .header-text {
+    @include font-scale(2.5vw, 0.9rem);
+  }
+}
+section.menu {
+  @include font-scale(3vw, 1.35rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(1084px, 80vw);
+  margin: 0 auto;
+}
+a.btn {
+  margin: min(0.5rem, 4vw) auto;
+}
+p {
+  font-family: "Poppins", sans-serif;
+  &.description-title {
     background-color: $primary-color;
-    height: min(30vh, 40px);
+    color: #f1f1f1;
+  }
 }
-div.header-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 3rem;
-    .header-title{
-        margin-bottom: -1rem;
-        @include font-scale(10vw, 2.5rem);
-        letter-spacing: min(.5vw, 13px);
-        color: $primary-color;
-    }
-    .header-text{
-        @include font-scale(2.5vw, .9rem); 
-    }
-}
-section.menu{
-    @include font-scale(3vw, 1.35rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: min(1084px, 80vw);
-    margin: 0 auto;
-}
-a.btn{
-    margin: min(.5rem, 4vw) auto;
-}
-p{
-    font-family: 'Poppins', sans-serif;
-    &.description-title{
-        background-color: $primary-color;
-        color: #f1f1f1;
-    }
-}
-
