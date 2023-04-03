@@ -47,6 +47,8 @@ saveData.addEventListener("click", (e) => {
       set(ref(database, "users/" + user.uid), {
         username: username,
         email: email,
+        postScore: "N/A",
+        preScore: "N/A",
       });
 
       notifyClass.style.transform = "scale(1)";

@@ -126,6 +126,10 @@ main {
     transform: translateY(-1px) scale(1.01);
     box-shadow: 0 1rem 2rem rgba($primary-black-2, 0.15);
   }
+  p {
+    text-align: center;
+    width: min(35vw, 150px);
+  }
 }
 
 @media screen and (max-width: 692px) {

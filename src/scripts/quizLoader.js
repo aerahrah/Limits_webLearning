@@ -1,3 +1,8 @@
+import { auth, db, realtimeDb } from "./firebaseDB";
+import { getDatabase, ref, child, update } from "firebase/database";
+
+const uid = localStorage.getItem("uid");
+const userRef = ref(realtimeDb, "users/" + uid);
 fetch("/quizData.json")
   .then((response) => response.json())
   .then((data) => {
@@ -19,7 +24,7 @@ fetch("/quizData.json")
     const b_text = document.getElementById("b_text");
     const c_text = document.getElementById("c_text");
     const d_text = document.getElementById("d_text");
-
+    const navbarBtn = document.querySelector(".navbar-nav");
     // Quiz data
     let quizDataSave;
     let quizDataThreeSave;
@@ -28,6 +33,7 @@ fetch("/quizData.json")
     let score = 0;
     console.log(quizDataThreeSave);
     // Event listeners
+
     takeQuizBtn.addEventListener("click", startQuiz("randomizeWhole"));
     practiceQuizBtn.addEventListener("click", startQuiz("randomizeThree"));
     realQuizBtn.addEventListener("click", () => {
@@ -43,8 +49,11 @@ fetch("/quizData.json")
 
     // Functions
     function startQuiz(option) {
-      console.log(quizDataSave);
       return () => {
+        navbarBtn.style.pointerEvents = "none";
+        navbarBtn.style.textDecoration = "none";
+        navbarBtn.style.cursor = "default";
+        navbarBtn.style.opacity = "0.5";
         reminderCard.classList.remove("active");
         promptCard.classList.remove("active");
         quizCard.classList.add("active");
@@ -112,7 +121,16 @@ fetch("/quizData.json")
         scoreCard.classList.add("active");
 
         const scoreMessage = `You answered ${score}/${quizDataLength} questions correctly`;
-
+        const scoreAdd = {
+          postScore: score,
+        };
+        update(userRef, scoreAdd)
+          .then(() => {
+            console.log("New child node added successfully!");
+          })
+          .catch((error) => {
+            console.error("Error adding new child node: ", error);
+          });
         if (option === "randomizeThree") {
           scoreText.innerHTML = `${scoreMessage}
             <button class="btn btn--green secondary-text" onclick="location.reload()">Reload</button>
