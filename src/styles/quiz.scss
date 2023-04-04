@@ -1,5 +1,8 @@
 @import "./components/imports";
 
+* {
+  outline: 0;
+}
 body {
   position: relative;
 }
@@ -7,6 +10,30 @@ main {
   min-height: 90vh;
 }
 
+#prescore-card {
+  width: min(500px, 80vw);
+  input {
+    transition: all ease 80ms;
+    &[type="number"] {
+      display: block;
+      box-sizing: border-box;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 4px;
+      width: min(350px, 80vw);
+      height: 40px;
+      border: none;
+      border-bottom: 1px solid #aaa;
+      font-family: "Roboto", sans-serif;
+      &:focus {
+        border-bottom: 6px solid $primary-color;
+      }
+    }
+    &[type="submit"] {
+      margin: 0 auto;
+    }
+  }
+}
 .prompt-card--container {
   display: flex;
   flex-direction: column;

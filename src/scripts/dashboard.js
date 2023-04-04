@@ -3,7 +3,8 @@ import { getDatabase, ref, child, get } from "firebase/database";
 
 // Initialize Firebase
 const usernameID = document.getElementById("username");
-const postscoreID = document.getElementById("post-score");
+const postScoreID = document.getElementById("post-score");
+const preScoreID = document.getElementById("pre-score");
 // Do something with the UID, such as storing it in a database
 const uid = localStorage.getItem("uid");
 console.log(uid);
@@ -30,7 +31,16 @@ get(child(userRef, "postScore"))
   .then((snapshot) => {
     const score = snapshot.val();
     console.log("postscore:", score);
-    postscoreID.innerHTML = score;
+    postScoreID.innerHTML = score;
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+get(child(userRef, "preScore"))
+  .then((snapshot) => {
+    const score = snapshot.val();
+    console.log("prescore:", score);
+    preScoreID.innerHTML = score;
   })
   .catch((error) => {
     console.error(error);

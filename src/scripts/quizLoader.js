@@ -25,6 +25,9 @@ fetch("/quizData.json")
     const c_text = document.getElementById("c_text");
     const d_text = document.getElementById("d_text");
     const navbarBtn = document.querySelector(".navbar-nav");
+    const submitPreScore = document.getElementById("submit-prescore");
+    const errorMessage = document.getElementById("error-message");
+    let input = document.getElementById("number-input");
     // Quiz data
     let quizDataSave;
     let quizDataThreeSave;
@@ -34,6 +37,41 @@ fetch("/quizData.json")
     console.log(quizDataThreeSave);
     // Event listeners
 
+    submitPreScore.addEventListener("click", () => {
+      let isValid = true;
+      let errorMessageText = "";
+      let errorMessageClass = "";
+
+      if (input.value < 0 || input.value > 20) {
+        errorMessageText = "Score must be between 0 and 20!";
+        errorMessageClass = "notify-failed";
+        isValid = false;
+      } else {
+        update(userRef, {
+          preScore: input.value,
+        });
+        errorMessageText = "Successfully added score!";
+        errorMessageClass = "notify-success";
+      }
+
+      errorMessage.textContent = errorMessageText;
+      errorMessage.classList.remove("notify-success", "notify-failed");
+      errorMessage.classList.add(errorMessageClass);
+      errorMessage.style.display = "block";
+      setTimeout(() => {
+        errorMessage.style.transform = "scale(1)";
+      }, 200);
+      setTimeout(() => {
+        errorMessage.style.transform = "scale(0)";
+        setTimeout(() => {
+          errorMessage.style.display = "none";
+        }, 300);
+      }, 3000);
+
+      if (!isValid) {
+        input.focus();
+      }
+    });
     takeQuizBtn.addEventListener("click", startQuiz("randomizeWhole"));
     practiceQuizBtn.addEventListener("click", startQuiz("randomizeThree"));
     realQuizBtn.addEventListener("click", () => {

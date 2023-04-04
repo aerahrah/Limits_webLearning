@@ -8,6 +8,22 @@ import "../assets/q1.png";
 <BaseLayout>
   <LimitsHeader />
   <main class="fluid-container">
+    <div id="prescore-card" class="card-container active">
+      <h1 class="primary-text">Note:</h1>
+      <p class="secondary-text">
+        Please input your score in Pre-test examination before continuing...
+      </p>
+      <input
+        class="secondary-text"
+        type="number"
+        id="number-input"
+        name="number"
+        min="0"
+        max="20"
+      />
+      <p id="error-message" class="notify secondary-text"></p>
+      <h1 id="submit-prescore" class="btn btn--green secondary-text">Submit</h1>
+    </div>
     <div id="reminder-card" class="card-container">
       <h1 class="primary-text">Warning:</h1>
       <p class="secondary-text">
@@ -16,7 +32,7 @@ import "../assets/q1.png";
       </p>
       <h1 id="take-quiz" class="btn btn--green secondary-text">take quiz</h1>
     </div>
-    <div id="prompt-card" class="card-container active">
+    <div id="prompt-card" class="card-container">
       <div class="prompt-card--container">
         <h1 id="practice-quiz" class="btn btn--green secondary-text">
           practice quiz
