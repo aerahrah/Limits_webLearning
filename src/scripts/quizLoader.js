@@ -1,8 +1,9 @@
 import { auth, db, realtimeDb } from "./firebaseDB";
-import { getDatabase, ref, child, update } from "firebase/database";
+import { getDatabase, ref, child, update, get } from "firebase/database";
 
 const uid = localStorage.getItem("uid");
-const userRef = ref(realtimeDb, "users/" + uid);
+const userRef = ref(realtimeDb, `users/${uid}`);
+
 fetch("/quizData.json")
   .then((response) => response.json())
   .then((data) => {
@@ -10,6 +11,7 @@ fetch("/quizData.json")
     const scoreCard = document.getElementById("score-card");
     const promptCard = document.getElementById("prompt-card");
     const reminderCard = document.getElementById("reminder-card");
+    const preScoreCard = document.getElementById("prescore-card");
 
     const questionEl = document.querySelector(".quiz-container-header");
     const quizImage = document.getElementById("quiz-image");
@@ -37,7 +39,21 @@ fetch("/quizData.json")
     console.log(quizDataThreeSave);
     // Event listeners
 
-    submitPreScore.addEventListener("click", () => {
+    get(child(userRef, "preScore"))
+      .then((snapshot) => {
+        const prescore = snapshot.val();
+        if (prescore == "N/A") {
+          preScoreCard.classList.add("active");
+          submitPreScore.addEventListener("click", checkInput);
+        } else {
+          promptCard.classList.add("active");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    function checkInput() {
       let isValid = true;
       let errorMessageText = "";
       let errorMessageClass = "";
@@ -52,6 +68,8 @@ fetch("/quizData.json")
         });
         errorMessageText = "Successfully added score!";
         errorMessageClass = "notify-success";
+        preScoreCard.classList.remove("active");
+        promptCard.classList.add("active");
       }
 
       errorMessage.textContent = errorMessageText;
@@ -71,7 +89,7 @@ fetch("/quizData.json")
       if (!isValid) {
         input.focus();
       }
-    });
+    }
     takeQuizBtn.addEventListener("click", startQuiz("randomizeWhole"));
     practiceQuizBtn.addEventListener("click", startQuiz("randomizeThree"));
     realQuizBtn.addEventListener("click", () => {
@@ -112,7 +130,6 @@ fetch("/quizData.json")
       answerEls.forEach((answerEl) => (answerEl.checked = false));
       submitBtn.disabled = true;
       const currentQuizData = quizdata[currentQuiz];
-      console.log(currentQuizData);
       quizImage.src = currentQuizData.img;
       questionEl.innerText = `Question ${currentQuiz + 1} ${
         currentQuizData.question
@@ -162,6 +179,7 @@ fetch("/quizData.json")
         const scoreAdd = {
           postScore: score,
         };
+        const updatedJsonData = JSON.stringify(data);
         update(userRef, scoreAdd)
           .then(() => {
             console.log("New child node added successfully!");
