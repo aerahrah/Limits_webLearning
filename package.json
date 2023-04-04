@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^5.1.0",
     "astro": "^2.0.17",
     "autoprefixer": "^10.4.14",
     "firebase": "^9.18.0",

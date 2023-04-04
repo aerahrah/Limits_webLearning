@@ -23,6 +23,28 @@
     margin-bottom: 1rem;
   }
 }
+.card-containers {
+  padding: min(5vw, 2rem);
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.3);
+  transition: all 200ms !important;
+  border: 8px solid $primary-color;
+  background-color: #fff;
+  border-radius: 20px;
+  text-align: justify;
+  margin: 0 auto;
+  .btn {
+    width: min(240px, 50vw);
+    .secondary-text {
+      font-family: "Bebas Neue", cursive;
+      @include font-scale(6vw, 1.75rem);
+    }
+  }
+  .primary-text {
+    font-size: min(8vw, 3rem);
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+}
 .card-container {
   &.active {
     transform: translate(-50%, -50%) scale(1);

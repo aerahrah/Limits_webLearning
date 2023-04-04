@@ -4,6 +4,13 @@ import { getDatabase, ref, child, update, get } from "firebase/database";
 const uid = localStorage.getItem("uid");
 const userRef = ref(realtimeDb, `users/${uid}`);
 
+// async function fetchData() {
+//   const response = await fetch("/quizDataThree.json");
+//   const data = await response.json();
+//   console.log(data);
+// }
+// fetchData();
+
 fetch("/quizData.json")
   .then((response) => response.json())
   .then((data) => {
@@ -179,14 +186,16 @@ fetch("/quizData.json")
         const scoreAdd = {
           postScore: score,
         };
-        const updatedJsonData = JSON.stringify(data);
-        update(userRef, scoreAdd)
-          .then(() => {
-            console.log("New child node added successfully!");
-          })
-          .catch((error) => {
-            console.error("Error adding new child node: ", error);
-          });
+        if (option === "randomizeWhole") {
+          update(userRef, scoreAdd)
+            .then(() => {
+              console.log("New child node added successfully!");
+            })
+            .catch((error) => {
+              console.error("Error adding new child node: ", error);
+            });
+        }
+
         if (option === "randomizeThree") {
           scoreText.innerHTML = `${scoreMessage}
             <button class="btn btn--green secondary-text" onclick="location.reload()">Reload</button>
