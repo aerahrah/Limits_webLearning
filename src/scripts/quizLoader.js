@@ -3,14 +3,7 @@ import { getDatabase, ref, child, update, get } from "firebase/database";
 
 const uid = localStorage.getItem("uid");
 const userRef = ref(realtimeDb, `users/${uid}`);
-
-// async function fetchData() {
-//   const response = await fetch("/quizDataThree.json");
-//   const data = await response.json();
-//   console.log(data);
-// }
-// fetchData();
-
+document.getElementById("loading-screen").style.display = "block";
 fetch("/quizData.json")
   .then((response) => response.json())
   .then((data) => {
@@ -50,9 +43,11 @@ fetch("/quizData.json")
       .then((snapshot) => {
         const prescore = snapshot.val();
         if (prescore == "N/A") {
+          document.getElementById("loading-screen").style.display = "none";
           preScoreCard.classList.add("active");
           submitPreScore.addEventListener("click", checkInput);
         } else {
+          document.getElementById("loading-screen").style.display = "none";
           promptCard.classList.add("active");
         }
       })
