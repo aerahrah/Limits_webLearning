@@ -1,10 +1,10 @@
 #loading-screen {
   position: fixed;
-  top: min(50vh, 60px);
+  top: min(50vh, 80px);
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: #fff;
+  bottom: min(50vh, 60px);
+  background-color: #f7f8f7;
   z-index: 9999;
 }
 
