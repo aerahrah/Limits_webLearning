@@ -1,0 +1,152 @@
+[
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_1.png",
+        "answer": [
+            {"a": "True", "correct": false},
+            {"b": "Maybe", "correct": false},
+            {"c": "False", "correct": true}, 
+            {"d": "Sometimes", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_2.png",
+        "answer": [
+            {"a": "limit", "correct": false},
+            {"b": "removable", "correct": false},
+            {"c": "jump", "correct": false},
+            {"d": "infinite", "correct": true}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_3.png",
+        "answer": [
+            {"a": "infinite", "correct": false},
+            {"b": "limit", "correct": false},
+            {"c": "jump", "correct": true},
+            {"d": "removable", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_4.png",
+        "answer": [
+            {"a": "Sometimes", "correct": false},
+            {"b": "True", "correct": true},
+            {"c": "False", "correct": false},
+            {"d": "Maybe", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_5.png",
+        "answer": [
+            {"a": "Sometimes", "correct": false},
+            {"b": "Maybe", "correct": false},
+            {"c": "True", "correct": true},
+            {"d": "False", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate:",
+        "img": "/images/img_sum_quiz/sq_6.png",
+        "answer": [
+            {"a": "Sometimes", "correct": false},
+            {"b": "False", "correct": true},
+            {"c": "Maybe", "correct": false},
+            {"d": "True", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_7.png",
+        "answer": [
+            {"a": "Sometimes", "correct": false},
+            {"b": "Maybe", "correct": false},
+            {"c": "False", "correct": false},
+            {"d": "True", "correct": true}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_8.png",
+        "answer": [
+            {"a": "True", "correct": false},
+            {"b": "False", "correct": true},
+            {"c": "DNE", "correct": false},
+            {"d": "I do not know", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_9.png",
+        "answer": [
+            {"a": "True", "correct": false},
+            {"b": "Maybe", "correct": false},
+            {"c": "False", "correct": true},
+            {"d": "This time", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_10.png",
+        "answer": [
+            {"a": "False", "correct": true},
+            {"b": "True", "correct": false},
+            {"c": "Maybe", "correct": false},
+            {"d": "Sometimes", "correct": false}
+        ]
+    },
+    {
+        "question": "Find: ",
+        "img": "/images/img_sum_quiz/sq_11.png",
+        "answer": [
+            {"a": "h is discontinuous at x = 1", "correct": true},
+            {"b": "h is continuous at x = 1", "correct": false},
+            {"c": "", "correct": false},
+            {"d": "", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_12.png",
+        "answer": [
+            {"a": "f is discontinuous at x = -2", "correct": false},
+            {"b": "f is continuous at x = -1", "correct": true},
+            {"c": "", "correct": false},
+            {"d": "", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_13.png",
+        "answer": [
+            {"a": "g is discontinuous at x = 8", "correct": true},
+            {"b": "g is continuous at x = 8", "correct": false},
+            {"c": "", "correct": false},
+            {"d": "", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate:",
+        "img": "/images/img_sum_quiz/sq_14.png",
+        "answer": [
+            {"a": "g is discontinuous at x = 0", "correct": false},
+            {"b": "g is continuous at x = 0", "correct": true},
+            {"c": "", "correct": false},
+            {"d": "", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_sum_quiz/sq_15.png",
+        "answer": [
+            {"a": "f is infinite essential discontinuous at x = -4", "correct": true},
+            {"b": "f is removable discontinuous at x = -4", "correct": false},
+            {"c": "f is jump essential discontinuous at x = -4", "correct": false},
+            {"d": "f is continuous at x = -4", "correct": false}
+        ]
+    }
+]

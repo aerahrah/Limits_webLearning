@@ -47,6 +47,7 @@ main {
   width: min(85vw, 600px);
   .btn {
     margin-top: 2.5rem;
+    width: min(55vw, 350px);
   }
 }
 
@@ -86,10 +87,10 @@ main {
   &-label {
     transition: all 200ms;
     font-weight: 700;
-    width: min(30vw, 220px);
+    width: min(32vw, 250px);
     background-color: #dfdbca;
     border-radius: 20px;
-    padding: 20px 10px;
+    padding: 20px min(1vw, 10px);
     cursor: pointer;
   }
   &:checked + &-label {
