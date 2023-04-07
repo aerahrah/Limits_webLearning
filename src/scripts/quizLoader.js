@@ -12,11 +12,14 @@ fetch("/quizData.json")
     const promptCard = document.getElementById("prompt-card");
     const reminderCard = document.getElementById("reminder-card");
     const preScoreCard = document.getElementById("prescore-card");
+    const preTestTakerCard = document.getElementById("pretesttaker-card");
 
     const questionEl = document.querySelector(".quiz-container-header");
     const quizImage = document.getElementById("quiz-image");
     const scoreText = document.querySelector(".score-text");
 
+    const preTestNoBtn = document.getElementById("no-pretest");
+    const preTestYesBtn = document.getElementById("yes-pretest");
     const takeQuizBtn = document.getElementById("take-quiz");
     const practiceQuizBtn = document.getElementById("practice-quiz");
     const realQuizBtn = document.getElementById("real-quiz");
@@ -38,24 +41,64 @@ fetch("/quizData.json")
     let score = 0;
     console.log(quizDataThreeSave);
     // Event listeners
-
-    get(child(userRef, "preScore"))
+    get(child(userRef, "preTestTaker"))
       .then((snapshot) => {
-        const prescore = snapshot.val();
-        if (prescore == "N/A") {
+        const preTestTaker = snapshot.val();
+        if (preTestTaker == "N/A") {
           document.getElementById("loading-screen").style.display = "none";
-          preScoreCard.classList.add("active");
-          submitPreScore.addEventListener("click", checkInput);
+          preTestTakerCard.classList.add("active");
+          preTestNoBtn.addEventListener("click", function () {
+            checkPreTestTaker("no");
+          });
+          preTestYesBtn.addEventListener("click", function () {
+            checkPreTestTaker("yes");
+          });
         } else {
-          document.getElementById("loading-screen").style.display = "none";
-          promptCard.classList.add("active");
+          if (preTestTaker == "yes") {
+            get(child(userRef, "preScore"))
+              .then((snapshot) => {
+                const prescore = snapshot.val();
+                if (prescore == "N/A") {
+                  document.getElementById("loading-screen").style.display =
+                    "none";
+                  preScoreCard.classList.add("active");
+                  submitPreScore.addEventListener("click", checkInput);
+                } else {
+                  document.getElementById("loading-screen").style.display =
+                    "none";
+                  promptCard.classList.add("active");
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          } else if (preTestTaker == "no") {
+            document.getElementById("loading-screen").style.display = "none";
+            promptCard.classList.add("active");
+          }
         }
       })
       .catch((error) => {
         console.error(error);
       });
 
+    function checkPreTestTaker(choice) {
+      if (choice == "yes") {
+        update(userRef, {
+          preTestTaker: "yes",
+        });
+        preTestTakerCard.classList.remove("active");
+        preScoreCard.classList.add("active");
+      } else if (choice == "no") {
+        update(userRef, {
+          preTestTaker: "no",
+        });
+        preTestTakerCard.classList.remove("active");
+        promptCard.classList.add("active");
+      }
+    }
     function checkInput() {
+      console.log("click");
       let isValid = true;
       let errorMessageText = "";
       let errorMessageClass = "";
