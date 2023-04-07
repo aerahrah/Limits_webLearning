@@ -39,48 +39,66 @@ fetch("/quizData.json")
     let optionQuiz;
     let currentQuiz = 0;
     let score = 0;
-    console.log(quizDataThreeSave);
+
     // Event listeners
     get(child(userRef, "preTestTaker"))
-      .then((snapshot) => {
-        const preTestTaker = snapshot.val();
-        if (preTestTaker == "N/A") {
-          document.getElementById("loading-screen").style.display = "none";
-          preTestTakerCard.classList.add("active");
-          preTestNoBtn.addEventListener("click", function () {
-            checkPreTestTaker("no");
-          });
-          preTestYesBtn.addEventListener("click", function () {
-            checkPreTestTaker("yes");
-          });
-        } else {
-          if (preTestTaker == "yes") {
-            get(child(userRef, "preScore"))
-              .then((snapshot) => {
-                const prescore = snapshot.val();
-                if (prescore == "N/A") {
-                  document.getElementById("loading-screen").style.display =
-                    "none";
-                  preScoreCard.classList.add("active");
-                  submitPreScore.addEventListener("click", checkInput);
-                } else {
-                  document.getElementById("loading-screen").style.display =
-                    "none";
-                  promptCard.classList.add("active");
-                }
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-          } else if (preTestTaker == "no") {
-            document.getElementById("loading-screen").style.display = "none";
-            promptCard.classList.add("active");
-          }
-        }
-      })
+      .then(handlePreTestTaker)
       .catch((error) => {
         console.error(error);
       });
+    takeQuizBtn.addEventListener("click", initializeQuiz("randomizeWhole"));
+    practiceQuizBtn.addEventListener("click", initializeQuiz("randomizeThree"));
+    realQuizBtn.addEventListener("click", () => {
+      promptCard.classList.remove("active");
+      reminderCard.classList.add("active");
+    });
+    answerEls.forEach((answerEl) =>
+      answerEl.addEventListener("change", enableSubmit)
+    );
+    submitBtn.addEventListener("click", () => {
+      nextQuestion(optionQuiz);
+    });
+    // Functions
+
+    function hideLoadingScreen() {
+      document.getElementById("loading-screen").style.display = "none";
+    }
+    function handlePreTestTaker(snapshot) {
+      const preTestTaker = snapshot.val();
+
+      if (preTestTaker == "N/A") {
+        hideLoadingScreen();
+        preTestTakerCard.classList.add("active");
+        preTestNoBtn.addEventListener("click", function () {
+          checkPreTestTaker("no");
+        });
+        preTestYesBtn.addEventListener("click", function () {
+          checkPreTestTaker("yes");
+        });
+      } else if (preTestTaker == "yes") {
+        get(child(userRef, "preScore"))
+          .then(handlePreScoreSnapshot)
+          .catch((error) => {
+            console.error(error);
+          });
+      } else if (preTestTaker == "no") {
+        hideLoadingScreen();
+        promptCard.classList.add("active");
+      }
+    }
+
+    function handlePreScoreSnapshot(snapshot) {
+      const prescore = snapshot.val();
+
+      if (prescore == "N/A") {
+        hideLoadingScreen();
+        preScoreCard.classList.add("active");
+        submitPreScore.addEventListener("click", handlePreScoreInput);
+      } else {
+        hideLoadingScreen();
+        promptCard.classList.add("active");
+      }
+    }
 
     function checkPreTestTaker(choice) {
       if (choice == "yes") {
@@ -89,6 +107,11 @@ fetch("/quizData.json")
         });
         preTestTakerCard.classList.remove("active");
         preScoreCard.classList.add("active");
+        get(child(userRef, "preScore"))
+          .then(handlePreScoreSnapshot)
+          .catch((error) => {
+            console.error(error);
+          });
       } else if (choice == "no") {
         update(userRef, {
           preTestTaker: "no",
@@ -97,26 +120,29 @@ fetch("/quizData.json")
         promptCard.classList.add("active");
       }
     }
-    function checkInput() {
-      console.log("click");
+    function handlePreScoreInput() {
       let isValid = true;
-      let errorMessageText = "";
-      let errorMessageClass = "";
 
       if (input.value < 0 || input.value > 20) {
-        errorMessageText = "Score must be between 0 and 20!";
-        errorMessageClass = "notify-failed";
+        displayTextMessage("Score must be between 0 and 20!", "notify-failed");
         isValid = false;
       } else {
         update(userRef, {
           preScore: input.value,
         });
-        errorMessageText = "Successfully added score!";
-        errorMessageClass = "notify-success";
-        preScoreCard.classList.remove("active");
-        promptCard.classList.add("active");
+        displayTextMessage("Successfully added score!", "notify-success");
+        setTimeout(() => {
+          preScoreCard.classList.remove("active");
+          promptCard.classList.add("active");
+        }, 3000);
       }
 
+      if (!isValid) {
+        input.focus();
+      }
+    }
+
+    function displayTextMessage(errorMessageText, errorMessageClass) {
       errorMessage.textContent = errorMessageText;
       errorMessage.classList.remove("notify-success", "notify-failed");
       errorMessage.classList.add(errorMessageClass);
@@ -130,26 +156,8 @@ fetch("/quizData.json")
           errorMessage.style.display = "none";
         }, 300);
       }, 3000);
-
-      if (!isValid) {
-        input.focus();
-      }
     }
-    takeQuizBtn.addEventListener("click", startQuiz("randomizeWhole"));
-    practiceQuizBtn.addEventListener("click", startQuiz("randomizeThree"));
-    realQuizBtn.addEventListener("click", () => {
-      promptCard.classList.remove("active");
-      reminderCard.classList.add("active");
-    });
-    answerEls.forEach((answerEl) =>
-      answerEl.addEventListener("change", enableSubmit)
-    );
-    submitBtn.addEventListener("click", () => {
-      nextQuestion(optionQuiz);
-    });
-
-    // Functions
-    function startQuiz(option) {
+    function initializeQuiz(option) {
       return () => {
         navbarBtn.style.pointerEvents = "none";
         navbarBtn.style.textDecoration = "none";
