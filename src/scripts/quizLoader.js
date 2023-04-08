@@ -157,14 +157,13 @@ function displayTextMessage(errorMessageText, errorMessageClass) {
   }, 3000);
 }
 
-function generateQuizHTML(questions) {
+function generateQuizHTML(questions, score) {
   let quizHTML = "";
   let questionNum = 0;
 
   for (let i = 0; i < questions.length; i++) {
     let question = questions[i];
     let choicesHTML = "";
-
     for (let j = 0; j < question.answer.length; j++) {
       let answer = question.answer[j];
       let choices = [answer.a, answer.b, answer.c, answer.d];
@@ -181,7 +180,9 @@ function generateQuizHTML(questions) {
     quizHTML += `
       <div id="quiz-container-${questionNum}" class="card-containers quiz-container">
         <div class="quiz-container-body">
-          <h2 class="primary-text quiz-container-header">${question.question}</h2>
+          <h2 class="primary-text quiz-container-header"> Question ${i + 1} ${
+      question.question
+    }</h2>
           <div class="image-container">
             <img src="${question.img}" id="quiz-image-${questionNum}" />
           </div>
@@ -193,6 +194,9 @@ function generateQuizHTML(questions) {
     `;
     questionNum++;
   }
+
+  quizHTML = `<div class="quiz-container-title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}      <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Home</a
+        >`;
 
   return quizHTML;
 }
@@ -329,7 +333,7 @@ async function fetchData() {
           viewResultBtn.addEventListener("click", () => {
             scoreCard.classList.remove("active");
             resultContainer.classList.add("active");
-            resultContainer.innerHTML = generateQuizHTML(quizData);
+            resultContainer.innerHTML = generateQuizHTML(quizData, score);
           });
         }
         if (option === "randomizeWholeSum") {
@@ -344,7 +348,7 @@ async function fetchData() {
           viewResultBtn.addEventListener("click", () => {
             scoreCard.classList.remove("active");
             resultContainer.classList.add("active");
-            resultContainer.innerHTML = generateQuizHTML(quizData);
+            resultContainer.innerHTML = generateQuizHTML(quizData, score);
           });
         }
 

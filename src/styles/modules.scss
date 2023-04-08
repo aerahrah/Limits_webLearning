@@ -49,7 +49,7 @@ main {
       }
     }
     iframe {
-      height: 500px !important;
+      height: min(50vw, 500px) !important;
     }
   }
   .span-2,

@@ -9,102 +9,103 @@ import "../assets/q1.png";
   <LimitsHeader />
   <main class="fluid-container">
     <div id="result-container" class="scroll-container card-container"></div>
-  </main>
-  <div id="loading-screen">
-    <div class="spinner"></div>
-  </div>
-  <div id="pretesttaker-card" class="card-container">
-    <h1 class="primary-text">Note:</h1>
-    <p class="secondary-text">
-      Did you take the Pre-test examination before using this website? if your
-      answer is
-      <span class="red-text"
-        ><strong>NO</strong> you will not be able to take the post-test quiz..</span
-      >
-    </p>
-    <h1 id="yes-pretest" class="btn btn--green secondary-text">yes</h1>
-    <h1 id="no-pretest" class="btn btn--green secondary-text">no</h1>
-  </div>
-  <div id="prescore-card" class="card-container">
-    <h1 class="primary-text">Note:</h1>
-    <p class="secondary-text">
-      Please input your score in Pre-test examination before continuing...
-    </p>
-    <input
-      class="secondary-text"
-      type="number"
-      id="number-input"
-      name="number"
-      min="0"
-      max="20"
-    />
-    <p id="error-message" class="notify secondary-text"></p>
-    <h1 id="submit-prescore" class="btn btn--green secondary-text">Submit</h1>
-  </div>
-  <div id="reminder-card" class="card-container">
-    <h1 class="primary-text">Warning:</h1>
-    <p class="secondary-text">
-      Once you take the quiz you will not be able to go back to the page until
-      you finish taking the quiz
-    </p>
-    <h1 id="summative-quiz" class="btn btn--green secondary-text">
-      take Summative quiz
-    </h1>
-    <h1 id="post-quiz" class="btn btn--green secondary-text">
-      take Post-test quiz
-    </h1>
-  </div>
-  <div id="prompt-card" class="card-container">
-    <div class="prompt-card--container">
-      <h1 id="practice-quiz" class="btn btn--green secondary-text">
-        practice quiz
+    <div id="loading-screen">
+      <div class="spinner"></div>
+    </div>
+    <div id="pretesttaker-card" class="card-container">
+      <h1 class="primary-text">Note:</h1>
+      <p class="secondary-text">
+        Did you take the Pre-test examination before using this website? if your
+        answer is
+        <span class="red-text"
+          ><strong>NO</strong> you will not be able to take the post-test quiz..</span
+        >
+      </p>
+      <h1 id="yes-pretest" class="btn btn--green secondary-text">yes</h1>
+      <h1 id="no-pretest" class="btn btn--green secondary-text">no</h1>
+    </div>
+    <div id="prescore-card" class="card-container">
+      <h1 class="primary-text">Note:</h1>
+      <p class="secondary-text">
+        Please input your score in Pre-test examination before continuing...
+      </p>
+      <input
+        class="secondary-text"
+        type="number"
+        id="number-input"
+        name="number"
+        min="0"
+        max="20"
+      />
+      <p id="error-message" class="notify secondary-text"></p>
+      <h1 id="submit-prescore" class="btn btn--green secondary-text">Submit</h1>
+    </div>
+    <div id="reminder-card" class="card-container">
+      <h1 class="primary-text">Warning:</h1>
+      <p class="secondary-text">
+        Once you take the quiz you will not be able to go back to the page until
+        you finish taking the quiz
+      </p>
+      <h1 id="summative-quiz" class="btn btn--green secondary-text">
+        take Summative quiz
       </h1>
-      <h1 id="real-quiz" class="btn btn--green secondary-text">quiz</h1>
+      <h1 id="post-quiz" class="btn btn--green secondary-text">
+        take Post-test quiz
+      </h1>
     </div>
-  </div>
-  <div id="score-card" class="card-container">
-    <div class="score-card--container">
-      <h1 class="score-text primary-text text-center"></h1>
-      <a id="view-result" class="btn btn--green secondary-text">View result</a>
-    </div>
-  </div>
-  <div id="quiz-container" class="card-container quiz-container" id="quiz">
-    <div class="quiz-container-body">
-      <h2 class="primary-text quiz-container-header">Question Text</h2>
-      <div class="image-container">
-        <img src="" id="quiz-image" />
+    <div id="prompt-card" class="card-container">
+      <div class="prompt-card--container">
+        <h1 id="practice-quiz" class="btn btn--green secondary-text">
+          practice quiz
+        </h1>
+        <h1 id="real-quiz" class="btn btn--green secondary-text">quiz</h1>
       </div>
-      <ul class="question-container text-center">
-        <li>
-          <input type="radio" name="answer" id="a" class="answer" />
-          <label for="a" class="secondary-text answer-label" id="a_text"
-            >Answer</label
-          >
-        </li>
-
-        <li>
-          <input type="radio" name="answer" id="b" class="answer" />
-          <label for="b" class="secondary-text answer-label" id="b_text"
-            >Answer</label
-          >
-        </li>
-
-        <li>
-          <input type="radio" name="answer" id="c" class="answer" />
-          <label for="c" class="secondary-text answer-label" id="c_text"
-            >Answer</label
-          >
-        </li>
-
-        <li>
-          <input type="radio" name="answer" id="d" class="answer" />
-          <label for="d" class="secondary-text answer-label" id="d_text"
-            >Answer</label
-          >
-        </li>
-      </ul>
-      <button disabled class="btn btn--green" id="submit">Next</button>
     </div>
-  </div>
+    <div id="score-card" class="card-container">
+      <div class="score-card--container">
+        <h1 class="score-text primary-text text-center"></h1>
+        <a id="view-result" class="btn btn--green secondary-text">View result</a
+        >
+      </div>
+    </div>
+    <div id="quiz-container" class="card-container quiz-container" id="quiz">
+      <div class="quiz-container-body">
+        <h2 class="primary-text quiz-container-header">Question Text</h2>
+        <div class="image-container">
+          <img src="" id="quiz-image" />
+        </div>
+        <ul class="question-container text-center">
+          <li>
+            <input type="radio" name="answer" id="a" class="answer" />
+            <label for="a" class="secondary-text answer-label" id="a_text"
+              >Answer</label
+            >
+          </li>
+
+          <li>
+            <input type="radio" name="answer" id="b" class="answer" />
+            <label for="b" class="secondary-text answer-label" id="b_text"
+              >Answer</label
+            >
+          </li>
+
+          <li>
+            <input type="radio" name="answer" id="c" class="answer" />
+            <label for="c" class="secondary-text answer-label" id="c_text"
+              >Answer</label
+            >
+          </li>
+
+          <li>
+            <input type="radio" name="answer" id="d" class="answer" />
+            <label for="d" class="secondary-text answer-label" id="d_text"
+              >Answer</label
+            >
+          </li>
+        </ul>
+        <button disabled class="btn btn--green" id="submit">Next</button>
+      </div>
+    </div>
+  </main>
 </BaseLayout>
 <script src="../scripts/quizLoader.js"></script>
