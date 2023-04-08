@@ -10,6 +10,8 @@ const promptCard = document.getElementById("prompt-card");
 const reminderCard = document.getElementById("reminder-card");
 const preScoreCard = document.getElementById("prescore-card");
 const preTestTakerCard = document.getElementById("pretesttaker-card");
+const resultContainer = document.getElementById("result-container");
+const viewResultBtn = document.getElementById("view-result");
 
 const questionEl = document.querySelector(".quiz-container-header");
 const quizImage = document.getElementById("quiz-image");
@@ -27,9 +29,9 @@ const a_text = document.getElementById("a_text");
 const b_text = document.getElementById("b_text");
 const c_text = document.getElementById("c_text");
 const d_text = document.getElementById("d_text");
-const navbarBtn = document.querySelector(".navbar-nav");
 const submitPreScore = document.getElementById("submit-prescore");
 const errorMessage = document.getElementById("error-message");
+
 let input = document.getElementById("number-input");
 // Quiz data
 let quizDataSave;
@@ -38,12 +40,24 @@ let quizDataThreeSave;
 let optionQuiz;
 let currentQuiz = 0;
 let score = 0;
+
+fetchData();
 document.getElementById("loading-screen").style.display = "block";
 get(child(userRef, "preTestTaker"))
   .then(handlePreTestTaker)
   .catch((error) => {
     console.error(error);
   });
+
+function disableButtonStyles(buttonId) {
+  const button = document.getElementById(buttonId);
+
+  // Update button styles
+  button.style.pointerEvents = "none";
+  button.style.textDecoration = "none";
+  button.style.cursor = "default";
+  button.style.opacity = "0.5";
+}
 function hideLoadingScreen() {
   document.getElementById("loading-screen").style.display = "none";
 }
@@ -67,6 +81,7 @@ function handlePreTestTaker(snapshot) {
       });
   } else if (preTestTaker == "no") {
     hideLoadingScreen();
+    disableButtonStyles("post-quiz");
     promptCard.classList.add("active");
   }
 }
@@ -142,192 +157,241 @@ function displayTextMessage(errorMessageText, errorMessageClass) {
   }, 3000);
 }
 
+function generateQuizHTML(questions) {
+  let quizHTML = "";
+  let questionNum = 0;
+
+  for (let i = 0; i < questions.length; i++) {
+    let question = questions[i];
+    let choicesHTML = "";
+
+    for (let j = 0; j < question.answer.length; j++) {
+      let answer = question.answer[j];
+      let choices = [answer.a, answer.b, answer.c, answer.d];
+      let isCorrect = answer.correct ? "correct-answer" : "";
+      choicesHTML += `
+        <li>
+          <input type="radio" name="answer${i}" id="${choices[j]}" class="answer ${isCorrect}" />
+          <label for="${choices[j]}" class="secondary-text answer-label ${isCorrect}" id="${choices[j]}_text">${choices[j]}</label>
+        </li>
+      
+      `;
+    }
+
+    quizHTML += `
+      <div id="quiz-container-${questionNum}" class="card-containers quiz-container">
+        <div class="quiz-container-body">
+          <h2 class="primary-text quiz-container-header">${question.question}</h2>
+          <div class="image-container">
+            <img src="${question.img}" id="quiz-image-${questionNum}" />
+          </div>
+          <ul class="question-container text-center">
+            ${choicesHTML}
+          </ul>
+        </div>
+      </div>
+    `;
+    questionNum++;
+  }
+
+  return quizHTML;
+}
 //This will get the data from json and make use of the data for the quiz
-Promise.all([
-  fetch("/quizData.json").then((response) => response.json()),
-  fetch("/quizDataSum.json").then((response) => response.json()),
-]).then((results) => {
-  const data = results[0];
-  const summativeData = results[1];
-  // Event listeners
+async function fetchData() {
+  await Promise.all([
+    fetch("/quizData.json").then((response) => response.json()),
+    fetch("/quizDataSum.json").then((response) => response.json()),
+  ]).then((results) => {
+    const data = results[0];
+    const summativeData = results[1];
+    // Event listeners
 
-  postQuizBtn.addEventListener("click", initializeQuiz("randomizeWhole"));
-  summativeQuizBtn.addEventListener(
-    "click",
-    initializeQuiz("randomizeWholeSum")
-  );
-  practiceQuizBtn.addEventListener("click", initializeQuiz("randomizeThree"));
-  realQuizBtn.addEventListener("click", () => {
-    promptCard.classList.remove("active");
-    reminderCard.classList.add("active");
-  });
-  answerEls.forEach((answerEl) => {
-    answerEl.addEventListener("change", () => {
-      submitBtn.disabled = false;
-    });
-  });
-  submitBtn.addEventListener("click", () => {
-    nextQuestion(optionQuiz);
-  });
-  // Functions
-
-  function initializeQuiz(option) {
-    return () => {
-      navbarBtn.style.pointerEvents = "none";
-      navbarBtn.style.textDecoration = "none";
-      navbarBtn.style.cursor = "default";
-      navbarBtn.style.opacity = "0.5";
-      reminderCard.classList.remove("active");
+    postQuizBtn.addEventListener("click", initializeQuiz("randomizeWhole"));
+    summativeQuizBtn.addEventListener(
+      "click",
+      initializeQuiz("randomizeWholeSum")
+    );
+    practiceQuizBtn.addEventListener("click", initializeQuiz("randomizeThree"));
+    realQuizBtn.addEventListener("click", () => {
       promptCard.classList.remove("active");
-      quizCard.classList.add("active");
+      reminderCard.classList.add("active");
+    });
+    answerEls.forEach((answerEl) => {
+      answerEl.addEventListener("change", () => {
+        submitBtn.disabled = false;
+      });
+    });
+    submitBtn.addEventListener("click", () => {
+      nextQuestion(optionQuiz);
+    });
+    // Functions
+
+    function initializeQuiz(option) {
+      return () => {
+        disableButtonStyles("navbar-menu");
+        reminderCard.classList.remove("active");
+        promptCard.classList.remove("active");
+        quizCard.classList.add("active");
+        switch (option) {
+          case "randomizeThree":
+            loadQuiz(stableRandomizer(data, "randomizeThree", 3));
+            break;
+          case "randomizeWholeSum":
+            loadQuiz(stableRandomizer(summativeData, "randomizeWholeSum", 15));
+            break;
+          case "randomizeWhole":
+            loadQuiz(stableRandomizer(data, "randomizeWhole"));
+            break;
+          default:
+            break;
+        }
+        optionQuiz = option;
+      };
+    }
+
+    function loadQuiz(quizdata) {
+      answerEls.forEach((answerEl) => (answerEl.checked = false));
+      submitBtn.disabled = true;
+      const currentQuizData = quizdata[currentQuiz];
+      quizImage.src = currentQuizData.img;
+      questionEl.innerText = `Question ${currentQuiz + 1} ${
+        currentQuizData.question
+      }`;
+      a_text.innerText = currentQuizData.answer[0].a;
+      b_text.innerText = currentQuizData.answer[1].b;
+      c_text.innerText = currentQuizData.answer[2].c;
+      d_text.innerText = currentQuizData.answer[3].d;
+    }
+
+    function getSelected() {
+      let answer = null;
+
+      answerEls.forEach((answerEl) => {
+        if (answerEl.checked) {
+          const answerId = answerEl.id;
+          const isCorrect = data[currentQuiz].answer.some(
+            (a) => a[answerId] && a.correct
+          );
+          answer = isCorrect ? true : false;
+        }
+      });
+      return answer;
+    }
+
+    function nextQuestion(option) {
+      const answer = getSelected();
+      let quizData;
+      score += answer === true ? 1 : 0;
+
+      currentQuiz++;
+
       switch (option) {
         case "randomizeThree":
-          loadQuiz(stableRandomizer(data, "randomizeThree", 3));
-          break;
-        case "randomizeWholeSum":
-          loadQuiz(stableRandomizer(summativeData, "randomizeWholeSum", 15));
+          quizData = quizDataThreeSave;
           break;
         case "randomizeWhole":
-          loadQuiz(stableRandomizer(data, "randomizeWhole"));
+          quizData = quizDataSave;
+          break;
+        case "randomizeWholeSum":
+          quizData = sumDataSave;
           break;
         default:
+          quizData = null;
           break;
       }
-      optionQuiz = option;
-    };
-  }
+      const quizDataLength = quizData.length;
 
-  function loadQuiz(quizdata) {
-    answerEls.forEach((answerEl) => (answerEl.checked = false));
-    submitBtn.disabled = true;
-    const currentQuizData = quizdata[currentQuiz];
-    quizImage.src = currentQuizData.img;
-    questionEl.innerText = `Question ${currentQuiz + 1} ${
-      currentQuizData.question
-    }`;
-    a_text.innerText = currentQuizData.answer[0].a;
-    b_text.innerText = currentQuizData.answer[1].b;
-    c_text.innerText = currentQuizData.answer[2].c;
-    d_text.innerText = currentQuizData.answer[3].d;
-  }
+      if (currentQuiz < quizDataLength) {
+        loadQuiz(quizData);
 
-  function getSelected() {
-    let answer = null;
+        // if (currentQuiz === quizDataLength - 1) {
+        //   submitBtn.innerHTML = "See result";
+        // }
+      } else {
+        quizCard.classList.remove("active");
+        scoreCard.classList.add("active");
 
-    answerEls.forEach((answerEl) => {
-      if (answerEl.checked) {
-        const answerId = answerEl.id;
-        const isCorrect = data[currentQuiz].answer.some(
-          (a) => a[answerId] && a.correct
-        );
-        answer = isCorrect ? true : false;
-      }
-    });
-    return answer;
-  }
-
-  function nextQuestion(option) {
-    const answer = getSelected();
-    let quizData;
-    score += answer === true ? 1 : 0;
-
-    currentQuiz++;
-
-    switch (option) {
-      case "randomizeThree":
-        quizData = quizDataThreeSave;
-        break;
-      case "randomizeWhole":
-        quizData = quizDataSave;
-        break;
-      case "randomizeWholeSum":
-        quizData = sumDataSave;
-        break;
-      default:
-        quizData = null;
-        break;
-    }
-    const quizDataLength = quizData.length;
-
-    if (currentQuiz < quizDataLength) {
-      loadQuiz(quizData);
-
-      if (currentQuiz === quizDataLength - 1) {
-        submitBtn.innerHTML = "See result";
-      }
-    } else {
-      quizCard.classList.remove("active");
-      scoreCard.classList.add("active");
-
-      const scoreMessage = `You answered ${score}/${quizDataLength} questions correctly`;
-      const scoreAdd = {
-        postScore: score,
-      };
-      const scoreAddSum = {
-        sumScore: score,
-      };
-      if (option === "randomizeWhole") {
-        update(userRef, scoreAdd)
-          .then(() => {
-            console.log("New child node added successfully!");
-          })
-          .catch((error) => {
-            console.error("Error adding new child node: ", error);
+        const scoreMessage = `You answered ${score}/${quizDataLength} questions correctly`;
+        const scoreAdd = {
+          postScore: score,
+        };
+        const scoreAddSum = {
+          sumScore: score,
+        };
+        if (option === "randomizeWhole") {
+          update(userRef, scoreAdd)
+            .then(() => {
+              console.log("New child node added successfully!");
+            })
+            .catch((error) => {
+              console.error("Error adding new child node: ", error);
+            });
+          viewResultBtn.addEventListener("click", () => {
+            scoreCard.classList.remove("active");
+            resultContainer.classList.add("active");
+            resultContainer.innerHTML = generateQuizHTML(quizData);
           });
-      }
-      if (option === "randomizeWholeSum") {
-        update(userRef, scoreAddSum)
-          .then(() => {
-            console.log("New child node added successfully!");
-          })
-          .catch((error) => {
-            console.error("Error adding new child node: ", error);
+        }
+        if (option === "randomizeWholeSum") {
+          update(userRef, scoreAddSum)
+            .then(() => {
+              console.log("New child node added successfully!");
+            })
+            .catch((error) => {
+              console.error("Error adding new child node: ", error);
+            });
+          // console.log(generateMultipleQuizzes(15, quizData));
+          viewResultBtn.addEventListener("click", () => {
+            scoreCard.classList.remove("active");
+            resultContainer.classList.add("active");
+            resultContainer.innerHTML = generateQuizHTML(quizData);
           });
-      }
+        }
 
-      if (option === "randomizeThree") {
-        scoreText.innerHTML = `${scoreMessage}
+        if (option === "randomizeThree") {
+          scoreText.innerHTML = `${scoreMessage}
             <button class="btn btn--green secondary-text" onclick="location.reload()">Reload</button>
           `;
-      } else {
-        scoreText.innerHTML = scoreMessage;
+        } else {
+          scoreText.innerHTML = scoreMessage;
+        }
       }
     }
-  }
 
-  function stableRandomizer(arr, option, count = 20) {
-    const len = arr.length;
-    const randomizeQuiz = [];
+    function stableRandomizer(arr, option, count = 20) {
+      const len = arr.length;
+      const randomizeQuiz = [];
 
-    // get count random indexes
-    const indexes = new Set();
-    while (indexes.size < count) {
-      indexes.add(Math.floor(Math.random() * len));
+      // get count random indexes
+      const indexes = new Set();
+      while (indexes.size < count) {
+        indexes.add(Math.floor(Math.random() * len));
+      }
+
+      indexes.forEach((index) => {
+        randomizeQuiz.push(arr[index]);
+      });
+
+      for (let i = randomizeQuiz.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [randomizeQuiz[i], randomizeQuiz[j]] = [
+          randomizeQuiz[j],
+          randomizeQuiz[i],
+        ];
+      }
+      switch (option) {
+        case "randomizeThree":
+          quizDataThreeSave = randomizeQuiz;
+          return randomizeQuiz;
+        case "randomizeWhole":
+          quizDataSave = randomizeQuiz;
+          return randomizeQuiz;
+        case "randomizeWholeSum":
+          sumDataSave = randomizeQuiz;
+          return randomizeQuiz;
+        default:
+          return null;
+      }
     }
-
-    indexes.forEach((index) => {
-      randomizeQuiz.push(arr[index]);
-    });
-
-    for (let i = randomizeQuiz.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [randomizeQuiz[i], randomizeQuiz[j]] = [
-        randomizeQuiz[j],
-        randomizeQuiz[i],
-      ];
-    }
-    switch (option) {
-      case "randomizeThree":
-        quizDataThreeSave = randomizeQuiz;
-        return randomizeQuiz;
-      case "randomizeWhole":
-        quizDataSave = randomizeQuiz;
-        return randomizeQuiz;
-      case "randomizeWholeSum":
-        sumDataSave = randomizeQuiz;
-        return randomizeQuiz;
-      default:
-        return null;
-    }
-  }
-});
+  });
+}
