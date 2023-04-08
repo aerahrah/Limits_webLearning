@@ -63,6 +63,9 @@ main {
   width: min(100vw, 990px);
   border: none;
   box-shadow: none;
+  .selectedAnsByUser {
+    background-color: $red-light-color;
+  }
   .btn {
     margin-top: 2rem;
   }
@@ -80,8 +83,8 @@ main {
   margin: min(4vw, 2rem) 0;
   width: min(85vw, 600px);
   .correct-answer {
-    background-color: $primary-color;
-    color: $font-white-secondary-color;
+    background-color: $primary-color !important;
+    color: $font-white-secondary-color !important;
     transform: scale(1.02);
     box-shadow: 0 0 1px 2px rgba(100, 100, 100, 0.1);
   }

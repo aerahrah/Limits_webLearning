@@ -34,6 +34,7 @@ const errorMessage = document.getElementById("error-message");
 
 let input = document.getElementById("number-input");
 // Quiz data
+const selectedAnswers = [];
 let quizDataSave;
 let sumDataSave;
 let quizDataThreeSave;
@@ -163,23 +164,41 @@ function generateQuizHTML(questions, score) {
 
   for (let i = 0; i < questions.length; i++) {
     let question = questions[i];
+    let selectedAns = selectedAnswers[i].answerID;
     let choicesHTML = "";
+    let selectedAnswerText = "";
+    let correctAnsHeader = "";
+    selectedAnswerText = question.answer.find((ans) => ans[selectedAns]);
+    selectedAnswerText = selectedAnswerText
+      ? selectedAnswerText[selectedAns]
+      : "";
+
     for (let j = 0; j < question.answer.length; j++) {
       let answer = question.answer[j];
+      let isSelected = "";
+
       let choices = [answer.a, answer.b, answer.c, answer.d];
       let isCorrect = answer.correct ? "correct-answer" : "";
+      if (choices[j] === selectedAnswerText) {
+        isSelected = "selectedAnsByUser";
+      }
+      if (
+        choices.includes(selectedAnswerText) &&
+        isCorrect == "correct-answer"
+      ) {
+        correctAnsHeader = `<h2 class ="primary-text text-center" > CORRECT</h2>`;
+      }
       choicesHTML += `
-        <li>
-          <input type="radio" name="answer${i}" id="${choices[j]}" class="answer ${isCorrect}" />
-          <label for="${choices[j]}" class="secondary-text answer-label ${isCorrect}" id="${choices[j]}_text">${choices[j]}</label>
-        </li>
-      
-      `;
+    <li>
+      <input type="radio" name="answer${i}" id="${choices[j]}" class="answer ${isCorrect}" />
+      <label for="${choices[j]}" class="secondary-text answer-label ${isCorrect} ${isSelected}" id="${choices[j]}_text">${choices[j]}</label>
+    </li>
+  `;
     }
-
     quizHTML += `
       <div id="quiz-container-${questionNum}" class="card-containers quiz-container">
         <div class="quiz-container-body">
+        ${correctAnsHeader}
           <h2 class="primary-text quiz-container-header"> Question ${i + 1} ${
       question.question
     }</h2>
@@ -267,27 +286,31 @@ async function fetchData() {
       d_text.innerText = currentQuizData.answer[3].d;
     }
 
-    function getSelected() {
-      let answer = null;
+    function getSelected(quizdata) {
+      let selectedAnswer = null;
 
       answerEls.forEach((answerEl) => {
         if (answerEl.checked) {
           const answerId = answerEl.id;
-          const isCorrect = data[currentQuiz].answer.some(
-            (a) => a[answerId] && a.correct
+
+          console.log(answerId);
+          console.log(currentQuiz);
+          const correctAnswers = quizdata[currentQuiz].answer.filter(
+            (a) => a.correct
           );
-          answer = isCorrect ? true : false;
+          console.log(correctAnswers);
+          const isCorrect = correctAnswers.some((a) => a[answerId]);
+          console.log(isCorrect);
+          selectedAnswer = isCorrect ? true : false;
+          selectedAnswers.push({ answerID: answerId });
         }
       });
-      return answer;
+
+      return selectedAnswer;
     }
 
     function nextQuestion(option) {
-      const answer = getSelected();
       let quizData;
-      score += answer === true ? 1 : 0;
-
-      currentQuiz++;
 
       switch (option) {
         case "randomizeThree":
@@ -303,6 +326,10 @@ async function fetchData() {
           quizData = null;
           break;
       }
+      const answer = getSelected(quizData);
+      score += answer === true ? 1 : 0;
+
+      currentQuiz++;
       const quizDataLength = quizData.length;
 
       if (currentQuiz < quizDataLength) {
