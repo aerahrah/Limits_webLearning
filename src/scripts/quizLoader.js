@@ -186,7 +186,7 @@ function generateQuizHTML(questions, score) {
         choices.includes(selectedAnswerText) &&
         isCorrect == "correct-answer"
       ) {
-        correctAnsHeader = `<h2 class ="primary-text text-center" > CORRECT</h2>`;
+        correctAnsHeader = `<h2 class ="correct-answer-title primary-text text-center" > CORRECT</h2>`;
       }
       choicesHTML += `
     <li>
@@ -197,8 +197,9 @@ function generateQuizHTML(questions, score) {
     }
     quizHTML += `
       <div id="quiz-container-${questionNum}" class="card-containers quiz-container">
+       ${correctAnsHeader}
         <div class="quiz-container-body">
-        ${correctAnsHeader}
+       
           <h2 class="primary-text quiz-container-header"> Question ${i + 1} ${
       question.question
     }</h2>

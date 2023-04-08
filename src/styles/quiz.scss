@@ -74,14 +74,27 @@ main {
     background-color: #dfdbca;
     border-radius: 20px;
   }
+  .correct-answer-title {
+    background-color: $primary-color;
+    color: #dfdbca;
+    margin: 0;
+    width: 100%;
+    outline: 0 !important;
+  }
   li {
     pointer-events: none;
+  }
+  .quiz-container-body {
+    padding: min(5vw, 2rem);
   }
 }
 .quiz-container {
   display: block;
   margin: min(4vw, 2rem) 0;
   width: min(85vw, 600px);
+  // &-body {
+  //
+  // }
   .correct-answer {
     background-color: $primary-color !important;
     color: $font-white-secondary-color !important;
