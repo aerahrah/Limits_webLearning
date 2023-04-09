@@ -63,8 +63,12 @@ main {
   width: min(100vw, 990px);
   border: none;
   box-shadow: none;
+  .quiz-container {
+    border: none !important;
+  }
   .selectedAnsByUser {
-    background-color: $red-light-color;
+    background-color: $red-dark-color;
+    color: $red-font-color;
   }
   .btn {
     margin-top: 2rem;
@@ -73,13 +77,22 @@ main {
     width: min(70vw, 700px);
     background-color: #dfdbca;
     border-radius: 20px;
+    color: $font-black-color;
   }
-  .correct-answer-title {
-    background-color: $primary-color;
-    color: #dfdbca;
+  .correct-answer-title,
+  .wrong-answer-title {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     margin: 0;
     width: 100%;
-    outline: 0 !important;
+  }
+  .correct-answer-title {
+    color: #dfdbca;
+    background-color: $primary-color;
+  }
+  .wrong-answer-title {
+    color: $red-font-color;
+    background-color: $red-dark-color;
   }
   li {
     pointer-events: none;
@@ -95,6 +108,7 @@ main {
   // &-body {
   //
   // }
+
   .correct-answer {
     background-color: $primary-color !important;
     color: $font-white-secondary-color !important;

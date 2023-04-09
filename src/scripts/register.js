@@ -49,6 +49,7 @@ saveData.addEventListener("click", (e) => {
         email: email,
         postScore: "N/A",
         preScore: "N/A",
+        sumScore: "N/A",
         preTestTaker: "N/A",
       });
 

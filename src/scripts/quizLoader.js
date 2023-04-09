@@ -42,6 +42,25 @@ let optionQuiz;
 let currentQuiz = 0;
 let score = 0;
 
+function disableButtonStyles(buttonId) {
+  const button = document.getElementById(buttonId);
+
+  // Update button styles
+  button.style.pointerEvents = "none";
+  button.style.cursor = "default";
+  button.style.opacity = "0.5";
+}
+function enableButtonStyles(buttonId) {
+  const button = document.getElementById(buttonId);
+
+  // Update button styles
+  button.style.pointerEvents = "auto";
+  button.style.cursor = "pointer";
+  button.style.opacity = "1";
+}
+function hideLoadingScreen() {
+  document.getElementById("loading-screen").style.display = "none";
+}
 fetchData();
 document.getElementById("loading-screen").style.display = "block";
 get(child(userRef, "preTestTaker"))
@@ -49,18 +68,31 @@ get(child(userRef, "preTestTaker"))
   .catch((error) => {
     console.error(error);
   });
-
-function disableButtonStyles(buttonId) {
-  const button = document.getElementById(buttonId);
-
-  // Update button styles
-  button.style.pointerEvents = "none";
-  button.style.textDecoration = "none";
-  button.style.cursor = "default";
-  button.style.opacity = "0.5";
+get(child(userRef, "postScore"))
+  .then(handlePostScore)
+  .catch((error) => {
+    console.error(error);
+  });
+get(child(userRef, "sumScore"))
+  .then(handleSumScore)
+  .catch((error) => {
+    console.error(error);
+  });
+function handlePostScore(snapshot) {
+  const postScoreVal = snapshot.val();
+  if (postScoreVal == "N/A") {
+    enableButtonStyles("post-quiz");
+  } else {
+    disableButtonStyles("post-quiz");
+  }
 }
-function hideLoadingScreen() {
-  document.getElementById("loading-screen").style.display = "none";
+function handleSumScore(snapshot) {
+  const sumScoreVal = snapshot.val();
+  if (sumScoreVal == "N/A") {
+    enableButtonStyles("summative-quiz");
+  } else {
+    disableButtonStyles("summative-quiz");
+  }
 }
 function handlePreTestTaker(snapshot) {
   const preTestTaker = snapshot.val();
@@ -86,20 +118,6 @@ function handlePreTestTaker(snapshot) {
     promptCard.classList.add("active");
   }
 }
-
-function handlePreScoreSnapshot(snapshot) {
-  const prescore = snapshot.val();
-
-  if (prescore == "N/A") {
-    hideLoadingScreen();
-    preScoreCard.classList.add("active");
-    submitPreScore.addEventListener("click", handlePreScoreInput);
-  } else {
-    hideLoadingScreen();
-    promptCard.classList.add("active");
-  }
-}
-
 function checkPreTestTaker(choice) {
   if (choice == "yes") {
     update(userRef, {
@@ -120,6 +138,20 @@ function checkPreTestTaker(choice) {
     promptCard.classList.add("active");
   }
 }
+
+function handlePreScoreSnapshot(snapshot) {
+  const prescore = snapshot.val();
+
+  if (prescore == "N/A") {
+    hideLoadingScreen();
+    preScoreCard.classList.add("active");
+    submitPreScore.addEventListener("click", handlePreScoreInput);
+  } else {
+    hideLoadingScreen();
+    promptCard.classList.add("active");
+  }
+}
+
 function handlePreScoreInput() {
   let isValid = true;
 
@@ -168,6 +200,7 @@ function generateQuizHTML(questions, score) {
     let choicesHTML = "";
     let selectedAnswerText = "";
     let correctAnsHeader = "";
+    let wrongAnsHeader = "";
     selectedAnswerText = question.answer.find((ans) => ans[selectedAns]);
     selectedAnswerText = selectedAnswerText
       ? selectedAnswerText[selectedAns]
@@ -194,6 +227,10 @@ function generateQuizHTML(questions, score) {
       <label for="${choices[j]}" class="secondary-text answer-label ${isCorrect} ${isSelected}" id="${choices[j]}_text">${choices[j]}</label>
     </li>
   `;
+    }
+    if (correctAnsHeader == "") {
+      wrongAnsHeader = `<h2 class ="wrong-answer-title primary-text text-center" > WRONG</h2>`;
+      correctAnsHeader = wrongAnsHeader;
     }
     quizHTML += `
       <div id="quiz-container-${questionNum}" class="card-containers quiz-container">
