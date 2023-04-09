@@ -31,7 +31,25 @@ import "../../styles/modules.scss";
       <li class="lessons--item">
         <img class="span-2-full" src="/images/img_module_1/m1_9.png" alt="" />
       </li>
+      <li class="lessons--item">
+        <div class="switch span-2-full">
+          <input type="checkbox" id="switch-btn" />
+          <label for="switch-btn">
+            <span class="switch-label secondary-text">Complete Module</span>
+          </label>
+        </div>
+
+        <div id="confirm-box" class="confirm-box">
+          <p>
+            Once you click Yes, you won't be able to switch it off. Are you
+            sure?
+          </p>
+          <button id="confirm-yes-btn">Yes</button>
+          <button id="confirm-no-btn">No</button>
+        </div>
+        <div id="overlay"></div>
+      </li>
     </ul>
   </main>
 </BaseLayout>
-<script src="../../scripts/login.js"></script>
+<script src="../../scripts/switch.js"></script>

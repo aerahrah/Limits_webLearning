@@ -28,7 +28,8 @@
     margin-bottom: 1rem;
   }
 }
-.card-container {
+.card-container,
+.confirm-box {
   &.active {
     transform: translate(-50%, -50%) scale(1);
   }

@@ -1,13 +1,13 @@
 @import "./components/imports";
 
 main {
-  height: 90vh;
+  height: 85vh;
 }
 .lessons {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  margin: 6rem 0 3rem;
+  margin-top: 6rem;
   padding: 0;
   width: min(90vw, 960px);
   &--item {

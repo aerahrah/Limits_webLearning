@@ -1,0 +1,88 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+  justify-self: center;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch label:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.switch input:checked + label {
+  background-color: $primary-color;
+}
+
+.switch input:checked + label:before {
+  transform: translateX(46px);
+}
+
+.switch label:active:before {
+  transform: scale(1.2);
+}
+.switch-label {
+  position: absolute;
+  bottom: max(-8vw, -70px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: #999;
+  line-height: 1.2;
+  width: 200px;
+  text-align: center;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none;
+}
+
+.confirm-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  transition: all 200ms;
+}
+
+#confirm-box p {
+  margin: 0 0 20px 0;
+}
+
+#confirm-box button {
+  margin-right: 10px;
+}
