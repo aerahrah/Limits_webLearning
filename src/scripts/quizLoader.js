@@ -219,7 +219,7 @@ function generateQuizHTML(questions, score) {
         choices.includes(selectedAnswerText) &&
         isCorrect == "correct-answer"
       ) {
-        correctAnsHeader = `<h2 class ="correct-answer-title primary-text text-center" > CORRECT</h2>`;
+        correctAnsHeader = `<h2 class ="quiz-container--correct primary-text text-center" > CORRECT</h2>`;
       }
       choicesHTML += `
     <li>
@@ -229,7 +229,7 @@ function generateQuizHTML(questions, score) {
   `;
     }
     if (correctAnsHeader == "") {
-      wrongAnsHeader = `<h2 class ="wrong-answer-title primary-text text-center" > WRONG</h2>`;
+      wrongAnsHeader = `<h2 class ="quiz-container--wrong primary-text text-center" > WRONG</h2>`;
       correctAnsHeader = wrongAnsHeader;
     }
     quizHTML += `
@@ -252,7 +252,7 @@ function generateQuizHTML(questions, score) {
     questionNum++;
   }
 
-  quizHTML = `<div class="quiz-container-title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}      <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Home</a
+  quizHTML = `<div class="quiz-container--title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}      <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Home</a
         >`;
 
   return quizHTML;

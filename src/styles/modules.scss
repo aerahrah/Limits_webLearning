@@ -6,10 +6,11 @@ main {
 .lessons {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
   margin-top: 6rem;
+  overflow-y: scroll;
   padding: 0;
   width: min(90vw, 960px);
+
   &--item {
     display: grid;
     grid-template-columns: min(44vw, 450px) min(44vw, 450px);
@@ -17,26 +18,30 @@ main {
     justify-items: center;
     align-items: center;
     margin-bottom: 4rem !important;
+
     &-header {
       display: flex;
       flex-direction: column;
       width: min(85vw, 900px);
+
       hr {
         background-color: $primary-color;
-        height: 4px;
         border: none;
-        opacity: 1;
         border-width: 0;
+        height: 4px;
         margin: 12px 0;
+        opacity: 1;
       }
+
       .primary-text {
         background-color: $font-secondary-color;
         color: #fff;
         font-size: min(8vw, 3rem);
-        text-align: center;
         margin: 0;
+        text-align: center;
       }
     }
+
     img,
     iframe {
       width: min(45vw, 400px);
@@ -55,21 +60,6 @@ main {
   .span-2,
   .span-2-full {
     grid-column: span 2;
-  }
-  &::-webkit-scrollbar {
-    width: 0.3em;
-    border-radius: 3rem;
-    background-color: #f5f5f5;
-  }
-  &::-webkit-scrollbar-thumb {
-    height: 0.2rem;
-    border-radius: 3rem;
-    background-color: $font-primary-color;
-  }
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.02);
-    border-radius: 10px;
-    background-color: #c8c5b5;
   }
 }
 

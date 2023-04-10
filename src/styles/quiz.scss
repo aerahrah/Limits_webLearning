@@ -12,33 +12,11 @@ main {
 
 #prescore-card {
   width: min(500px, 80vw);
-  input {
-    transition: all ease 80ms;
-    &[type="number"] {
-      display: block;
-      box-sizing: border-box;
-      margin: 0 auto;
-      margin-bottom: 20px;
-      padding: 4px;
-      width: min(350px, 80vw);
-      height: 40px;
-      border: none;
-      border-bottom: 1px solid #aaa;
-      font-family: "Roboto", sans-serif;
-      &:focus {
-        border-bottom: 6px solid $primary-color;
-      }
-    }
-    &[type="submit"] {
-      margin: 0 auto;
-    }
-  }
 }
 .prompt-card--container {
   display: flex;
   flex-direction: column;
-  padding: min(5vw, 2rem);
-  gap: 30px;
+  padding: min(4vw, 1.5rem);
   .btn {
     width: min(55vw, 300px);
   }
@@ -46,14 +24,12 @@ main {
 #pretesttaker-card {
   width: min(85vw, 600px);
   .btn {
-    margin-top: 2rem;
     width: min(55vw, 200px);
   }
 }
 #reminder-card {
   width: min(85vw, 600px);
   .btn {
-    margin-top: 2.5rem;
     width: min(55vw, 350px);
   }
 }
@@ -65,35 +41,34 @@ main {
   box-shadow: none;
   .quiz-container {
     border: none !important;
+
+    &--title {
+      width: min(70vw, 700px);
+      background-color: #dfdbca;
+      border-radius: 20px;
+      color: $font-black-color;
+    }
+    &--correct,
+    &--wrong {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      margin: 0;
+      width: 100%;
+    }
+    &--correct {
+      color: #dfdbca;
+      background-color: $primary-color;
+    }
+    &--wrong {
+      color: $red-font-color;
+      background-color: $red-dark-color;
+    }
   }
   .selectedAnsByUser {
     background-color: $red-dark-color;
     color: $red-font-color;
   }
-  .btn {
-    margin-top: 2rem;
-  }
-  .quiz-container-title {
-    width: min(70vw, 700px);
-    background-color: #dfdbca;
-    border-radius: 20px;
-    color: $font-black-color;
-  }
-  .correct-answer-title,
-  .wrong-answer-title {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    margin: 0;
-    width: 100%;
-  }
-  .correct-answer-title {
-    color: #dfdbca;
-    background-color: $primary-color;
-  }
-  .wrong-answer-title {
-    color: $red-font-color;
-    background-color: $red-dark-color;
-  }
+
   li {
     pointer-events: none;
   }
@@ -105,9 +80,6 @@ main {
   display: block;
   margin: min(4vw, 2rem) 0;
   width: min(85vw, 600px);
-  // &-body {
-  //
-  // }
 
   .correct-answer {
     background-color: $primary-color !important;
@@ -162,12 +134,3 @@ main {
 div.footer {
   display: none;
 }
-
-//   @media screen and (max-width: 992px) {
-//     main{
-//         margin: 0;
-//     }
-//     #quiz-container{
-//         margin: 3rem 0;
-//     }
-// }

@@ -1,23 +1,26 @@
-.scroll-container {
-  height: 80vh;
+.scroll-container,
+.lessons {
+  width: min(90vw, 960px);
   overflow-y: scroll;
-  width: min(90vw, 900px);
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &::-webkit-scrollbar {
     width: 0.3em;
-    border-radius: 3rem;
     background-color: #f5f5f5;
+    border-radius: 3rem;
   }
+
   &::-webkit-scrollbar-thumb {
     height: 0.2rem;
-    border-radius: 3rem;
     background-color: $font-primary-color;
+    border-radius: 3rem;
   }
+
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.02);
-    border-radius: 10px;
     background-color: #c8c5b5;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.02);
   }
 }

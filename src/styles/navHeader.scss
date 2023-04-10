@@ -1,71 +1,70 @@
 @import "./components/imports";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 nav.navbar {
   z-index: 999;
   position: fixed;
   width: 100vw;
-  background-color: #247974 !important;
+  background-color: $primary-color !important;
   height: min(50vh, 60px);
   padding: 0 !important;
-}
-.nav-header {
-  padding-left: 5rem;
-  background-color: #247974 !important;
 
-  .nav-link {
-    @include font-scale(4vw, 1.35rem);
-    font-family: "Poppins", sans-serif;
-    color: #f1f1f1 !important;
-    transition: 0.2s;
-  }
-  .nav-link:hover {
-    opacity: 0.8;
-  }
-}
+  .nav-header {
+    padding-left: 5rem;
+    background-color: $primary-color !important;
 
-li.nav-item {
-  margin-top: 1rem !important;
-  padding: 0.25rem 0 !important;
-}
+    .nav-link {
+      @include font-scale(4vw, 1.35rem);
+      font-family: "Poppins", sans-serif;
+      color: $font-white-color !important;
+      transition: 0.2s;
 
-.navbar-toggler {
-  border-color: rgb(255, 255, 255);
-  margin: 0.5rem auto;
-  &-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  }
-}
-
-@media screen and (min-width: 992px) {
-  li.nav-item {
-    transition: all ease 100ms;
-    &.active {
-      background-color: white;
-      border-top-right-radius: 24px;
-      border-top-left-radius: 24px;
-      .nav-link {
-        color: $primary-color !important;
+      &:hover {
+        opacity: 0.8;
       }
     }
   }
-}
 
-@media screen and (max-width: 992px) {
-  div {
-    &.nav-header {
-      padding: 0;
+  li.nav-item {
+    margin-top: 1rem !important;
+    padding: 0.25rem 0 !important;
+  }
+
+  .navbar-toggler {
+    border-color: rgb(255, 255, 255);
+    margin: 0.5rem auto;
+
+    &-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     }
   }
-  ul {
-    li:not(:last-child) {
-      margin: 0;
+
+  @media screen and (min-width: 992px) {
+    li.nav-item {
+      transition: all ease 100ms;
+
+      &.active {
+        background-color: $font-white-color;
+        border-top-right-radius: 24px;
+        border-top-left-radius: 24px;
+
+        .nav-link {
+          color: $primary-color !important;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    div.nav-header {
       padding: 0;
-      border-bottom: 1px solid $secondary-color;
+    }
+
+    ul {
+      li:not(:last-child) {
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid $secondary-color;
+      }
     }
   }
 }
