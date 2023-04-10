@@ -1,9 +1,12 @@
 import { defineConfig } from "astro/config";
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://cs-expo.tech",
+  site: "https://limits-learning.com",
   markdown: {
     drafts: true,
+  },
+  head: {
+    // add the Permissions-Policy header to allow the interest-cohort feature
+    "Permissions-Policy": "interest-cohort=()",
   },
 });
