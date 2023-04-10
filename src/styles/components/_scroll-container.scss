@@ -1,5 +1,6 @@
 .scroll-container,
 .lessons {
+  height: 85vh;
   width: min(90vw, 960px);
   overflow-y: scroll;
   display: flex;

@@ -51,6 +51,7 @@ saveData.addEventListener("click", (e) => {
         preScore: "N/A",
         sumScore: "N/A",
         preTestTaker: "N/A",
+        moduleCompleted: 0,
       });
 
       notifyClass.style.transform = "scale(1)";

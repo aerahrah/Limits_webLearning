@@ -373,9 +373,6 @@ async function fetchData() {
       if (currentQuiz < quizDataLength) {
         loadQuiz(quizData);
 
-        // if (currentQuiz === quizDataLength - 1) {
-        //   submitBtn.innerHTML = "See result";
-        // }
       } else {
         quizCard.classList.remove("active");
         scoreCard.classList.add("active");
