@@ -75,28 +75,33 @@ document.addEventListener("DOMContentLoaded", () => {
       saveSwitchState(`switch${i}`, switchBtn.checked);
     });
     if (switchBtn) {
-      getSwitchState?.(`switch${i}`, switchBtn);
+      getSwitchState?.(`switch${i}`, switchBtn, confirmYesBtn, confirmNoBtn);
     }
   }
 });
-function getSwitchState(id, switchBtn) {
+function getSwitchState(id, switchBtn, confirmYes, confirmNo) {
   // Get the user ID from Firebase Authentication
   const userRefSwitch = ref(realtimeDb, `users/${uid}/switchStates/`);
 
   // Save the switch button state in the Realtime Database
   get(child(userRefSwitch, id))
-    .then(handleGetSwitchState.bind(null, switchBtn))
+    .then(handleGetSwitchState.bind(null, switchBtn, confirmYes, confirmNo))
     .catch((error) => {
       console.error(error);
     });
 }
 
-function handleGetSwitchState(switchBtn, snapshot) {
+function handleGetSwitchState(switchBtn, confirmYes, confirmNo, snapshot) {
   const state = snapshot.val();
+  console.log(confirmYes);
   if (state === true) {
     switchBtn.checked = true;
+    confirmYes.disabled = true;
+    confirmNo.disabled = false;
   } else {
     switchBtn.checked = false;
+    confirmYes.disabled = false;
+    confirmNo.disabled = true;
   }
 }
 

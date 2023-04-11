@@ -45,3 +45,19 @@ get(child(userRef, "preScore"))
   .catch((error) => {
     console.error(error);
   });
+get(child(userRef, "moduleCompleted"))
+  .then((snapshot) => {
+    const moduleNum = snapshot.val();
+    console.log("Module num:", moduleNum);
+
+    if (moduleNum <= 13) {
+      var progressBar = document.getElementById("progress-bar");
+      var width = (moduleNum / 13) * 100;
+      progressBar.style.width = width + "%";
+      document.getElementById("progress-text").textContent =
+        "Completed Modules: " + moduleNum + "/13";
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+  });
