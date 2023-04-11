@@ -1,6 +1,7 @@
 {
-  "name": "Limits",
+  "name": "Limits_webLearning",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev --host",

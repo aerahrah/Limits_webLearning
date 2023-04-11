@@ -3,13 +3,11 @@ import { getDatabase, ref, child, update, get, set } from "firebase/database";
 
 const uid = localStorage.getItem("uid");
 const userRef = ref(realtimeDb, `users/${uid}`);
-
-const switchBtn1 = document.getElementById("switch-btn1");
-const overlay = document.getElementById("overlay");
-const confirmBox = document.getElementById("confirm-box");
-const confirmYesBtn = document.getElementById("confirm-yes-btn");
-const confirmNoBtn = document.getElementById("confirm-no-btn");
-
+let switchBtns = [];
+let confirmYesBtns = [];
+let confirmNoBtns = [];
+let overlay = [];
+let confirmBox = [];
 let moduleCompletedNumber;
 
 get(child(userRef, "moduleCompleted"))
@@ -18,54 +16,108 @@ get(child(userRef, "moduleCompleted"))
     console.error(error);
   });
 
+for (let i = 1; i <= 12; i++) {
+  switchBtns.push(document.getElementById(`switch-btn${i}`));
+  confirmYesBtns.push(document.getElementById(`confirm-yes-btn${i}`));
+  confirmNoBtns.push(document.getElementById(`confirm-no-btn${i}`));
+  overlay.push(document.getElementById(`overlay${i}`));
+  confirmBox.push(document.getElementById(`confirm-box${i}`));
+  console.log("finish");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  for (let i = 0; i <= 12; i++) {
+    setTimeout(() => {
+      switchEvent(
+        switchBtns[i],
+        overlay[i],
+        confirmBox[i],
+        confirmYesBtns[i],
+        confirmNoBtns[i],
+        i
+      );
+    }, 0);
+  }
+  function switchEvent(
+    switchBtn,
+    overlay,
+    confirmBox,
+    confirmYesBtn,
+    confirmNoBtn,
+    i
+  ) {
+    switchBtn?.addEventListener("click", () => {
+      overlay.style.display = "block";
+      confirmBox.classList.add("active");
+    });
+    console.log(switchBtn);
+    confirmYesBtn?.addEventListener("click", () => {
+      // Code to execute when the user confirms the action
+      console.log("click yes");
+      overlay.style.display = "none";
+      confirmBox.classList.remove("active");
+      switchBtn.checked = true;
+      confirmYesBtn.disabled = true;
+      confirmNoBtn.disabled = false;
+      updateModuleCompletedNumber(1);
+      saveSwitchState(`switch${i}`, switchBtn.checked);
+    });
+
+    confirmNoBtn?.addEventListener("click", () => {
+      console.log(switchBtn);
+      console.log("click no");
+      overlay.style.display = "none";
+      confirmBox.classList.remove("active");
+      switchBtn.checked = false;
+      confirmYesBtn.disabled = false;
+      confirmNoBtn.disabled = true;
+      updateModuleCompletedNumber(-1);
+      saveSwitchState(`switch${i}`, switchBtn.checked);
+    });
+    if (switchBtn) {
+      getSwitchState?.(`switch${i}`, switchBtn);
+    }
+  }
+});
+function getSwitchState(id, switchBtn) {
+  // Get the user ID from Firebase Authentication
+  const userRefSwitch = ref(realtimeDb, `users/${uid}/switchStates/`);
+
+  // Save the switch button state in the Realtime Database
+  get(child(userRefSwitch, id))
+    .then(handleGetSwitchState.bind(null, switchBtn))
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+function handleGetSwitchState(switchBtn, snapshot) {
+  const state = snapshot.val();
+  if (state === true) {
+    switchBtn.checked = true;
+  } else {
+    switchBtn.checked = false;
+  }
+}
+
 function handleModuleCompleted(snapshot) {
   moduleCompletedNumber = snapshot.val();
 }
-switchBtn1.addEventListener("click", () => {
-  overlay.style.display = "block";
-  confirmBox.classList.add("active");
-});
 
-confirmYesBtn.addEventListener("click", () => {
-  // Code to execute when the user confirms the action
-  overlay.style.display = "none";
-  confirmBox.classList.remove("active");
-  switchBtn1.checked = true;
-  moduleCompletedNumber += 1;
+function updateModuleCompletedNumber(incr) {
+  moduleCompletedNumber += incr;
+  console.log(moduleCompletedNumber);
   const moduleCompletedAdd = {
     moduleCompleted: moduleCompletedNumber,
   };
-  confirmYesBtn.disabled = true;
-  confirmNoBtn.disabled = false;
-  saveSwitchState("switch1", switchBtn1.checked);
   update(userRef, moduleCompletedAdd)
     .then(() => {
-      console.log("New child node added successfully!");
+      console.log("Module completed number updated successfully!");
     })
     .catch((error) => {
-      console.error("Error adding new child node: ", error);
+      console.error("Error updating module completed number: ", error);
     });
-});
-
-confirmNoBtn.addEventListener("click", () => {
-  overlay.style.display = "none";
-  confirmBox.classList.remove("active");
-  switchBtn1.checked = false;
-  moduleCompletedNumber -= 1;
-  confirmYesBtn.disabled = false;
-  confirmNoBtn.disabled = true;
-  const moduleCompletedAdd = {
-    moduleCompleted: moduleCompletedNumber,
-  };
-  saveSwitchState("switch1", switchBtn1.checked);
-  update(userRef, moduleCompletedAdd)
-    .then(() => {
-      console.log("New child node added successfully!");
-    })
-    .catch((error) => {
-      console.error("Error adding new child node: ", error);
-    });
-});
+}
 
 function saveSwitchState(id, state) {
   // Get the user ID from Firebase Authentication
@@ -80,26 +132,3 @@ function saveSwitchState(id, state) {
       console.error("Error adding new child node: ", error);
     });
 }
-function getSwitchState(id) {
-  // Get the user ID from Firebase Authentication
-  const userRefSwitch = ref(realtimeDb, `users/${uid}/switchStates/`);
-
-  // Save the switch button state in the Realtime Database
-  get(child(userRefSwitch, id))
-    .then(handleGetSwitchState)
-    .catch((error) => {
-      console.error(error);
-    });
-}
-
-function handleGetSwitchState(snapshot) {
-  const state = snapshot.val();
-  if (state === true) {
-    switchBtn1.checked = true;
-  } else {
-    // Otherwise, uncheck the switch input
-    switchBtn1.checked = false;
-  }
-}
-
-getSwitchState("switch1");
