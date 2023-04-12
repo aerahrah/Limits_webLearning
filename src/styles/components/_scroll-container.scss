@@ -25,3 +25,16 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.02);
   }
 }
+#practice-card {
+  div {
+    padding: min(1.5vw, 1rem);
+  }
+  .scroll-container {
+    height: 60vh;
+    width: min(80vw, 500px);
+  }
+  &.card-container {
+    border: none;
+    padding: min(5vw, 1rem);
+  }
+}
