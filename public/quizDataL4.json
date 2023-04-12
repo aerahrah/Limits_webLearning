@@ -1,0 +1,58 @@
+[
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l4/L4_Q1.png",
+        "solution":"",
+        "answer": [
+            {"a": "0, +∞, -∞", "correct": false},
+            {"b": "+∞, 0, -∞", "correct": false},
+            {"c": "0, -∞, +∞", "correct": true},
+            {"d": "-∞, +∞, 0", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l4/L4_Q2.png",
+        "solution":"",
+        "answer": [
+            {"a": "determinate form", "correct": true},
+            {"b": "indeterminate form", "correct": false},
+            {"c": "indeterminate form of type (0/0)", "correct": false},
+            {"d": "none of the above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l4/L4_Q3.png",
+       
+        "answer": [
+            {"a": "determinate form", "correct": false},
+            {"b": "indeterminate form", "correct": true},
+            {"c": "indeterminate form of type (0/0)", "correct": false},
+            {"d": "none of the above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l4/L4_Q4.png",
+        "solution":"",
+        "answer": [
+            {"a": "determinate form", "correct": false},
+            {"b": "indeterminate form", "correct": false},
+            {"c": "indeterminate form of type (0/0)", "correct": true},
+            {"d": "none of the above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l4/L4_Q5.png",
+        "solution":"/images/img_pq_l4/L4_Q5_S.png",
+        "answer": [
+            {"a": "0", "correct": false},
+            {"b": "1", "correct": false},
+            {"c": "+∞", "correct": true},
+            {"d": "-∞", "correct": false}
+        ]
+    }
+   
+]

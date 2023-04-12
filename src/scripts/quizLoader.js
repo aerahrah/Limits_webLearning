@@ -12,10 +12,16 @@ const preScoreCard = document.getElementById("prescore-card");
 const preTestTakerCard = document.getElementById("pretesttaker-card");
 const resultContainer = document.getElementById("result-container");
 const viewResultBtn = document.getElementById("view-result");
-
+const practiceCard = document.getElementById("practice-card");
 const questionEl = document.querySelector(".quiz-container-header");
 const quizImage = document.getElementById("quiz-image");
 const scoreText = document.querySelector(".score-text");
+
+const p_q1 = document.getElementById("p1-quiz");
+const p_q2 = document.getElementById("p2-quiz");
+const p_q3 = document.getElementById("p3-quiz");
+const p_q4 = document.getElementById("p4-quiz");
+const p_q5 = document.getElementById("p5-quiz");
 
 const preTestNoBtn = document.getElementById("no-pretest");
 const preTestYesBtn = document.getElementById("yes-pretest");
@@ -25,6 +31,7 @@ const practiceQuizBtn = document.getElementById("practice-quiz");
 const realQuizBtn = document.getElementById("real-quiz");
 const submitBtn = document.getElementById("submit");
 const answerEls = document.querySelectorAll(".answer");
+
 const a_text = document.getElementById("a_text");
 const b_text = document.getElementById("b_text");
 const c_text = document.getElementById("c_text");
@@ -36,8 +43,6 @@ let input = document.getElementById("number-input");
 // Quiz data
 const selectedAnswers = [];
 let quizDataSave;
-let sumDataSave;
-let quizDataThreeSave;
 let optionQuiz;
 let currentQuiz = 0;
 let score = 0;
@@ -262,17 +267,40 @@ async function fetchData() {
   await Promise.all([
     fetch("/quizData.json").then((response) => response.json()),
     fetch("/quizDataSum.json").then((response) => response.json()),
+    fetch("/quizDataL1.json").then((response) => response.json()),
+    fetch("/quizDataL2.json").then((response) => response.json()),
+    fetch("/quizDataL3.json").then((response) => response.json()),
+    fetch("/quizDataL4.json").then((response) => response.json()),
+    fetch("/quizDataL5.json").then((response) => response.json()),
   ]).then((results) => {
     const data = results[0];
     const summativeData = results[1];
+    const pQ1 = results[2];
+    const pQ2 = results[3];
+    const pQ3 = results[4];
+    const pQ4 = results[5];
+    const pQ5 = results[6];
+
     // Event listeners
 
+    p_q1.addEventListener("click", initializeQuiz("randomizePQ1"));
+    p_q2.addEventListener("click", initializeQuiz("randomizePQ2"));
+    p_q3.addEventListener("click", initializeQuiz("randomizePQ3"));
+    p_q4.addEventListener("click", initializeQuiz("randomizePQ4"));
+    p_q5.addEventListener("click", initializeQuiz("randomizePQ5"));
+    realQuizBtn.addEventListener("click", () => {
+      promptCard.classList.remove("active");
+      reminderCard.classList.add("active");
+    });
     postQuizBtn.addEventListener("click", initializeQuiz("randomizeWhole"));
     summativeQuizBtn.addEventListener(
       "click",
       initializeQuiz("randomizeWholeSum")
     );
-    practiceQuizBtn.addEventListener("click", initializeQuiz("randomizeThree"));
+    practiceQuizBtn.addEventListener("click", () => {
+      promptCard.classList.remove("active");
+      practiceCard.classList.add("active");
+    });
     realQuizBtn.addEventListener("click", () => {
       promptCard.classList.remove("active");
       reminderCard.classList.add("active");
@@ -288,25 +316,29 @@ async function fetchData() {
     // Functions
 
     function initializeQuiz(option) {
+      const optionsData = {
+        randomizeThree: { data: data, count: 3 },
+        randomizeWhole: { data: data },
+        randomizeWholeSum: { data: summativeData, count: 15 },
+        randomizePQ1: { data: pQ1, count: 3 },
+        randomizePQ2: { data: pQ2, count: 3 },
+        randomizePQ3: { data: pQ3, count: 3 },
+        randomizePQ4: { data: pQ4, count: 3 },
+        randomizePQ5: { data: pQ5, count: 3 },
+      };
+
       return () => {
         disableButtonStyles("navbar-menu");
         reminderCard.classList.remove("active");
-        promptCard.classList.remove("active");
+        practiceCard.classList.remove("active");
         quizCard.classList.add("active");
-        switch (option) {
-          case "randomizeThree":
-            loadQuiz(stableRandomizer(data, "randomizeThree", 3));
-            break;
-          case "randomizeWholeSum":
-            loadQuiz(stableRandomizer(summativeData, "randomizeWholeSum", 15));
-            break;
-          case "randomizeWhole":
-            loadQuiz(stableRandomizer(data, "randomizeWhole"));
-            break;
-          default:
-            break;
+
+        const optionData = optionsData[option];
+
+        if (optionData) {
+          loadQuiz(stableRandomizer(optionData.data, optionData.count));
+          optionQuiz = option;
         }
-        optionQuiz = option;
       };
     }
 
@@ -330,15 +362,11 @@ async function fetchData() {
       answerEls.forEach((answerEl) => {
         if (answerEl.checked) {
           const answerId = answerEl.id;
-
-          console.log(answerId);
-          console.log(currentQuiz);
           const correctAnswers = quizdata[currentQuiz].answer.filter(
             (a) => a.correct
           );
-          console.log(correctAnswers);
+
           const isCorrect = correctAnswers.some((a) => a[answerId]);
-          console.log(isCorrect);
           selectedAnswer = isCorrect ? true : false;
           selectedAnswers.push({ answerID: answerId });
         }
@@ -348,22 +376,9 @@ async function fetchData() {
     }
 
     function nextQuestion(option) {
-      let quizData;
+      let quizData = quizDataSave;
 
-      switch (option) {
-        case "randomizeThree":
-          quizData = quizDataThreeSave;
-          break;
-        case "randomizeWhole":
-          quizData = quizDataSave;
-          break;
-        case "randomizeWholeSum":
-          quizData = sumDataSave;
-          break;
-        default:
-          quizData = null;
-          break;
-      }
+      console.log(option);
       const answer = getSelected(quizData);
       score += answer === true ? 1 : 0;
 
@@ -372,7 +387,6 @@ async function fetchData() {
 
       if (currentQuiz < quizDataLength) {
         loadQuiz(quizData);
-
       } else {
         quizCard.classList.remove("active");
         scoreCard.classList.add("active");
@@ -384,29 +398,20 @@ async function fetchData() {
         const scoreAddSum = {
           sumScore: score,
         };
-        if (option === "randomizeWhole") {
-          update(userRef, scoreAdd)
+
+        if (option === "randomizeWhole" || option === "randomizeWholeSum") {
+          const updatePromise =
+            option === "randomizeWhole"
+              ? update(userRef, scoreAdd)
+              : update(userRef, scoreAddSum);
+          updatePromise
             .then(() => {
               console.log("New child node added successfully!");
             })
             .catch((error) => {
               console.error("Error adding new child node: ", error);
             });
-          viewResultBtn.addEventListener("click", () => {
-            scoreCard.classList.remove("active");
-            resultContainer.classList.add("active");
-            resultContainer.innerHTML = generateQuizHTML(quizData, score);
-          });
-        }
-        if (option === "randomizeWholeSum") {
-          update(userRef, scoreAddSum)
-            .then(() => {
-              console.log("New child node added successfully!");
-            })
-            .catch((error) => {
-              console.error("Error adding new child node: ", error);
-            });
-          // console.log(generateMultipleQuizzes(15, quizData));
+
           viewResultBtn.addEventListener("click", () => {
             scoreCard.classList.remove("active");
             resultContainer.classList.add("active");
@@ -414,17 +419,24 @@ async function fetchData() {
           });
         }
 
-        if (option === "randomizeThree") {
+        if (
+          option === "randomizeThree" ||
+          option === "randomizePQ1" ||
+          option === "randomizePQ2" ||
+          option === "randomizePQ3" ||
+          option === "randomizePQ4" ||
+          option === "randomizePQ5"
+        ) {
           scoreText.innerHTML = `${scoreMessage}
-            <button class="btn btn--green secondary-text" onclick="location.reload()">Reload</button>
-          `;
+        <button class="btn btn--green secondary-text" onclick="location.reload()">Reload</button>
+      `;
         } else {
           scoreText.innerHTML = scoreMessage;
         }
       }
     }
 
-    function stableRandomizer(arr, option, count = 20) {
+    function stableRandomizer(arr, count = 20) {
       const len = arr.length;
       const randomizeQuiz = [];
 
@@ -445,18 +457,10 @@ async function fetchData() {
           randomizeQuiz[i],
         ];
       }
-      switch (option) {
-        case "randomizeThree":
-          quizDataThreeSave = randomizeQuiz;
-          return randomizeQuiz;
-        case "randomizeWhole":
-          quizDataSave = randomizeQuiz;
-          return randomizeQuiz;
-        case "randomizeWholeSum":
-          sumDataSave = randomizeQuiz;
-          return randomizeQuiz;
-        default:
-          return null;
+
+      if (randomizeQuiz) {
+        quizDataSave = randomizeQuiz;
+        return randomizeQuiz;
       }
     }
   });
