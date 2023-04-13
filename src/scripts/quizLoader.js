@@ -119,7 +119,6 @@ function handlePreTestTaker(snapshot) {
       });
   } else if (preTestTaker == "no") {
     hideLoadingScreen();
-    disableButtonStyles("post-quiz");
     promptCard.classList.add("active");
   }
 }
@@ -139,6 +138,7 @@ function checkPreTestTaker(choice) {
     update(userRef, {
       preTestTaker: "no",
     });
+    disableButtonStyles("post-quiz");
     preTestTakerCard.classList.remove("active");
     promptCard.classList.add("active");
   }

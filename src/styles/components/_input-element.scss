@@ -22,6 +22,7 @@ input {
     width: $input-width;
     height: $input-height;
     border: none;
+    border-bottom: 2px solid $primary-black;
 
     &:focus {
       border-bottom: 4px solid $primary-color;

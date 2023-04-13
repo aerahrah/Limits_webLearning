@@ -25,25 +25,25 @@ $text-font: "poppins", sans-serif;
   letter-spacing: 5px;
 
   // Responsive font size
-  font-size: min(26vw, 12.5rem);
+  font-size: min(34vw, 12.5rem);
 }
 
 .secondary-title {
   margin-top: 3rem;
-  @include font-scale(22vw, 10rem);
+  @include font-scale(26vw, 10rem);
 }
 
 .primary-text {
-  @include font-scale(6vw, 1.75rem);
+  @include font-scale(8vw, 1.75rem);
 }
 
 .secondary-text {
-  @include font-scale(4vw, 1.5rem);
+  @include font-scale(5.5vw, 1.5rem);
   font-family: $text-font;
 }
 
 .tertiary-text {
-  @include font-scale(3vw, 1.25rem);
+  @include font-scale(5vw, 1.25rem);
   font-family: $text-font;
 }
 
