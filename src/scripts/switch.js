@@ -8,6 +8,7 @@ let confirmYesBtns = [];
 let confirmNoBtns = [];
 let overlay = [];
 let confirmBox = [];
+let circleIds = [];
 let moduleCompletedNumber;
 
 get(child(userRef, "moduleCompleted"))
@@ -22,7 +23,7 @@ for (let i = 1; i <= 12; i++) {
   confirmNoBtns.push(document.getElementById(`confirm-no-btn${i}`));
   overlay.push(document.getElementById(`overlay${i}`));
   confirmBox.push(document.getElementById(`confirm-box${i}`));
-  console.log("finish");
+  circleIds.push(document.getElementById(`circle-icon${i}`));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
