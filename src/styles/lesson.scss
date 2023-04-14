@@ -86,12 +86,11 @@ main {
   }
 }
 .fa-regular {
+  font-size: min(5vw, 30px);
   &.fa-circle-check {
     color: $primary-color;
-    font-size: 30px;
   }
   &.fa-circle {
     color: $primary-black-2;
-    font-size: min(5vw, 30px);
   }
 }

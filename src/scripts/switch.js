@@ -8,7 +8,6 @@ let confirmYesBtns = [];
 let confirmNoBtns = [];
 let overlay = [];
 let confirmBox = [];
-let circleIds = [];
 let moduleCompletedNumber;
 
 get(child(userRef, "moduleCompleted"))
