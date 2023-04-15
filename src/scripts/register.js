@@ -33,12 +33,11 @@ const database = getDatabase(app);
 const auth = getAuth();
 
 saveData.addEventListener("click", (e) => {
-  let notifyClass = document.querySelector(".notify");
+  let errorMessages = document.querySelector(".notify");
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let username = document.getElementById("username").value;
 
-  removeActiveClasses();
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -54,27 +53,27 @@ saveData.addEventListener("click", (e) => {
         moduleCompleted: 0,
       });
 
-      notifyClass.style.transform = "scale(1)";
-      notifyClass.classList.add("notify-success");
-      notifyClass.textContent = "Successfully created user!";
-
-      setTimeout(() => {
-        notifyClass.style.transform = "scale(0)";
-      }, 3000);
+      displayTextMessage("Successfully created user!", "notify-success");
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       const cleanedErrorMessage = errorMessage.replace("Firebase: ", "");
-      notifyClass.style.transform = "scale(1)";
-      notifyClass.textContent = cleanedErrorMessage;
-      notifyClass.classList.add("notify-failed");
-      setTimeout(() => {
-        notifyClass.style.transform = "scale(0)";
-      }, 3000);
+      displayTextMessage(cleanedErrorMessage, "notify-failed");
     });
-  function removeActiveClasses() {
-    notifyClass.classList.remove("notify-success");
-    notifyClass.classList.remove("notify-failed");
+  function displayTextMessage(errorMessageText, errorMessageClass) {
+    errorMessages.textContent = errorMessageText;
+    errorMessages.classList.remove("notify-success", "notify-failed");
+    errorMessages.classList.add(errorMessageClass);
+    errorMessages.style.display = "block";
+    setTimeout(() => {
+      errorMessages.style.transform = "scale(1)";
+    }, 200);
+    setTimeout(() => {
+      errorMessages.style.transform = "scale(0)";
+      setTimeout(() => {
+        errorMessages.style.display = "none";
+      }, 300);
+    }, 2000);
   }
 });
