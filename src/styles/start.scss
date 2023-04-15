@@ -57,3 +57,21 @@ p {
     color: #f1f1f1;
   }
 }
+#vid-container {
+  z-index: 999;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 10, 10, 0.5);
+  z-index: 10;
+  display: none;
+}
+
+iframe {
+  width: min(80vw, 768px);
+  height: min(80vw, 400px);
+}

@@ -5,6 +5,9 @@ import { getDatabase, ref, child, get } from "firebase/database";
 const usernameID = document.getElementById("username");
 const postScoreID = document.getElementById("post-score");
 const preScoreID = document.getElementById("pre-score");
+const practicQuizID = document.getElementById("numOfQuizTaken");
+const sumScoreID = document.getElementById("sum-score");
+const preTestTakerID = document.getElementById("preTestTaker");
 // Do something with the UID, such as storing it in a database
 const uid = localStorage.getItem("uid");
 console.log(uid);
@@ -14,10 +17,10 @@ const promises = [];
 document.getElementById("loading-screen").style.display = "block";
 // Fetch data from Firebase and push the promises to the array
 promises.push(
-  get(child(userRef, "email"))
+  get(child(userRef, "sumScore"))
     .then((snapshot) => {
-      const email = snapshot.val();
-      console.log("Email:", email);
+      const sumScore = snapshot.val();
+      sumScoreID.innerHTML = sumScore;
     })
     .catch((error) => {
       console.error(error);
@@ -28,7 +31,6 @@ promises.push(
   get(child(userRef, "username"))
     .then((snapshot) => {
       const username = snapshot.val();
-      console.log("Username:", username);
       usernameID.innerHTML = username;
     })
     .catch((error) => {
@@ -40,7 +42,6 @@ promises.push(
   get(child(userRef, "postScore"))
     .then((snapshot) => {
       const score = snapshot.val();
-      console.log("postscore:", score);
       postScoreID.innerHTML = score;
     })
     .catch((error) => {
@@ -52,8 +53,17 @@ promises.push(
   get(child(userRef, "preScore"))
     .then((snapshot) => {
       const score = snapshot.val();
-      console.log("prescore:", score);
       preScoreID.innerHTML = score;
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+);
+promises.push(
+  get(child(userRef, "preTestTaker"))
+    .then((snapshot) => {
+      const preTestTakerVal = snapshot.val();
+      preTestTakerID.innerHTML = preTestTakerVal;
     })
     .catch((error) => {
       console.error(error);
