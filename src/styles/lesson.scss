@@ -12,7 +12,7 @@ main {
   width: min(90vw, 960px);
 
   font-weight: 600;
-  row-gap: min(10vw, 50px);
+  gap: min(10vw, 50px);
   &--item {
     position: relative;
     display: flex;

@@ -197,7 +197,9 @@ function displayTextMessage(errorMessageText, errorMessageClass) {
 
 function generateQuizHTML(questions, score) {
   let quizHTML = "";
+  let quizSolutionHTML = "";
   let questionNum = 0;
+  let solutionContainer = [];
 
   for (let i = 0; i < questions.length; i++) {
     let question = questions[i];
@@ -206,6 +208,7 @@ function generateQuizHTML(questions, score) {
     let selectedAnswerText = "";
     let correctAnsHeader = "";
     let wrongAnsHeader = "";
+    solutionContainer.push(question.solution);
     selectedAnswerText = question.answer.find((ans) => ans[selectedAns]);
     selectedAnswerText = selectedAnswerText
       ? selectedAnswerText[selectedAns]
@@ -254,10 +257,18 @@ function generateQuizHTML(questions, score) {
         </div>
       </div>
     `;
+    quizSolutionHTML += `
+    <div class="img-solution-container--item">
+              <h2 class="primary-text quiz-container-header"> Question ${
+                i + 1
+              }</h2>
+      <img src="${solutionContainer[i]}" />
+    </div>
+    `;
     questionNum++;
   }
 
-  quizHTML = `<div class="quiz-container--title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}      <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Home</a
+  quizHTML = `<div class="quiz-container--title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}    <div class="quiz-container--title quiz-container--title--1 primary-text text-center">Solutions </div><div class="img-solution-container">${quizSolutionHTML}      </div>     <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Home</a
         >`;
 
   return quizHTML;
@@ -332,7 +343,6 @@ async function fetchData() {
         reminderCard.classList.remove("active");
         practiceCard.classList.remove("active");
         quizCard.classList.add("active");
-
         const optionData = optionsData[option];
 
         if (optionData) {
@@ -430,6 +440,11 @@ async function fetchData() {
           scoreText.innerHTML = `${scoreMessage}
         <button class="btn btn--green secondary-text" onclick="location.reload()">Reload</button>
       `;
+          viewResultBtn.addEventListener("click", () => {
+            scoreCard.classList.remove("active");
+            resultContainer.classList.add("active");
+            resultContainer.innerHTML = generateQuizHTML(quizData, score);
+          });
         } else {
           scoreText.innerHTML = scoreMessage;
         }
