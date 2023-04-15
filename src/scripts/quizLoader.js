@@ -49,19 +49,22 @@ let score = 0;
 
 function disableButtonStyles(buttonId) {
   const button = document.getElementById(buttonId);
-
-  // Update button styles
-  button.style.pointerEvents = "none";
-  button.style.cursor = "default";
-  button.style.opacity = "0.5";
+  // Update button styles if button is not null
+  if (button) {
+    button.style.pointerEvents = "none";
+    button.style.cursor = "default";
+    button.style.opacity = "0.5";
+  }
 }
 function enableButtonStyles(buttonId) {
   const button = document.getElementById(buttonId);
 
-  // Update button styles
-  button.style.pointerEvents = "auto";
-  button.style.cursor = "pointer";
-  button.style.opacity = "1";
+  // Update button styles if button is not null
+  if (button) {
+    button.style.pointerEvents = "auto";
+    button.style.cursor = "pointer";
+    button.style.opacity = "1";
+  }
 }
 function hideLoadingScreen() {
   document.getElementById("loading-screen").style.display = "none";
@@ -119,7 +122,7 @@ function handlePreTestTaker(snapshot) {
       });
   } else if (preTestTaker == "no") {
     hideLoadingScreen();
-    promptCard.classList.add("active");
+    promptCard?.classList.add("active");
   }
 }
 function checkPreTestTaker(choice) {
@@ -294,34 +297,34 @@ async function fetchData() {
 
     // Event listeners
 
-    p_q1.addEventListener("click", initializeQuiz("randomizePQ1"));
-    p_q2.addEventListener("click", initializeQuiz("randomizePQ2"));
-    p_q3.addEventListener("click", initializeQuiz("randomizePQ3"));
-    p_q4.addEventListener("click", initializeQuiz("randomizePQ4"));
-    p_q5.addEventListener("click", initializeQuiz("randomizePQ5"));
-    realQuizBtn.addEventListener("click", () => {
+    p_q1?.addEventListener("click", initializeQuiz("randomizePQ1"));
+    p_q2?.addEventListener("click", initializeQuiz("randomizePQ2"));
+    p_q3?.addEventListener("click", initializeQuiz("randomizePQ3"));
+    p_q4?.addEventListener("click", initializeQuiz("randomizePQ4"));
+    p_q5?.addEventListener("click", initializeQuiz("randomizePQ5"));
+    realQuizBtn?.addEventListener("click", () => {
       promptCard.classList.remove("active");
       reminderCard.classList.add("active");
     });
-    postQuizBtn.addEventListener("click", initializeQuiz("randomizeWhole"));
-    summativeQuizBtn.addEventListener(
+    postQuizBtn?.addEventListener("click", initializeQuiz("randomizeWhole"));
+    summativeQuizBtn?.addEventListener(
       "click",
       initializeQuiz("randomizeWholeSum")
     );
-    practiceQuizBtn.addEventListener("click", () => {
+    practiceQuizBtn?.addEventListener("click", () => {
       promptCard.classList.remove("active");
       practiceCard.classList.add("active");
     });
-    realQuizBtn.addEventListener("click", () => {
+    realQuizBtn?.addEventListener("click", () => {
       promptCard.classList.remove("active");
       reminderCard.classList.add("active");
     });
     answerEls.forEach((answerEl) => {
-      answerEl.addEventListener("change", () => {
+      answerEl?.addEventListener("change", () => {
         submitBtn.disabled = false;
       });
     });
-    submitBtn.addEventListener("click", () => {
+    submitBtn?.addEventListener("click", () => {
       nextQuestion(optionQuiz);
     });
     // Functions

@@ -22,7 +22,6 @@ for (let i = 1; i <= 12; i++) {
   confirmNoBtns.push(document.getElementById(`confirm-no-btn${i}`));
   overlay.push(document.getElementById(`overlay${i}`));
   confirmBox.push(document.getElementById(`confirm-box${i}`));
-  circleIds.push(document.getElementById(`circle-icon${i}`));
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -28,9 +28,20 @@ const fetchData = async () => {
         const childNode = { name: circleName, value: circleValue };
         switchStatesNode.push(childNode);
       });
+
+      switchStatesNode.sort((a, b) => {
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        const numA = Number(nameA.match(/\d+/)[0]);
+        const numB = Number(nameB.match(/\d+/)[0]);
+        if (numA === numB) {
+          return nameA.localeCompare(nameB);
+        } else {
+          return numA - numB;
+        }
+      });
       for (let i = 0; i < switchStatesNode.length; i++) {
         const childNode = switchStatesNode[i];
-        const childName = childNode.name;
         const childValue = childNode.value;
         if (childValue == true) {
           circleIds[i].classList.remove("fa-circle");
@@ -52,9 +63,6 @@ const fetchData = async () => {
 (async () => {
   try {
     const switchStatesNode = await fetchData();
-    // Log the switchStatesNode array or perform DOM operations here
-    console.log(switchStatesNode);
-    // Load the DOM or execute other code that depends on the fetched data
   } catch (error) {
     console.error(error);
   }
