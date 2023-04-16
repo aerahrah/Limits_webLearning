@@ -16,7 +16,7 @@ get(child(userRef, "moduleCompleted"))
     console.error(error);
   });
 
-for (let i = 1; i <= 12; i++) {
+for (let i = 1; i <= 13; i++) {
   switchBtns.push(document.getElementById(`switch-btn${i}`));
   confirmYesBtns.push(document.getElementById(`confirm-yes-btn${i}`));
   confirmNoBtns.push(document.getElementById(`confirm-no-btn${i}`));
@@ -25,7 +25,7 @@ for (let i = 1; i <= 12; i++) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  for (let i = 0; i <= 12; i++) {
+  for (let i = 0; i <= 13; i++) {
     setTimeout(() => {
       switchEvent(
         switchBtns[i],

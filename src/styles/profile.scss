@@ -121,8 +121,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: min(35vw, 180px);
-  height: min(35vw, 150px);
+  width: min(35vw, 190px);
+  height: min(35vw, 190px);
   border-radius: 20px;
   transition: all 150ms;
   padding: 1vw 5vw;
@@ -139,7 +139,9 @@ main {
   }
   p {
     text-align: center;
+    margin-top: 0.5rem;
     width: min(35vw, 150px);
+    font-size: min(3.25vw, 1.25rem);
   }
 }
 

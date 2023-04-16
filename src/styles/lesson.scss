@@ -1,15 +1,15 @@
 @import "./components/imports";
 
 main {
-  height: 85vh;
+  height: 90vh;
 }
 .lessons {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  margin-top: 6rem;
+  margin-top: min(20vw, 6rem);
   padding: 0;
-  width: min(90vw, 960px);
+  width: min(100vw, 960px);
 
   font-weight: 600;
   gap: min(10vw, 50px);

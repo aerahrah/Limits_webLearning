@@ -1,15 +1,15 @@
 @import "./components/imports";
 
 main {
-  height: 85vh;
+  height: 90vh;
 }
 .lessons {
   display: flex;
   flex-direction: column;
-  margin-top: 6rem;
+  margin-top: min(20vw, 6rem);
   overflow-y: scroll;
   padding: 0;
-  width: min(90vw, 960px);
+  width: min(100vw, 960px);
 
   &--item {
     display: grid;
@@ -22,7 +22,7 @@ main {
     &-header {
       display: flex;
       flex-direction: column;
-      width: min(85vw, 900px);
+      width: min(90vw, 900px);
 
       hr {
         background-color: $primary-color;
@@ -44,13 +44,13 @@ main {
 
     img,
     iframe {
-      width: min(45vw, 400px);
+      width: min(47.5vw, 450px);
       height: 100%;
       &.span-2 {
-        width: min(45vw, 400px);
+        width: min(47.5vw, 450px);
       }
       &.span-2-full {
-        width: min(85vw, 900px);
+        width: min(90vw, 900px);
       }
     }
     iframe {
@@ -69,13 +69,13 @@ main {
       grid-template-columns: 1fr;
       margin-bottom: 3rem !important;
       &-header {
-        width: min(85vw, 900px);
+        width: min(90vw, 900px);
       }
       img,
       iframe {
-        width: min(85vw, 900px);
+        width: min(90vw, 900px);
         &.span-2 {
-          width: min(85vw, 900px);
+          width: min(90vw, 900px);
         }
       }
     }
