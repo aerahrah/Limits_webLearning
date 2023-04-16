@@ -2,9 +2,9 @@ import { auth, db, realtimeDb } from "./firebaseDB";
 import { getDatabase, ref, update } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-const login = document.getElementById("login");
-
-login.addEventListener("click", async (event) => {
+const loginBtn = document.getElementById("login-btn");
+const logoutBtn = document.getElementById("logout-btn");
+loginBtn?.addEventListener("click", async (event) => {
   event.preventDefault();
 
   let errorMessages = document.querySelector(".notify");
@@ -58,5 +58,22 @@ login.addEventListener("click", async (event) => {
         errorMessages.style.display = "none";
       }, 300);
     }, 2000);
+  }
+});
+logoutBtn?.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  try {
+    // Sign out the user using Firebase Auth
+    await auth.signOut();
+
+    // Clear local storage related to user's authentication state
+    localStorage.removeItem("uid");
+    console.log(localStorage);
+
+    // Redirect to the login page
+    location.href = "/login"; // Replace with the desired URL for the login page
+  } catch (error) {
+    console.log(error);
   }
 });
