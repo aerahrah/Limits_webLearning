@@ -22,6 +22,8 @@ const p_q2 = document.getElementById("p2-quiz");
 const p_q3 = document.getElementById("p3-quiz");
 const p_q4 = document.getElementById("p4-quiz");
 const p_q5 = document.getElementById("p5-quiz");
+const p_q6 = document.getElementById("p6-quiz");
+const p_q7 = document.getElementById("p7-quiz");
 
 const preTestNoBtn = document.getElementById("no-pretest");
 const preTestYesBtn = document.getElementById("yes-pretest");
@@ -286,6 +288,8 @@ async function fetchData() {
     fetch("/quizDataL3.json").then((response) => response.json()),
     fetch("/quizDataL4.json").then((response) => response.json()),
     fetch("/quizDataL5.json").then((response) => response.json()),
+    fetch("/quizDataL6.json").then((response) => response.json()),
+    fetch("/quizDataL7.json").then((response) => response.json()),
   ]).then((results) => {
     const data = results[0];
     const summativeData = results[1];
@@ -294,6 +298,8 @@ async function fetchData() {
     const pQ3 = results[4];
     const pQ4 = results[5];
     const pQ5 = results[6];
+    const pQ6 = results[7];
+    const pQ7 = results[8];
 
     // Event listeners
 
@@ -302,6 +308,8 @@ async function fetchData() {
     p_q3?.addEventListener("click", initializeQuiz("randomizePQ3"));
     p_q4?.addEventListener("click", initializeQuiz("randomizePQ4"));
     p_q5?.addEventListener("click", initializeQuiz("randomizePQ5"));
+    p_q6?.addEventListener("click", initializeQuiz("randomizePQ6"));
+    p_q7?.addEventListener("click", initializeQuiz("randomizePQ7"));
     realQuizBtn?.addEventListener("click", () => {
       promptCard.classList.remove("active");
       reminderCard.classList.add("active");
@@ -339,6 +347,8 @@ async function fetchData() {
         randomizePQ3: { data: pQ3, count: 3 },
         randomizePQ4: { data: pQ4, count: 3 },
         randomizePQ5: { data: pQ5, count: 3 },
+        randomizePQ6: { data: pQ6, count: 3 },
+        randomizePQ7: { data: pQ7, count: 3 },
       };
 
       return () => {
@@ -438,7 +448,9 @@ async function fetchData() {
           option === "randomizePQ2" ||
           option === "randomizePQ3" ||
           option === "randomizePQ4" ||
-          option === "randomizePQ5"
+          option === "randomizePQ5" ||
+          option === "randomizePQ6" ||
+          option === "randomizePQ7"
         ) {
           scoreText.innerHTML = `${scoreMessage}
         <button class="btn btn--green secondary-text" onclick="location.reload()">Reload</button>

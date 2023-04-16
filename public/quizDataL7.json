@@ -1,0 +1,113 @@
+[
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q1.png",
+        "solution":"",
+        "answer": [
+            {"a": "Infinite Discontinuity", "correct": false},
+            {"b": "Jump Discontinuity", "correct": false},
+            {"c": "Removable Discontinuity", "correct": true},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q2.png",
+        "solution":"/images/img_pq_l7/L7_Q2_S.png",
+        "answer": [
+            {"a": "Infinite at x = 3", "correct": false},
+            {"b": "Removable at x = 3", "correct": true},
+            {"c": "Removable at x = -5", "correct": false},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q3.png",
+        "solution":"/images/img_pq_l7/L7_Q3_S.png",
+        "answer": [
+            {"a": "Yes, it is continuous", "correct": false},
+            {"b": "No, it is discontinuous", "correct": true},
+            {"c": "All of the above", "correct": false},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q4.png",
+        "solution":"/images/img_pq_l7/L7_Q4_S.png",
+        "answer": [
+            {"a": "Infinite at x = 2", "correct": true},
+            {"b": "Removable at x = 6", "correct": false},
+            {"c": "Infinite at x = -6", "correct": false},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q5.png",
+        "solution":"/images/img_pq_l7/L7_Q5_S.png",
+        "answer": [
+            {"a": "Infinite at x = 2; Infinite at x = -2", "correct": true},
+            {"b": ". Removable at x = 2", "correct": false},
+            {"c": "Removable at x = -2; Infinite at x = 2", "correct": false},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q6.png",
+        "solution":"",
+        "answer": [
+            {"a": "Infinite Discontinuity", "correct": false},
+            {"b": "Jump Discontinuity", "correct": true},
+            {"c": "Removable Discontinuity ", "correct": false},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q7.png",
+        "solution":"/images/img_pq_l7/L7_Q7_S.png",
+        "answer": [
+            {"a": "Removable at x = 4", "correct": false},
+            {"b": "Jump at x = 4", "correct": false},
+            {"c": "Infinite at x = 4", "correct": true},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q8.png",
+        "solution":"",
+        "answer": [
+            {"a": "Infinite Discontinuity", "correct": true},
+            {"b": "Jump Discontinuity", "correct": false},
+            {"c": "Removable Discontinuity ", "correct": false},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q9.png",
+        "solution":"/images/img_pq_l7/L7_Q9_S.png",
+        "answer": [
+            {"a": "Yes, it is continuous", "correct": true},
+            {"b": "No, it is discontinuous", "correct": false},
+            {"c": "All of the above", "correct": false},
+            {"d": "None of the Above", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l7/L7_Q10.png",
+        "solution":"/images/img_pq_l7/L7_Q10_S.png",
+        "answer": [
+            {"a": "The function is continuous", "correct": false},
+            {"b": "Removable at x = -5; Infinite at x = 1", "correct": true},
+            {"c": "Removable at x = 1; Infinite at x = -5", "correct": false},
+            {"d": "None of the Above", "correct": false}
+        ]
+    }
+    
+] 

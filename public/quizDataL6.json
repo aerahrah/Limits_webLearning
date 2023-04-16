@@ -1,0 +1,112 @@
+[
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q1.png",
+        "solution":"/images/img_pq_l6/L6_Q1_S.png",
+        "answer": [
+            {"a": "True", "correct": true},
+            {"b": "False", "correct": false},
+            {"c": "Sometimes", "correct": false},
+            {"d": "Maybe", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q2.png",
+        "solution":"/images/img_pq_l6/L6_Q2_S.png",
+        "answer": [
+            {"a": "True", "correct": false},
+            {"b": "False", "correct": true},
+            {"c": "Sometimes", "correct": false},
+            {"d": "Maybe", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q3.png",
+        "solution":"/images/img_pq_l6/L6_Q3_S.png",
+        "answer": [
+            {"a": "True", "correct": true},
+            {"b": "False", "correct": false},
+            {"c": "Sometimes", "correct": false},
+            {"d": "Maybe", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q4.png",
+        "solution":"/images/img_pq_l6/L6_Q4_S.png",
+        "answer": [
+            {"a": "True", "correct": false},
+            {"b": "False", "correct": true},
+            {"c": "Sometimes", "correct": false},
+            {"d": "Maybe", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q5.png",
+        "solution":"/images/img_pq_l6/L6_Q5_S.png",
+        "answer": [
+            {"a": "π/4", "correct": false},
+            {"b": "3π/4", "correct": false},
+            {"c": "π/2", "correct": false},
+            {"d": "3π/2", "correct": true}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q6.png",
+        "solution":"/images/img_pq_l6/L6_Q6_S.png",
+        "answer": [
+            {"a": "π/6", "correct": false},
+            {"b": "π/3", "correct": false},
+            {"c": "2π/3", "correct": true},
+            {"d": "4π/3", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q7.png",
+        "solution":"/images/img_pq_l6/L6_Q7_S.png",
+        "answer": [
+            {"a": "3", "correct": false},
+            {"b": "-4", "correct": true},
+            {"c": "-7", "correct": false},
+            {"d": "5", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q8.png",
+        "solution":"/images/img_pq_l6/L6_Q8_S.png",
+        "answer": [
+            {"a": "2", "correct": true},
+            {"b": "6", "correct": false},
+            {"c": "4", "correct": false},
+            {"d": "3", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q9.png",
+        "solution":"/images/img_pq_l6/L6_Q9_S.png",
+        "answer": [
+            {"a": "√3", "correct": false},
+            {"b": "3", "correct": false},
+            {"c": "√2", "correct": true},
+            {"d": "2", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img": "/images/img_pq_l6/L6_Q10.png",
+        "solution":"/images/img_pq_l6/L6_Q10_S.png",
+        "answer": [
+            {"a": "1/4", "correct": false},
+            {"b": "1", "correct": false},
+            {"c": "3/2", "correct": false},
+            {"d": "1/2", "correct": true}
+        ]
+    }
+] 

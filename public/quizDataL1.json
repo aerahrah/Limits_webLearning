@@ -1,112 +1,178 @@
 [
     {
         "question": "Evaluate: ",
-        "img": "/images/img_pq_l2/L2_Q1.png",
-        "solution":"/images/img_pq_l2/L2_Q1_S.png",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q1.png",
         "answer": [
-            {"a": "25", "correct": false},
-            {"b": "50", "correct": true},
-            {"c": "10", "correct": false},
-            {"d": "5", "correct": false}
+            {"a": "-∞", "correct": true},
+            {"b": "5", "correct": false},
+            {"c": "3", "correct": false},
+            {"d": "2", "correct": false}
         ]
     },
     {
         "question": "Evaluate: ",
-        "img": "/images/img_pq_l2/L2_Q2.png",
-        "solution":"/images/img_pq_l2/L2_Q2_S.png",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q2.png",
         "answer": [
-            {"a": "20", "correct": false},
-            {"b": "30", "correct": false},
-            {"c": "40", "correct": true},
-            {"d": "0", "correct": false}
+            {"a": "does not exist", "correct": false},
+            {"b": "5", "correct": false},
+            {"c": "-∞", "correct": false},
+            {"d": "4", "correct": true}
         ]
     },
     {
         "question": "Evaluate: ",
-        "img": "/images/img_pq_l2/L2_Q3.png",
-        "solution":"/images/img_pq_l2/L2_Q3_S.png",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q3.png",
         "answer": [
-            {"a": "3", "correct": false},
-            {"b": "4", "correct": true},
-            {"c": "1", "correct": false},
-            {"d": "0", "correct": false}
-        ]
-    },
-    {
-        "question": "Evalute: ",
-        "img": "/images/img_pq_l2/L2_Q4.png",
-        "solution":"/images/img_pq_l2/L2_Q4_S.png",
-        "answer": [
-            {"a": "13", "correct": false},
-            {"b": "31", "correct": true},
-            {"c": "10", "correct": false},
-            {"d": "0", "correct": false}
-        ]
-    },
-    {
-        "question": "Evalute: ",
-        "img": "/images/img_pq_l2/L2_Q5.png",
-        "solution":"/images/img_pq_l2/L2_Q5_S.png",
-        "answer": [
-            {"a": "27", "correct": true},
-            {"b": "9", "correct": false},
-            {"c": "15", "correct": false},
-            {"d": "24", "correct": false}
+            {"a": "does not exist", "correct": false},
+            {"b": "3", "correct": true},
+            {"c": "-∞", "correct": false},
+            {"d": "4", "correct": false}
         ]
     },
     {
         "question": "Evaluate: ",
-        "img": "/images/img_pq_l2/L2_Q6.png",
-        "solution":"/images/img_pq_l2/L2_Q6_S.png",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q4.png",
         "answer": [
-            {"a": "1/9", "correct": false},
-            {"b": "-1/9", "correct": true},
-            {"c": "9", "correct": false},
-            {"d": "-9", "correct": false}
+            {"a": "does not exist", "correct": true},
+            {"b": "3", "correct": false},
+            {"c": "-∞", "correct": false},
+            {"d": "4", "correct": false}
         ]
     },
     {
         "question": "Evaluate: ",
-        "img": "/images/img_pq_l2/L2_Q7.png",
-        "solution":"/images/img_pq_l2/L2_Q7_S.png",
-        "answer": [
-            {"a": "1/3", "correct": false},
-            {"b": "3/1", "correct": false},
-            {"c": "1/6", "correct": true},
-            {"d": "-1/6", "correct": false}
-        ]
-    },
-    {
-        "question": "Evaluate: ",
-        "img": "/images/img_pq_l2/L2_Q8.png",
-        "solution":"/images/img_pq_l2/L2_Q8_S.png",
-        "answer": [
-            {"a": "7/9", "correct": true},
-            {"b": "3/7", "correct": false},
-            {"c": "1/4", "correct": false},
-            {"d": "0", "correct": false}
-        ]
-    },
-    {
-        "question": "Evaluate: ",
-        "img": "/images/img_pq_l2/L2_Q9.png",
-        "solution":"/images/img_pq_l2/L2_Q9_S.png",
-        "answer": [
-            {"a": "4", "correct": false},
-            {"b": "7", "correct": true},
-            {"c": "6", "correct": false},
-            {"d": "0", "correct": false}
-        ]
-    },
-    {
-        "question": "Evalute: ",
-        "img": "/images/img_pq_l2/L2_Q10.png",
-        "solution":"/images/img_pq_l2/L2_Q10_S.png",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q5.png",
         "answer": [
             {"a": "6", "correct": false},
-            {"b": "8", "correct": false},
-            {"c": "10", "correct": false},
-            {"d": "12", "correct": true}
+            {"b": "3", "correct": false},
+            {"c": "-∞", "correct": true},
+            {"d": "4", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q6.png",
+        "answer": [
+            {"a": "6", "correct": false},
+            {"b": "3", "correct": false},
+            {"c": "-∞", "correct": false},
+            {"d": "4", "correct": true}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q7.png",
+        "answer": [
+            {"a": "2", "correct": true},
+            {"b": "6", "correct": false},
+            {"c": "-∞", "correct": false},
+            {"d": "4", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q8.png",
+        "answer": [
+            {"a": "5", "correct": true},
+            {"b": "4", "correct": false},
+            {"c": "6", "correct": false},
+            {"d": "4", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q9.png",
+        "answer": [
+            {"a": "5", "correct": false},
+            {"b": "4", "correct": false},
+            {"c": "6", "correct": false},
+            {"d": "-∞", "correct": true}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q10.png",
+        "answer": [
+            {"a": "5", "correct": false},
+            {"b": "4", "correct": false},
+            {"c": "6", "correct": true},
+            {"d": "-∞", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q11.png",
+        "answer": [
+            {"a": "2", "correct": true},
+            {"b": "4", "correct": false},
+            {"c": "5", "correct": false},
+            {"d": "-∞", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q12.png",
+        "answer": [
+            {"a": "does not exist", "correct": false},
+            {"b": "4", "correct": false},
+            {"c": "5", "correct": true},
+            {"d": "-∞", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q13.png",
+        "answer": [
+            {"a": "does not exist", "correct": false},
+            {"b": "4", "correct": false},
+            {"c": "5", "correct": false},
+            {"d": "-∞", "correct": true}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q14.png",
+        "answer": [
+            {"a": "does not exist", "correct": true},
+            {"b": "4", "correct": false},
+            {"c": "5", "correct": false},
+            {"d": "-∞", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q15.png",
+        "answer": [
+            {"a": "2", "correct": true},
+            {"b": "6", "correct": false},
+            {"c": "4", "correct": false},
+            {"d": "-∞", "correct": false}
+        ]
+    },
+    {
+        "question": "Evaluate: ",
+        "img_main": "/images/img_pq_l1/L1_MAIN.png",
+        "img": "/images/img_pq_l1/L1_Q16.png",
+        "answer": [
+            {"a": "2", "correct": false},
+            {"b": "6", "correct": false},
+            {"c": "4", "correct": false},
+            {"d": "5", "correct": true}
         ]
     }
 ]
