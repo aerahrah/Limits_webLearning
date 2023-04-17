@@ -9,6 +9,31 @@ import "../styles/index.scss";
     <header>
       <h1 class="secondary-title">Login</h1>
     </header>
+    <div id="overlay-login" class="overlay"></div>
+    <section id="forgot-password" class="card-container">
+      <div id="forgot-password-container">
+        <i id="close-btn" class="fa-solid fa-circle-xmark"></i>
+        <div>
+          <h1 class="primary-text text-center">RESET PASSWORD</h1>
+          <div class="input-container">
+            <input
+              type="text"
+              id="email-reset-pass"
+              name="email"
+              placeholder="E-mail"
+            />
+            <p id="notify-reset" class="notify tertiary-text"></p>
+            <input
+              type="submit"
+              id="forgot-password-btn"
+              class="btn btn--green"
+              name="login"
+              value="Reset"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="secondary-text menu">
       <input type="text" id="email" name="email" placeholder="E-mail" />
       <input
@@ -17,7 +42,7 @@ import "../styles/index.scss";
         name="password"
         placeholder="Password"
       />
-      <p class="notify tertiary-text"></p>
+      <p id="notify-login" class="notify tertiary-text"></p>
       <input
         type="submit"
         id="login-btn"
@@ -26,7 +51,12 @@ import "../styles/index.scss";
         value="Login"
       />
       <p class="alert tertiary-text">
-        <a class="black" href="login">forgot password</a>
+        <a id="forgot-password-open" class="black">forgot password</a>
+      </p>
+      <p class="alert tertiary-text grey">
+        don't have an account yet? Click here to <a class="green" href="/login"
+          >Sign up</a
+        >
       </p>
     </section>
   </main>

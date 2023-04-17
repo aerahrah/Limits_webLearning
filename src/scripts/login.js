@@ -1,19 +1,32 @@
 import { auth, db, realtimeDb } from "./firebaseDB";
 import { getDatabase, ref, update } from "firebase/database";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
 const loginBtn = document.getElementById("login-btn");
 const logoutBtn = document.getElementById("logout-btn");
+const overlayLogin = document.getElementById("overlay-login");
+const forgotPasswordBtn = document.getElementById("forgot-password-btn");
+const forgotPasswordOpenBtn = document.getElementById("forgot-password-open");
+const forgotPasswordCard = document.getElementById("forgot-password");
+const forgotPasswordClose = document.getElementById("close-btn");
+const errorMessagesLogin = document.getElementById("notify-login");
+const errorMessagesReset = document.getElementById("notify-reset");
+const errorMessages = document.getElementById("notify");
+const emailReset = document.getElementById("email-reset-pass");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+
 loginBtn?.addEventListener("click", async (event) => {
   event.preventDefault();
 
-  let errorMessages = document.querySelector(".notify");
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
+  const email = emailInput.value;
+  const password = passwordInput.value;
 
   try {
-    // Sign in the user with Firebase Auth
-
     const userCredential = await signInWithEmailAndPassword(
       auth,
       email,
@@ -21,59 +34,76 @@ loginBtn?.addEventListener("click", async (event) => {
     );
     const user = userCredential.user;
 
-    // Update the user's last login time in the database
     const dt = new Date();
-    const userRef = ref(realtimeDb, "users/" + user.uid);
-    await update(userRef, {
-      last_login: dt.toISOString(),
-    });
+    const userRef = ref(realtimeDb, `users/${user.uid}`);
+    await update(userRef, { last_login: dt.toISOString() });
     displayTextMessage("Successfully login!", "notify-success");
-    // Save the UID to localStorage
+
     localStorage.setItem("uid", user.uid);
 
-    // Redirect to the dashboard page
     setTimeout(() => {
       location.href = "/start";
     }, 3000);
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorMessage);
-    const cleanedErrorMessage = errorMessage.replace("Firebase: ", "");
-    console.log(cleanedErrorMessage);
-    displayTextMessage(cleanedErrorMessage, "notify-failed");
-  }
-
-  function displayTextMessage(errorMessageText, errorMessageClass) {
-    errorMessages.textContent = errorMessageText;
-    errorMessages.classList.remove("notify-success", "notify-failed");
-    errorMessages.classList.add(errorMessageClass);
-    errorMessages.style.display = "block";
-    setTimeout(() => {
-      errorMessages.style.transform = "scale(1)";
-    }, 200);
-    setTimeout(() => {
-      errorMessages.style.transform = "scale(0)";
-      setTimeout(() => {
-        errorMessages.style.display = "none";
-      }, 300);
-    }, 2000);
+    const errorMessage = error.message.replace("Firebase: ", "");
+    displayTextMessage(errorMessage, "notify-failed", errorMessagesLogin);
   }
 });
+
 logoutBtn?.addEventListener("click", async (event) => {
   event.preventDefault();
 
   try {
-    // Sign out the user using Firebase Auth
     await auth.signOut();
 
-    // Clear local storage related to user's authentication state
     localStorage.removeItem("uid");
-    console.log(localStorage);
 
-    // Redirect to the login page
-    location.href = "/login"; // Replace with the desired URL for the login page
+    location.href = "/login";
   } catch (error) {
     console.log(error);
   }
 });
+
+forgotPasswordClose?.addEventListener("click", () => {
+  forgotPasswordCard.classList.remove("active");
+  overlayLogin.style.display = "none";
+});
+
+forgotPasswordOpenBtn?.addEventListener("click", () => {
+  forgotPasswordCard.classList.add("active");
+  overlayLogin.style.display = "block";
+});
+
+forgotPasswordBtn?.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  const email = emailReset.value;
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    displayTextMessage(
+      "Password reset email sent! Check your inbox.",
+      "notify-success",
+      errorMessagesReset
+    );
+  } catch (error) {
+    const errorMessage = error.message.replace("Firebase: ", "");
+    displayTextMessage(errorMessage, "notify-failed", errorMessagesReset);
+  }
+});
+
+function displayTextMessage(errorMessageText, errorMessageClass, errorElement) {
+  errorElement.textContent = errorMessageText;
+  errorElement.classList.remove("notify-success", "notify-failed");
+  errorElement.classList.add(errorMessageClass);
+  errorElement.style.display = "block";
+  setTimeout(() => {
+    errorElement.style.transform = "scale(1)";
+  }, 200);
+  setTimeout(() => {
+    errorElement.style.transform = "scale(0)";
+    setTimeout(() => {
+      errorElement.style.display = "none";
+    }, 300);
+  }, 2000);
+}

@@ -43,7 +43,8 @@ saveData.addEventListener("click", (e) => {
       // Signed in
       const user = userCredential.user;
 
-      set(ref(database, "users/" + user.uid), {
+      const userRef = ref(database, "users/" + user.uid);
+      set(userRef, {
         username: username,
         email: email,
         postScore: "N/A",
@@ -51,6 +52,21 @@ saveData.addEventListener("click", (e) => {
         sumScore: "N/A",
         preTestTaker: "N/A",
         moduleCompleted: 0,
+        switchStates: {
+          switch0: false,
+          switch1: false,
+          switch2: false,
+          switch3: false,
+          switch4: false,
+          switch5: false,
+          switch6: false,
+          switch7: false,
+          switch8: false,
+          switch9: false,
+          switch10: false,
+          switch11: false,
+          switch12: false,
+        },
       });
 
       displayTextMessage("Successfully created user!", "notify-success");

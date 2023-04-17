@@ -52,12 +52,17 @@ $text-font: "poppins", sans-serif;
   text-align: center;
   font-family: $title-font;
   color: $primary-black;
-
+  &.grey {
+    padding: 0;
+    margin: 0 auto;
+    margin-top: -1.5rem;
+    color: #868e96;
+    width: min(50vw, 360px);
+  }
   a {
     transition: all 100ms;
     display: inline-block;
     text-decoration: none !important;
-
     &.black {
       color: $primary-black;
 
