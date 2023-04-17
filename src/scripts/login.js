@@ -37,7 +37,11 @@ loginBtn?.addEventListener("click", async (event) => {
     const dt = new Date();
     const userRef = ref(realtimeDb, `users/${user.uid}`);
     await update(userRef, { last_login: dt.toISOString() });
-    displayTextMessage("Successfully login!", "notify-success");
+    displayTextMessage(
+      "Successfully login!",
+      "notify-success",
+      errorMessagesLogin
+    );
 
     localStorage.setItem("uid", user.uid);
 
