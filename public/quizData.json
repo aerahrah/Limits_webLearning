@@ -2,6 +2,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q1.png",
+        "solution": "/images/img_quiz/q1_s.png",
         "answer": [
             {"a": "1", "correct": false},
             {"b": "2", "correct": false},
@@ -12,6 +13,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q2.png",
+        "solution": "/images/img_quiz/q2_s.png",
         "answer": [
             {"a": "-∞", "correct": true},
             {"b": "+∞", "correct": false},
@@ -22,6 +24,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q3.png",
+        "solution": "/images/img_quiz/q3_s.png",
         "answer": [
             {"a": "1/5", "correct": false},
             {"b": "2/5", "correct": true},
@@ -32,6 +35,7 @@
     {
         "question": "Find: ",
         "img": "/images/img_quiz/q4.png",
+        "solution": "/images/img_quiz/q4_s.png",
         "answer": [
             {"a": "2", "correct": false},
             {"b": "3", "correct": false},
@@ -42,6 +46,7 @@
     {
         "question": "Find: ",
         "img": "/images/img_quiz/q5.png",
+        "solution": "/images/img_quiz/q5_s.png",
         "answer": [
             {"a": "2", "correct": false},
             {"b": "3", "correct": true},
@@ -52,6 +57,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q6.png",
+        "solution": "/images/img_quiz/q6_s.png",
         "answer": [
             {"a": "0", "correct": true},
             {"b": "1", "correct": false},
@@ -62,6 +68,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q7.png",
+        "solution": "/images/img_quiz/q7_s.png",
         "answer": [
             {"a": "5/4", "correct": false},
             {"b": "1/4", "correct": true},
@@ -72,6 +79,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q8.png",
+        "solution": "/images/img_quiz/q8_s.png",
         "answer": [
             {"a": "-√7/4", "correct": false},
             {"b": "-√5/8", "correct": false},
@@ -82,6 +90,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q9.png",
+        "solution": "/images/img_quiz/q9_s.png",
         "answer": [
             {"a": "1/3", "correct": false},
             {"b": "2/3", "correct": true},
@@ -92,6 +101,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q10.png",
+        "solution": "/images/img_quiz/q10_s.png",
         "answer": [
             {"a": "1", "correct": true},
             {"b": "2", "correct": false},
@@ -102,6 +112,7 @@
     {
         "question": "Find: ",
         "img": "/images/img_quiz/q11.png",
+        "solution": "/images/img_quiz/q11_s.png",
         "answer": [
             {"a": "0", "correct": false},
             {"b": "1", "correct": false},
@@ -112,6 +123,7 @@
     {
         "question": "Find: ",
         "img": "/images/img_quiz/q12.png",
+        "solution": "/images/img_quiz/q12_s.png",
         "answer": [
             {"a": "dne", "correct": false},
             {"b": "0", "correct": true},
@@ -122,6 +134,7 @@
     {
         "question": "Find: ",
         "img": "/images/img_quiz/q13.png",
+        "solution": "/images/img_quiz/q13_s.png",
         "answer": [
             {"a": "-1", "correct": false},
             {"b": "0", "correct": false},
@@ -132,6 +145,7 @@
     {
         "question": "Find: ",
         "img": "/images/img_quiz/q14.png",
+        "solution": "/images/img_quiz/q14_s.png",
         "answer": [
             {"a": "-5", "correct": false},
             {"b": "-4", "correct": false},
@@ -142,6 +156,7 @@
     {
         "question": "Find: ",
         "img": "/images/img_quiz/q15.png",
+        "solution": "/images/img_quiz/q15_s.png",
         "answer": [
             {"a": "3", "correct": true},
             {"b": "2", "correct": false},
@@ -152,6 +167,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q16.png",
+        "solution": "/images/img_quiz/q16_s.png",
         "answer": [
             {"a": "-5/6", "correct": true},
             {"b": "-1/4", "correct": false},
@@ -162,6 +178,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q17.png",
+        "solution": "/images/img_quiz/q17_s.png",
         "answer": [
             {"a": "-∞", "correct": false},
             {"b": "+∞", "correct": false},
@@ -172,6 +189,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q18.png",
+        "solution": "/images/img_quiz/q18_s.png",
         "answer": [
             {"a": "-1/8", "correct": true},
             {"b": "-3/8", "correct": false},
@@ -182,6 +200,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q19.png",
+        "solution": "/images/img_quiz/q19_s.png",
         "answer": [
             {"a": "3/7", "correct": false},
             {"b": "-3/7", "correct": false},
@@ -192,6 +211,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_quiz/q20.png",
+        "solution": "/images/img_quiz/q20_s.png",
         "answer": [
             {"a": "1", "correct": false},
             {"b": "2", "correct": false},
