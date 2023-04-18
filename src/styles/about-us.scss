@@ -1,0 +1,38 @@
+@import "./components/imports";
+
+.about-us-container {
+  display: flex;
+  flex-direction: column;
+  width: min(95vw, 1080px);
+  padding: min(5vw, 2rem);
+  margin-top: 3rem;
+  gap: 40px;
+  &--item {
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 30px;
+  }
+  &--img {
+    img {
+      border-radius: 50%;
+      width: min(90vw, 350px);
+      border: min(10px, 2vw) solid $primary-color;
+    }
+  }
+  &--description {
+    font-size: min(4vw, 1rem);
+    text-align: justify;
+    letter-spacing: 1px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .about-us-container {
+    &--item {
+      grid-template-columns: 1fr;
+      justify-content: center;
+    }
+  }
+}
