@@ -120,6 +120,9 @@ main {
       transform: scale(1.2);
     }
   }
+  .tertiary-text {
+    font-size: min(4vw, 1rem);
+  }
 }
 
 .question-container {

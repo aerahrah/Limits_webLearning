@@ -32,6 +32,7 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
+const saveData = document.getElementById("saveData");
 saveData.addEventListener("click", (e) => {
   let errorMessages = document.querySelector(".notify");
   let email = document.getElementById("email").value;

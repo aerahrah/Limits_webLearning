@@ -1,5 +1,5 @@
 import { auth, db, realtimeDb } from "./firebaseDB";
-import { getDatabase, ref, update } from "firebase/database";
+import { getDatabase, ref, get, update } from "firebase/database";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -36,18 +36,34 @@ loginBtn?.addEventListener("click", async (event) => {
 
     const dt = new Date();
     const userRef = ref(realtimeDb, `users/${user.uid}`);
+    const adminRef = ref(realtimeDb, `admin/`);
+
+    // Check if the email belongs to an admin
+    const snapshot = await get(adminRef);
+    const isAdmin = Object.values(snapshot.val()).some(
+      (admin) => admin.email === email
+    );
+    console.log(snapshot);
+    console.log(isAdmin);
+
+    if (isAdmin) {
+      // User is an admin
+      setTimeout(() => {
+        location.href = "/superAdminDashboard";
+      }, 3000);
+    } else {
+      setTimeout(() => {
+        location.href = "/start";
+      }, 3000);
+      localStorage.setItem("uid", user.uid);
+    }
+
     await update(userRef, { last_login: dt.toISOString() });
     displayTextMessage(
       "Successfully login!",
       "notify-success",
       errorMessagesLogin
     );
-
-    localStorage.setItem("uid", user.uid);
-
-    setTimeout(() => {
-      location.href = "/start";
-    }, 3000);
   } catch (error) {
     const errorMessage = error.message.replace("Firebase: ", "");
     displayTextMessage(errorMessage, "notify-failed", errorMessagesLogin);

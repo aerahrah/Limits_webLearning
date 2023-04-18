@@ -1,5 +1,13 @@
 @import "./components/imports";
 
+#logout-btn {
+  position: absolute;
+  right: 5%;
+  a:hover {
+    color: $red-light-color !important;
+  }
+}
+
 nav.navbar {
   z-index: 999;
   position: fixed;
@@ -70,6 +78,10 @@ nav.navbar {
         padding: 0;
         border-bottom: 1px solid $secondary-color;
       }
+    }
+    #logout-btn {
+      position: relative;
+      right: 0;
     }
   }
 }
