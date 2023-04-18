@@ -205,7 +205,7 @@ function generateQuizHTML(questions, score) {
   let quizSolutionHTML = "";
   let questionNum = 0;
   let solutionContainer = [];
-
+  let solutionHeader;
   for (let i = 0; i < questions.length; i++) {
     let question = questions[i];
     let selectedAns = selectedAnswers[i].answerID;
@@ -237,7 +237,7 @@ function generateQuizHTML(questions, score) {
       choicesHTML += `
     <li>
       <input type="radio" name="answer${i}" id="${choices[j]}" class="answer ${isCorrect}" />
-      <label for="${choices[j]}" class="secondary-text answer-label ${isCorrect} ${isSelected}" id="${choices[j]}_text">${choices[j]}</label>
+      <label for="${choices[j]}" class="tertiary-text answer-label ${isCorrect} ${isSelected}" id="${choices[j]}_text">${choices[j]}</label>
     </li>
   `;
     }
@@ -262,7 +262,8 @@ function generateQuizHTML(questions, score) {
         </div>
       </div>
     `;
-    quizSolutionHTML += `
+    if (solutionContainer[i]) {
+      quizSolutionHTML += `
     <div class="img-solution-container--item">
               <h2 class="primary-text quiz-container-header"> Question ${
                 i + 1
@@ -270,10 +271,15 @@ function generateQuizHTML(questions, score) {
       <img src="${solutionContainer[i]}" />
     </div>
     `;
+    }
     questionNum++;
   }
-
-  quizHTML = `<div class="quiz-container--title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}    <div class="quiz-container--title quiz-container--title--1 primary-text text-center">Solutions </div><div class="img-solution-container">${quizSolutionHTML}      </div>     <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Home</a
+  if (quizSolutionHTML) {
+    solutionHeader = `<div class="quiz-container--title quiz-container--title--1 primary-text text-center">Solutions </div>`;
+  } else {
+    solutionHeader = "";
+  }
+  quizHTML = `<div class="quiz-container--title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}   ${solutionHeader} <div class="img-solution-container">${quizSolutionHTML}      </div>     <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Home</a
         >`;
 
   return quizHTML;

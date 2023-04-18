@@ -2,6 +2,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_1.png",
+        "solution": "",
         "answer": [
             {"a": "True", "correct": false},
             {"b": "Maybe", "correct": false},
@@ -12,6 +13,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_2.png",
+        "solution": "",
         "answer": [
             {"a": "limit", "correct": false},
             {"b": "removable", "correct": false},
@@ -22,6 +24,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_3.png",
+        "solution": "",
         "answer": [
             {"a": "infinite", "correct": false},
             {"b": "limit", "correct": false},
@@ -32,6 +35,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_4.png",
+        "solution": "",
         "answer": [
             {"a": "Sometimes", "correct": false},
             {"b": "True", "correct": true},
@@ -42,6 +46,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_5.png",
+        "solution": "",
         "answer": [
             {"a": "Sometimes", "correct": false},
             {"b": "Maybe", "correct": false},
@@ -52,6 +57,7 @@
     {
         "question": "Evaluate:",
         "img": "/images/img_sum_quiz/sq_6.png",
+        "solution": "",
         "answer": [
             {"a": "Sometimes", "correct": false},
             {"b": "False", "correct": true},
@@ -62,6 +68,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_7.png",
+        "solution": "",
         "answer": [
             {"a": "Sometimes", "correct": false},
             {"b": "Maybe", "correct": false},
@@ -72,6 +79,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_8.png",
+        "solution": "",
         "answer": [
             {"a": "True", "correct": false},
             {"b": "False", "correct": true},
@@ -82,6 +90,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_9.png",
+        "solution": "",
         "answer": [
             {"a": "True", "correct": false},
             {"b": "Maybe", "correct": false},
@@ -92,6 +101,7 @@
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_10.png",
+        "solution": "",
         "answer": [
             {"a": "False", "correct": true},
             {"b": "True", "correct": false},
@@ -102,46 +112,51 @@
     {
         "question": "Find: ",
         "img": "/images/img_sum_quiz/sq_11.png",
+        "solution": "/images/img_sum_quiz/sq_11_s.png",
         "answer": [
             {"a": "h is discontinuous at x = 1", "correct": true},
             {"b": "h is continuous at x = 1", "correct": false},
-            {"c": "", "correct": false},
-            {"d": "", "correct": false}
+            {"c": "Both are Correct", "correct": false},
+            {"d": "None of the above", "correct": false}
         ]
     },
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_12.png",
+        "solution": "/images/img_sum_quiz/sq_12_s.png",
         "answer": [
             {"a": "f is discontinuous at x = -2", "correct": false},
             {"b": "f is continuous at x = -1", "correct": true},
-            {"c": "", "correct": false},
-            {"d": "", "correct": false}
+            {"c": "Both are Correct", "correct": false},
+            {"d": "None of the above", "correct": false}
         ]
     },
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_13.png",
+        "solution": "/images/img_sum_quiz/sq_13_s.png",
         "answer": [
             {"a": "g is discontinuous at x = 8", "correct": true},
             {"b": "g is continuous at x = 8", "correct": false},
-            {"c": "", "correct": false},
-            {"d": "", "correct": false}
+            {"c": "Both are Correct", "correct": false},
+            {"d": "None of the above", "correct": false}
         ]
     },
     {
         "question": "Evaluate:",
         "img": "/images/img_sum_quiz/sq_14.png",
+        "solution": "/images/img_sum_quiz/sq_14_s.png",
         "answer": [
             {"a": "g is discontinuous at x = 0", "correct": false},
             {"b": "g is continuous at x = 0", "correct": true},
-            {"c": "", "correct": false},
-            {"d": "", "correct": false}
+            {"c": "Both are Correct", "correct": false},
+            {"d": "None of the above", "correct": false}
         ]
     },
     {
         "question": "Evaluate: ",
         "img": "/images/img_sum_quiz/sq_15.png",
+        "solution": "/images/img_sum_quiz/sq_15_s.png",
         "answer": [
             {"a": "f is infinite essential discontinuous at x = -4", "correct": true},
             {"b": "f is removable discontinuous at x = -4", "correct": false},

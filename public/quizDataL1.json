@@ -1,7 +1,6 @@
 [
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q1.png",
         "answer": [
             {"a": "-∞", "correct": true},
@@ -12,7 +11,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q2.png",
         "answer": [
             {"a": "does not exist", "correct": false},
@@ -23,7 +21,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q3.png",
         "answer": [
             {"a": "does not exist", "correct": false},
@@ -34,7 +31,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q4.png",
         "answer": [
             {"a": "does not exist", "correct": true},
@@ -45,7 +41,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q5.png",
         "answer": [
             {"a": "6", "correct": false},
@@ -56,7 +51,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q6.png",
         "answer": [
             {"a": "6", "correct": false},
@@ -67,7 +61,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q7.png",
         "answer": [
             {"a": "2", "correct": true},
@@ -78,7 +71,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q8.png",
         "answer": [
             {"a": "5", "correct": true},
@@ -89,7 +81,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q9.png",
         "answer": [
             {"a": "5", "correct": false},
@@ -100,7 +91,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q10.png",
         "answer": [
             {"a": "5", "correct": false},
@@ -111,7 +101,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q11.png",
         "answer": [
             {"a": "2", "correct": true},
@@ -122,7 +111,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q12.png",
         "answer": [
             {"a": "does not exist", "correct": false},
@@ -133,7 +121,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q13.png",
         "answer": [
             {"a": "does not exist", "correct": false},
@@ -144,7 +131,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q14.png",
         "answer": [
             {"a": "does not exist", "correct": true},
@@ -155,7 +141,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q15.png",
         "answer": [
             {"a": "2", "correct": true},
@@ -166,7 +151,6 @@
     },
     {
         "question": "Evaluate: ",
-        "img_main": "/images/img_pq_l1/L1_MAIN.png",
         "img": "/images/img_pq_l1/L1_Q16.png",
         "answer": [
             {"a": "2", "correct": false},
