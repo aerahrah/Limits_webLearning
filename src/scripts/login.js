@@ -119,11 +119,11 @@ function displayTextMessage(errorMessageText, errorMessageClass, errorElement) {
   errorElement.style.display = "block";
   setTimeout(() => {
     errorElement.style.transform = "scale(1)";
-  }, 200);
+  }, 100);
   setTimeout(() => {
     errorElement.style.transform = "scale(0)";
     setTimeout(() => {
       errorElement.style.display = "none";
-    }, 300);
-  }, 2000);
+    }, 200);
+  }, 1000);
 }

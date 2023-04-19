@@ -87,12 +87,12 @@ saveData.addEventListener("click", (e) => {
     errorMessages.style.display = "block";
     setTimeout(() => {
       errorMessages.style.transform = "scale(1)";
-    }, 200);
+    }, 100);
     setTimeout(() => {
       errorMessages.style.transform = "scale(0)";
       setTimeout(() => {
         errorMessages.style.display = "none";
-      }, 300);
-    }, 2000);
+      }, 200);
+    }, 1000);
   }
 });
