@@ -32,17 +32,24 @@ main {
   }
   img {
     border-radius: 20px;
-    background-color: black;
+
     width: min(25vw, 220px);
     height: min(25vw, 200px);
+    border: min(4px, 1.6vw) solid $primary-color;
+    box-shadow: 1px 1px 16px 16px rgba($primary-black, 0.03);
   }
   i {
-    z-index: 999;
+    transition: all ease-in-out 100ms;
+    z-index: 1;
     position: absolute;
-    right: 4px;
-    bottom: 4px;
-    color: white !important;
+    right: 4%;
+    bottom: 4%;
+    color: $primary-black-2 !important;
     font-size: 1.5rem;
+    &:hover {
+      transform: scale(1.04);
+      cursor: pointer;
+    }
   }
   p {
     font-size: 1.25rem;
@@ -160,7 +167,37 @@ main {
     font-size: min(3.25vw, 1.25rem);
   }
 }
-
+#avatar-img-container {
+  z-index: 11;
+  width: min(90vw, 600px);
+  padding: 0;
+  div.avatar-container {
+    padding: min(5vw, 2rem);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    column-gap: min(6vw, 1rem);
+    row-gap: min(4vw, 1rem);
+    position: relative;
+  }
+  #close-btn {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    color: $red-dark-color;
+  }
+  img {
+    transition: all ease 100ms;
+    width: min(100vw, 120px);
+    border-radius: 20px;
+    &:hover {
+      cursor: pointer;
+      border: min(2px, 1.6vw) solid $primary-color;
+      transform: scale(1.03);
+    }
+  }
+}
 @media screen and (max-width: 692px) {
   .profile-container {
     grid-template-columns: repeat(2, 1fr);
@@ -187,5 +224,23 @@ main {
     gap: min(8vw, 3rem);
     grid-area: 3 / 1 / 4 / 3;
     justify-content: center;
+  }
+  #avatar-img-container {
+    div.avatar-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    img {
+      width: min(100vw, 110px);
+    }
+  }
+}
+@media screen and (max-width: 434px) {
+  #avatar-img-container {
+    div.avatar-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    img {
+      width: min(100vw, 100px);
+    }
   }
 }

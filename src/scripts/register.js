@@ -53,6 +53,7 @@ saveData.addEventListener("click", (e) => {
         sumScore: "N/A",
         preTestTaker: "N/A",
         moduleCompleted: 0,
+        avatarImg: "/images/img_avatar/img_default.png",
         switchStates: {
           switch0: false,
           switch1: false,
