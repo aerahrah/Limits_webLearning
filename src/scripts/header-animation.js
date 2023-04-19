@@ -5,20 +5,21 @@ const quizId = document.getElementById("quiz");
 const aboutId = document.getElementById("about-us");
 const currentRoute = window.location.pathname.substring(1);
 
+console.log(currentRoute);
 function addActiveClass(route) {
-  if (route == "lesson") {
+  if (route == "lesson/") {
     removeActiveClasses();
     lessonId.classList.add("active");
   }
-  if (route == "profile") {
+  if (route == "profile/") {
     removeActiveClasses();
     profileId.classList.add("active");
   }
-  if (route == "quiz") {
+  if (route == "quiz/") {
     removeActiveClasses();
     quizId.classList.add("active");
   }
-  if (route == "about-us") {
+  if (route == "about-us/") {
     removeActiveClasses();
     aboutId.classList.add("active");
   }

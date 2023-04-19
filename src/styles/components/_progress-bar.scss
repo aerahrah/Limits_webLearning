@@ -1,6 +1,6 @@
 .progress-container {
-  margin: 1.5rem;
-  width: 100%;
+  margin: min(2vw, 1rem);
+  width: min(100%, 250px);
   background-color: #f0f0f0;
   border: 1px solid #ddd;
   height: 30px;
@@ -13,8 +13,9 @@
   height: 100%;
   border-radius: 16px;
 }
-#progress-text {
+#progress-text,
+#progress-text-1 {
   color: $font-black-color;
-  margin: 1.5rem;
+  margin: min(2vw, 1rem);
   font-size: min(3vw, 1rem);
 }

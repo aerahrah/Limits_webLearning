@@ -91,6 +91,7 @@ main {
     height: min(15vw, 4rem);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: row-reverse;
   }
   &--1 {

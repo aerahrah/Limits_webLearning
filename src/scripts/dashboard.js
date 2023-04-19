@@ -5,7 +5,7 @@ import { getDatabase, ref, child, get, update } from "firebase/database";
 const usernameID = document.getElementById("username");
 const postScoreID = document.getElementById("post-score");
 const preScoreID = document.getElementById("pre-score");
-const practicQuizID = document.getElementById("numOfQuizTaken");
+const practiceQuizID = document.getElementById("numOfQuizTaken");
 const sumScoreID = document.getElementById("sum-score");
 const preTestTakerID = document.getElementById("preTestTaker");
 const avatarImgID = document.getElementById("avatar-img");
@@ -23,7 +23,7 @@ const avatarChangeBtn = document.getElementById("avatar-change");
 const closeBtn = document.getElementById("close-btn");
 // Do something with the UID, such as storing it in a database
 const uid = localStorage.getItem("uid");
-console.log(uid);
+
 // Do something with the UID, such as fetch data from Firebase Firestore
 const userRef = ref(realtimeDb, `users/${uid}`);
 const promises = [];
@@ -36,8 +36,11 @@ function updateAvatar(imgSrc) {
   update(userRef, imgUpdate);
 }
 
+let userPreTestScore;
+let userPostTestScore;
 // Use a loop to add click event listeners to all avatar images
 const avatarImgIDs = [
+  avatarImgDefaultID,
   avatarImg1ID,
   avatarImg2ID,
   avatarImg3ID,
@@ -78,6 +81,17 @@ promises.push(
     })
 );
 promises.push(
+  get(child(userRef, "quizTaken"))
+    .then((snapshot) => {
+      const quizTakenValue = snapshot.val();
+      practiceQuizID.innerHTML = quizTakenValue;
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+);
+
+promises.push(
   get(child(userRef, "avatarImg"))
     .then((snapshot) => {
       const img = snapshot.val();
@@ -104,6 +118,7 @@ promises.push(
     .then((snapshot) => {
       const score = snapshot.val();
       postScoreID.innerHTML = score;
+      userPostTestScore = score;
     })
     .catch((error) => {
       console.error(error);
@@ -115,6 +130,7 @@ promises.push(
     .then((snapshot) => {
       const score = snapshot.val();
       preScoreID.innerHTML = score;
+      userPreTestScore = score;
     })
     .catch((error) => {
       console.error(error);
@@ -135,11 +151,10 @@ promises.push(
   get(child(userRef, "moduleCompleted"))
     .then((snapshot) => {
       const moduleNum = snapshot.val();
-      console.log("Module num:", moduleNum);
 
       if (moduleNum <= 13) {
-        var progressBar = document.getElementById("progress-bar");
-        var width = (moduleNum / 13) * 100;
+        let progressBar = document.getElementById("progress-bar");
+        let width = (moduleNum / 13) * 100;
         progressBar.style.width = width + "%";
         document.getElementById("progress-text").textContent =
           "Completed Modules: " + moduleNum + "/13";
@@ -149,7 +164,53 @@ promises.push(
       console.error(error);
     })
 );
+promises.push(
+  get(child(userRef, "preTestTaker"))
+    .then((snapshot) => {
+      const testTaker = snapshot.val();
+      const scoreImprovement = userPostTestScore - userPreTestScore;
+      const maxImprovement = 20;
+      let progressPercent = 0;
+      let progressPercentNegative = 0;
+      if (testTaker == "no") {
+        console.log("notest");
+        let progressBar = document.getElementById("progress-bar-1");
+        progressBar.style.opacity = 0.5;
+        document.getElementById("progress-text-1").textContent =
+          "N/A for not Pre-test taker";
+      } else if (testTaker == "N/A") {
+        document.getElementById("progress-text-1").textContent =
+          "Take the post-test quiz first";
+      } else {
+        let progressBar = document.getElementById("progress-bar-1");
+        if (scoreImprovement >= 0) {
+          progressPercent = Math.round(
+            (scoreImprovement / maxImprovement) * 100
+          );
+          progressBar.style.backgroundColor = "#39a24d";
+        } else {
+          progressPercent = Math.round(
+            (scoreImprovement / userPreTestScore) * 100
+          );
+          progressPercentNegative = progressPercent * -1;
+          progressBar.style.backgroundColor = "#c92a2a";
+        }
 
+        if (progressPercent < 0 || progressPercent == 0) {
+          progressBar.style.width = progressPercentNegative + "%";
+          document.getElementById("progress-text-1").textContent =
+            "Score Improvement: " + progressPercent + "%";
+        } else {
+          progressBar.style.width = progressPercent + "%";
+          document.getElementById("progress-text-1").textContent =
+            "Score Improvement: " + progressPercent + "%";
+        }
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+);
 // Use Promise.all() to wait for all the promises to resolve
 Promise.all(promises)
   .then(() => {

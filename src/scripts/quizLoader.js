@@ -48,6 +48,7 @@ let quizDataSave;
 let optionQuiz;
 let currentQuiz = 0;
 let score = 0;
+let quizTakenValue;
 
 function disableButtonStyles(buttonId) {
   const button = document.getElementById(buttonId);
@@ -85,6 +86,13 @@ get(child(userRef, "postScore"))
   });
 get(child(userRef, "sumScore"))
   .then(handleSumScore)
+  .catch((error) => {
+    console.error(error);
+  });
+get(child(userRef, "quizTaken"))
+  .then((snapshot) => {
+    quizTakenValue = snapshot.val();
+  })
   .catch((error) => {
     console.error(error);
   });
@@ -158,7 +166,7 @@ function handlePreScoreSnapshot(snapshot) {
     submitPreScore.addEventListener("click", handlePreScoreInput);
   } else {
     hideLoadingScreen();
-    promptCard.classList.add("active");
+    promptCard?.classList.add("active");
   }
 }
 
@@ -458,6 +466,11 @@ async function fetchData() {
           option === "randomizePQ6" ||
           option === "randomizePQ7"
         ) {
+          quizTakenValue += 1;
+          const quizTakenValUpdate = {
+            quizTaken: quizTakenValue,
+          };
+          update(userRef, quizTakenValUpdate);
           scoreText.innerHTML = `${scoreMessage}
         <button class="btn btn--green secondary-text" onclick="location.reload()">Reload</button>
       `;
