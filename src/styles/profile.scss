@@ -9,7 +9,7 @@ main {
   height: auto;
 }
 .profile-container {
-  margin: 6rem 0 3rem;
+  margin: min(12vw, 6rem) 0 min(6vw, 3rem);
   display: grid;
   align-items: center;
   grid-template-columns: repeat(3, 1fr);
@@ -52,8 +52,7 @@ main {
     }
   }
   p {
-    font-size: 1.25rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
 }
 .dashboard-items {
@@ -86,6 +85,10 @@ main {
   transition: all 150ms ease-in-out;
   text-transform: capitalize;
   color: $font-white-color;
+
+  &:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
   &--white {
     background-color: white;
     height: min(15vw, 4rem);
@@ -93,12 +96,18 @@ main {
     align-items: center;
     justify-content: space-between;
     flex-direction: row-reverse;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
   }
   &--1 {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     padding: 0.5rem min(3vw, 3rem);
     background-color: $primary-color-light-green;
   }
   &--2 {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     padding: 0.5rem min(3vw, 3rem);
     background-color: $violet-light-color;
   }
@@ -217,6 +226,7 @@ main {
       text-align: center;
     }
     &-box {
+      margin-bottom: 1rem;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }

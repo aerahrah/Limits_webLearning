@@ -39,6 +39,7 @@ nav.navbar {
   }
 
   li.nav-item {
+    text-transform: capitalize;
     margin-top: 1rem !important;
     padding: 0.25rem 0 !important;
   }
@@ -94,6 +95,10 @@ nav.navbar {
         border-top-right-radius: 0;
         border-top-left-radius: 0;
       }
+    }
+    li.nav-item {
+      margin-top: 0 !important;
+      padding: 0.5rem 0 !important;
     }
   }
 }
