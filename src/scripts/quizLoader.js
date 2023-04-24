@@ -132,6 +132,8 @@ function handlePreTestTaker(snapshot) {
       });
   } else if (preTestTaker == "no") {
     hideLoadingScreen();
+    console.log("asdfasljdf");
+    disableButtonStyles("post-quiz");
     promptCard?.classList.add("active");
   }
 }
@@ -327,6 +329,16 @@ async function fetchData() {
     realQuizBtn?.addEventListener("click", () => {
       promptCard.classList.remove("active");
       reminderCard.classList.add("active");
+      get(child(userRef, "preTestTaker"))
+        .then((snapshot) => {
+          const preTestTakerVal = snapshot.val();
+          if (preTestTakerVal == "no") {
+            disableButtonStyles("post-quiz");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     });
     postQuizBtn?.addEventListener("click", initializeQuiz("randomizeWhole"));
     summativeQuizBtn?.addEventListener(

@@ -1,0 +1,66 @@
+@import "./components/imports";
+main {
+  gap: 0;
+}
+.table-container {
+  height: 85vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  width: min(100vw, 1260px);
+  padding: min(5vw, 2rem);
+  gap: 2rem 1rem;
+  align-items: center;
+  justify-items: center;
+  .header-username {
+    padding: 0.5rem;
+    color: #dfdbca;
+    background-color: $primary-color;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  &--item {
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.3);
+    border-radius: 20px;
+    width: min(350px, 100vw);
+    text-transform: capitalize;
+    font-size: min(3.8vw, 1.05rem);
+    strong {
+      width: 100%;
+    }
+  }
+  &--content {
+    padding: min(5vw, 1rem);
+  }
+}
+
+.item {
+  &-header {
+    width: 100vw;
+
+    .primary-text {
+      padding: min(5vw, 0.5rem);
+      background-color: $primary-color;
+      letter-spacing: 3px;
+      color: #dfdbca;
+      font-size: min(10vw, 3.25rem);
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+nav,
+footer {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .table-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 634px) {
+  .table-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
