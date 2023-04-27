@@ -50,11 +50,11 @@ loginBtn?.addEventListener("click", async (event) => {
       // User is an admin
       setTimeout(() => {
         location.href = "/superAdminDashboard";
-      }, 3000);
+      }, 1000);
     } else {
       setTimeout(() => {
         location.href = "/start";
-      }, 3000);
+      }, 1000);
       localStorage.setItem("uid", user.uid);
     }
 
@@ -119,11 +119,11 @@ function displayTextMessage(errorMessageText, errorMessageClass, errorElement) {
   errorElement.style.display = "block";
   setTimeout(() => {
     errorElement.style.transform = "scale(1)";
-  }, 100);
+  }, 50);
   setTimeout(() => {
     errorElement.style.transform = "scale(0)";
     setTimeout(() => {
       errorElement.style.display = "none";
-    }, 200);
-  }, 1000);
+    }, 100);
+  }, 500);
 }

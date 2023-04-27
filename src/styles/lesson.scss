@@ -85,7 +85,8 @@ main {
     background-color: #c8c5b5;
   }
 }
-.fa-regular {
+.fa-regular,
+.fa-readme {
   font-size: min(5vw, 30px);
   &.fa-circle-check {
     color: $primary-color;

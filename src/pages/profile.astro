@@ -44,7 +44,30 @@ import "../styles/profile.scss";
         </div>
       </div>
     </div>
-
+    <section id="edit-username-CardContainer" class="card-container">
+      <div id="edit-username-container">
+        <i id="close-btn-1" class="fa-solid fa-circle-xmark"></i>
+        <div>
+          <h1 class="primary-text text-center">CHANGE USERNAME</h1>
+          <div class="input-container">
+            <input
+              type="text"
+              id="change-username-value"
+              name="email"
+              placeholder="Edit username"
+            />
+            <p id="notify-reset" class="notify tertiary-text"></p>
+            <input
+              type="submit"
+              id="change-username-btn"
+              class="btn btn--green"
+              name="login"
+              value="submit"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="profile-container">
       <div class="img">
         <div class="icon-container">
@@ -52,6 +75,7 @@ import "../styles/profile.scss";
           <i id="avatar-change" class="fa-regular fa-pen-to-square"></i>
         </div>
         <p id="username" class="secondary-text"></p>
+        <p id="edit-username" class="tertiary-text">Edit username</p>
       </div>
       <div class="dashboard-items">
         <div class="dashboard-items-title">daily studying goals</div>

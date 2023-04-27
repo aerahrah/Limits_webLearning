@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LimitsHeader from "../../components/LimitsHeader.astro";
+import "../../styles/modules.scss";
+---
+
+<BaseLayout>
+  <LimitsHeader />
+  <main class="fluid-container">
+    <ul class="lessons">
+      <li class="lessons--item-header">
+        <hr />
+      </li>
+      <li class="lessons--item-header">
+        <h1 class="primary-text text-center">Basic Calculus</h1>
+        <hr />
+      </li>
+      <li class="video-container lessons--item">
+        <iframe
+          class="span-2-full"
+          src="https://drive.google.com/file/d/11J6_46ZeXgjxou77IN_kQxTU_aBfYQ-E/preview"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </li>
+      <li class="lessons--item-header">
+        <hr />
+      </li>
+      <li class="lessons--item-header">
+        <h1 class="primary-text text-center">Calculus Early Transcendentals</h1>
+        <hr />
+      </li>
+      <li class="video-container lessons--item">
+        <iframe
+          class="span-2-full"
+          src="https://drive.google.com/file/d/1QJNtMSSSrmTJ4sD9llMDjaAoy73mNqrG/preview"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </li>
+      <li class="lessons--item-header">
+        <hr />
+      </li>
+      <li class="lessons--item-header">
+        <h1 class="primary-text text-center">The Calculus 7</h1>
+        <hr />
+      </li>
+      <li class="video-container lessons--item">
+        <iframe
+          class="span-2-full"
+          src="https://drive.google.com/file/d/1O2cepegOFIBpEiXmBUEdzOjUbnLLkOV3/preview"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </li>
+    </ul>
+  </main>
+</BaseLayout>
+<script src="../../scripts/switch.js"></script>

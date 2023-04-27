@@ -54,6 +54,17 @@ main {
   p {
     text-transform: capitalize;
   }
+  #edit-username {
+    margin-top: -1.5rem;
+    transition: all 100ms;
+    font-size: min(3vw, 0.75rem);
+    color: rgba($primary-black-2, 0.6);
+    letter-spacing: -0.5px;
+    cursor: pointer;
+    &:hover {
+      color: $primary-color;
+    }
+  }
 }
 .dashboard-items {
   grid-area: 1 / 2 / 2 / 4;
@@ -175,6 +186,19 @@ main {
     margin-top: 0.5rem;
     width: min(35vw, 150px);
     font-size: min(3.25vw, 1.25rem);
+  }
+}
+#edit-username-CardContainer {
+  background-color: #f7f8f7;
+  z-index: 11;
+  #close-btn-1 {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    color: $red-dark-color;
+  }
+  input {
+    transition: all 100ms !important;
   }
 }
 #avatar-img-container {

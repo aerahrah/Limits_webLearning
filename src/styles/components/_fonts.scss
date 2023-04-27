@@ -12,6 +12,7 @@ $text-font: "poppins", sans-serif;
 .secondary-title,
 .primary-text {
   font-family: $title-font;
+  animation-duration: 1.5s;
 }
 
 .title,
@@ -52,16 +53,18 @@ $text-font: "poppins", sans-serif;
   text-align: center;
   font-family: $title-font;
   color: $primary-black;
+
   &.grey {
+    font-size: min(5vw, 1rem);
     padding: 0;
     margin: 0 auto;
     margin-top: -1.5rem;
-    color: #868e96;
+    color: rgba($primary-black-2, 0.6);
     width: min(50vw, 360px);
   }
   &.grey-1 {
     margin: 0 auto;
-    color: #868e96;
+    color: rgba($primary-black-2, 0.6);
     width: min(50vw, 360px);
   }
   a {
@@ -109,6 +112,8 @@ $text-font: "poppins", sans-serif;
 .text-center {
   text-align: center;
 }
+
+//animations
 
 .red-text {
   color: $red-light-color;

@@ -30,3 +30,9 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 992px) {
+  #loading-screen {
+    top: min(50vh, 60px);
+  }
+}

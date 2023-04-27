@@ -12,6 +12,11 @@ const avatarImgID = document.getElementById("avatar-img");
 const avatarImgDefaultID = document.getElementById("avatar-img-default");
 const avatarImgContainerID = document.getElementById("avatar-img-container");
 const overlayProfileID = document.getElementById("overlay-profile");
+const editUsernameCloseBtn = document.getElementById("close-btn-1");
+const editUsernameID = document.getElementById("edit-username");
+const editUsernameCard = document.getElementById("edit-username-CardContainer");
+const changeUsernameBtn = document.getElementById("change-username-btn");
+const changeUsernameValue = document.getElementById("change-username-value");
 const avatarImg1ID = document.getElementById("avatar-img-1");
 const avatarImg2ID = document.getElementById("avatar-img-2");
 const avatarImg3ID = document.getElementById("avatar-img-3");
@@ -21,6 +26,7 @@ const avatarImg6ID = document.getElementById("avatar-img-6");
 const avatarImg7ID = document.getElementById("avatar-img-7");
 const avatarChangeBtn = document.getElementById("avatar-change");
 const closeBtn = document.getElementById("close-btn");
+const errorMessagesReset = document.getElementById("notify-reset");
 // Do something with the UID, such as storing it in a database
 const uid = localStorage.getItem("uid");
 
@@ -61,6 +67,7 @@ avatarChangeBtn.addEventListener("click", () => {
 });
 closeBtn.addEventListener("click", () => {
   avatarDisplay("remove", "active", "none");
+  overlayProfileID.classList.remove("active");
 });
 function avatarDisplay(button, container, overlay) {
   if (button == "remove") {
@@ -69,6 +76,53 @@ function avatarDisplay(button, container, overlay) {
     avatarImgContainerID.classList.add(container);
   }
   overlayProfileID.style.display = overlay;
+}
+
+editUsernameCloseBtn.addEventListener("click", () => {
+  overlayProfileID.style.display = "none";
+  editUsernameCard.classList.remove("active");
+});
+editUsernameID.addEventListener("click", () => {
+  editUsernameCard.classList.add("active");
+  overlayProfileID.style.display = "block";
+});
+changeUsernameBtn.addEventListener("click", () => {
+  if (changeUsernameValue.value) {
+    update(userRef, {
+      username: changeUsernameValue.value,
+    });
+
+    displayTextMessage(
+      "Successfully changed username",
+      "notify-success",
+      errorMessagesReset
+    );
+    setTimeout(() => {
+      location.reload();
+    }, 1500);
+  } else {
+    displayTextMessage(
+      "You need to input a username",
+      "notify-failed",
+      errorMessagesReset
+    );
+  }
+});
+
+function displayTextMessage(errorMessageText, errorMessageClass, errorElement) {
+  errorElement.textContent = errorMessageText;
+  errorElement.classList.remove("notify-success", "notify-failed");
+  errorElement.classList.add(errorMessageClass);
+  errorElement.style.display = "block";
+  setTimeout(() => {
+    errorElement.style.transform = "scale(1)";
+  }, 50);
+  setTimeout(() => {
+    errorElement.style.transform = "scale(0)";
+    setTimeout(() => {
+      errorElement.style.display = "none";
+    }, 100);
+  }, 700);
 }
 promises.push(
   get(child(userRef, "sumScore"))
