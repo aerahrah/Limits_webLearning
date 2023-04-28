@@ -12,16 +12,38 @@ get(userRef)
       const uid = childSnapshot.key;
       const user = childSnapshot.val();
 
+      const date = new Date(user.last_login);
+
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        timeZoneName: "short",
+      };
+
+      console.log(date.toLocaleString("en-US", options));
+
       // Display user information
       tableCard += `<div class="table-container--item">
-        <h1 class="header-username secondary-text text-center">${user.username}</h1>
+        <h1 class="header-username secondary-text text-center">${
+          user.username
+        }</h1>
         <div class="table-container--content">
+          <p>UID: <strong>${uid}</strong></p>
           <p>email: <strong>${user.email}</strong></p>
           <p>module completed: <strong>${user.moduleCompleted}</strong></p>
           <p>pre-test taker: <strong>${user.preTestTaker}</strong></p>
           <p>pre-score: <strong>${user.preScore}</strong></p>
           <p>post-score: <strong>${user.postScore}</strong></p>
           <p>summative-score: <strong>${user.sumScore}</strong></p>
+          <p>last-login: <strong>${date.toLocaleString(
+            "en-US",
+            options
+          )}</strong></p>
         </div>
       </div>`;
       console.log("UID: " + uid);
