@@ -3,6 +3,7 @@ const lessonId = document.getElementById("lessons");
 const profileId = document.getElementById("profile");
 const quizId = document.getElementById("quiz");
 const aboutId = document.getElementById("about-us");
+const tutorialId = document.getElementById("tutorials");
 const currentRoute = window.location.pathname.substring(1);
 
 console.log(currentRoute);
@@ -22,6 +23,10 @@ function addActiveClass(route) {
   if (route == "about-us/") {
     removeActiveClasses();
     aboutId.classList.add("active");
+  }
+  if (route == "modules/tutorials/") {
+    removeActiveClasses();
+    tutorialId.classList.add("active");
   }
 }
 addActiveClass(currentRoute);
