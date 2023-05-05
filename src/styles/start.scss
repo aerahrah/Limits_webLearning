@@ -37,6 +37,7 @@ div.header-container {
   }
   .header-text {
     @include font-scale(2.5vw, 0.9rem);
+    margin-top: 1.8rem;
   }
 }
 section.menu {

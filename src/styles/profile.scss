@@ -71,13 +71,15 @@ main {
   &-title {
     text-transform: uppercase;
     font-size: min(4vw, 1.5rem);
-    width: 85%;
+    width: 70%;
+    font-weight: 800;
     padding: 1.25rem 3rem;
     margin: 0 auto;
     margin-bottom: -1.5rem;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     background-color: $primary-color-shade;
+    text-align: center;
   }
   &-box {
     border-radius: 20px;
@@ -114,7 +116,7 @@ main {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     padding: 0.5rem min(3vw, 3rem);
-    background-color: $primary-color-light-green;
+    background-color: #0c8599
   }
   &--2 {
     border-top-left-radius: 12px;
