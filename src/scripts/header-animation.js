@@ -6,7 +6,6 @@ const aboutId = document.getElementById("about-us");
 const tutorialId = document.getElementById("tutorials");
 const currentRoute = window.location.pathname.substring(1);
 
-console.log(currentRoute);
 function addActiveClass(route) {
   if (route == "lesson/") {
     removeActiveClasses();

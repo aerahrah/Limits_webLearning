@@ -5,6 +5,7 @@
   right: 5%;
 
   &:hover {
+    cursor: pointer;
     background-color: $font-white-color;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -13,7 +14,9 @@
     color: $red-light-color !important;
   }
 }
-
+#logout-card {
+  z-index: 10;
+}
 nav.navbar {
   z-index: 999;
   position: fixed;
@@ -58,6 +61,13 @@ nav.navbar {
     }
   }
 
+  main {
+    position: relative;
+  }
+  #logout-card {
+    position: absolute;
+    top: 600%;
+  }
   @media screen and (min-width: 992px) {
     li.nav-item {
       transition: all ease 100ms;

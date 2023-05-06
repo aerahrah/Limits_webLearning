@@ -20,6 +20,11 @@ const emailReset = document.getElementById("email-reset-pass");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
+const navBarCollapsed = document.getElementById("navbarSupportedContent");
+const logoutCard = document.getElementById("logout-card");
+const logoutYes = document.getElementById("logout-yes-btn");
+const logoutNo = document.getElementById("logout-no-btn");
+const overlayHeader = document.getElementById("overlay-header");
 loginBtn?.addEventListener("click", async (event) => {
   event.preventDefault();
 
@@ -70,9 +75,15 @@ loginBtn?.addEventListener("click", async (event) => {
   }
 });
 
-logoutBtn?.addEventListener("click", async (event) => {
+logoutBtn.addEventListener("click", () => {
+  logoutCard.classList.add("active");
+  navBarCollapsed.classList.remove("show");
+  overlayHeader.style.display = "block";
+});
+logoutYes?.addEventListener("click", async (event) => {
   event.preventDefault();
 
+  logoutCard.classList.add("active");
   try {
     await auth.signOut();
 
@@ -83,7 +94,10 @@ logoutBtn?.addEventListener("click", async (event) => {
     console.log(error);
   }
 });
-
+logoutNo.addEventListener("click", () => {
+  logoutCard.classList.remove("active");
+  overlayHeader.style.display = "none";
+});
 forgotPasswordClose?.addEventListener("click", () => {
   forgotPasswordCard.classList.remove("active");
   overlayLogin.style.display = "none";

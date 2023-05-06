@@ -289,7 +289,7 @@ function generateQuizHTML(questions, score) {
   } else {
     solutionHeader = "";
   }
-  quizHTML = `<div class="quiz-container--title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}   ${solutionHeader} <div class="img-solution-container">${quizSolutionHTML}      </div>     <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Home</a
+  quizHTML = `<div class="quiz-container--title primary-text text-center">You answered ${score}/${questions.length} questions correctly </div> ${quizHTML}   ${solutionHeader} <div class="img-solution-container">${quizSolutionHTML}      </div>     <a href="/profile" id="home-screen-btn" class="btn btn--green secondary-text">Go to profile</a
         >`;
 
   return quizHTML;
