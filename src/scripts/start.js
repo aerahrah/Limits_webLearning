@@ -1,7 +1,6 @@
 const vidContainer = document.getElementById("vid-container");
-const mainContainer = document.getElementById("main-container");
 const acceptBtn = document.getElementById("accept-btn");
-const skipBtn = document.getElementById("skip-btn");
+const skipBtn = document.getElementById("skip-video-btn");
 const overlayStart = document.getElementById("overlay-start");
 
 acceptBtn.addEventListener("click", () => {
