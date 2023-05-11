@@ -75,7 +75,7 @@ loginBtn?.addEventListener("click", async (event) => {
   }
 });
 
-logoutBtn.addEventListener("click", () => {
+logoutBtn?.addEventListener("click", () => {
   logoutCard.classList.add("active");
   navBarCollapsed.classList.remove("show");
   overlayHeader.style.display = "block";
@@ -94,7 +94,7 @@ logoutYes?.addEventListener("click", async (event) => {
     console.log(error);
   }
 });
-logoutNo.addEventListener("click", () => {
+logoutNo?.addEventListener("click", () => {
   logoutCard.classList.remove("active");
   overlayHeader.style.display = "none";
 });

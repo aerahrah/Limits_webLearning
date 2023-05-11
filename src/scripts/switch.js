@@ -49,10 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.style.display = "block";
       confirmBox.classList.add("active");
     });
-    console.log(switchBtn);
     confirmYesBtn?.addEventListener("click", () => {
       // Code to execute when the user confirms the action
-      console.log("click yes");
       overlay.style.display = "none";
       confirmBox.classList.remove("active");
       switchBtn.checked = true;
@@ -63,8 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     confirmNoBtn?.addEventListener("click", () => {
-      console.log(switchBtn);
-      console.log("click no");
       overlay.style.display = "none";
       confirmBox.classList.remove("active");
       switchBtn.checked = false;
@@ -92,7 +88,6 @@ function getSwitchState(id, switchBtn, confirmYes, confirmNo) {
 
 function handleGetSwitchState(switchBtn, confirmYes, confirmNo, snapshot) {
   const state = snapshot.val();
-  console.log(confirmYes);
   if (state === true) {
     switchBtn.checked = true;
     confirmYes.disabled = true;

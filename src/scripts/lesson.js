@@ -3,7 +3,6 @@ import { getDatabase, ref, child, update, get, set } from "firebase/database";
 
 const uid = localStorage.getItem("uid");
 const userRef = ref(realtimeDb, `users/${uid}/switchStates`);
-console.log(uid);
 
 let circleIds = [];
 let switchStatesNode = [];

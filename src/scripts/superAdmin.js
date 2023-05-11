@@ -25,8 +25,6 @@ get(userRef)
         timeZoneName: "short",
       };
 
-      console.log(date.toLocaleString("en-US", options));
-
       // Display user information
       tableCard += `<div class="table-container--item">
         <h1 class="header-username secondary-text text-center">${
@@ -46,11 +44,6 @@ get(userRef)
           )}</strong></p>
         </div>
       </div>`;
-      console.log("UID: " + uid);
-      console.log("UserName: " + user.username);
-      console.log("Email: " + user.email);
-      console.log("Pre-test : " + user.age);
-      //   username.innerHTML = uid;
     });
 
     tableCardId.innerHTML = tableCard;
