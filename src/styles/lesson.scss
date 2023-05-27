@@ -11,6 +11,14 @@ main {
   padding: 0;
   width: min(100vw, 960px);
 
+  h1 {
+    &.primary-text {
+      font-weight: 700;
+      color: $font-primary-color;
+      @include font-scale(8vw, 2.75rem);
+      letter-spacing: 1px;
+    }
+  }
   font-weight: 600;
   gap: min(10vw, 50px);
   &--item {

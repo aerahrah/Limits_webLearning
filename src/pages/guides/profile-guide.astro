@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LimitsHeader from "../../components/LimitsHeader.astro";
+import "../../styles/guides.scss";
+---
+
+<BaseLayout>
+  <LimitsHeader />
+  <main class="fluid-container">
+    <ul class="guides">
+      <li class="guides--item-header">
+        <h1 class="primary-text text-center">profile guide</h1>
+        <hr />
+      </li>
+      <li class="guides--item">
+        <p class="span-2-full secondary-text">
+          This page compose of your nickname, avatar picture, completed modules,
+          score improvement.
+        </p>
+        <img
+          class="span-2-full"
+          src="/images/img_guides/profile_1.png"
+          alt=""
+        />
+      </li>
+      <li class="guides--item">
+        <img
+          class="span-2-full"
+          src="/images/img_guides/profile_2.png"
+          alt=""
+        />
+      </li>
+    </ul>
+  </main>
+</BaseLayout>
+<script src="../../scripts/switch.js"></script>

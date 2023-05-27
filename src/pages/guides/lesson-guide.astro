@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LimitsHeader from "../../components/LimitsHeader.astro";
+import "../../styles/guides.scss";
+---
+
+<BaseLayout>
+  <LimitsHeader />
+  <main class="fluid-container">
+    <ul class="guides">
+      <li class="guides--item-header">
+        <h1 class="primary-text text-center">Lessons guide</h1>
+        <hr />
+      </li>
+      <li class="guides--item">
+        <p class="span-2-full secondary-text">
+          This page provides 13 calculus lessons for the users starting from L1:
+          Introduction to Limits until L13: Review Analysis of Functions. These
+          lessons are aligned with the senior high school curriculum and are
+          expected to promote a better understanding of mathematical concepts in
+          calculus for its users, especially students. After each lesson,
+          related videos can also be accessed to help the learning of the users
+          further.
+        </p>
+        <img class="span-2-full" src="/images/img_guides/lesson_1.png" alt="" />
+      </li>
+      <li class="guides--item">
+        <img class="span-2-full" src="/images/img_guides/lesson_2.png" alt="" />
+      </li>
+      <li class="guides--item">
+        <img class="span-2-full" src="/images/img_guides/lesson_3.png" alt="" />
+      </li>
+    </ul>
+  </main>
+</BaseLayout>
+<script src="../../scripts/switch.js"></script>
