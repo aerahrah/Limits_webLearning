@@ -1,6 +1,7 @@
 .scroll-container,
 .lessons,
-.table-container {
+.table-container,
+.guides {
   height: 85vh;
   width: min(95vw, 960px);
   overflow-y: scroll;

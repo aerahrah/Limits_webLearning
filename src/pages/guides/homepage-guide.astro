@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LimitsHeader from "../../components/LimitsHeader.astro";
+import "../../styles/guides.scss";
+---
+
+<BaseLayout>
+  <LimitsHeader />
+  <main class="fluid-container">
+    <ul class="guides">
+      <li class="guides--item-header">
+        <h1 class="primary-text text-center">
+          Initial Passcode Authentication
+        </h1>
+        <hr />
+      </li>
+      <li class="guides--item">
+        <p class="span-2-full secondary-text">
+          The first step to accessing the web application each time would be to
+          type in your email address and password.
+        </p>
+        <img class="span-2-full" src="/images/img_guides/home_1.png" alt="" />
+      </li>
+      <li class="guides--item">
+        <p class="span-2-full secondary-text">
+          If ever you have forgotten your password, there is a reset button
+          underneath
+        </p>
+        <img class="span-2-full" src="/images/img_guides/home_2.png" alt="" />
+      </li>
+      <li class="guides--item">
+        <p class="span-2-full secondary-text">
+          "You can check it in the spam inbox"
+        </p>
+        <img class="span-2-full" src="/images/img_guides/home_3.png" alt="" />
+      </li>
+      <li class="guides--item">
+        <p class="span-2-full secondary-text">
+          If you do not have an account yet, simply click “SIGN UP”. You will be
+          asked to register and provide your username, email, and password. Upon
+          completion, you will now be able to access the web application.
+        </p>
+        <img class="span-2-full" src="/images/img_guides/home_4.png" alt="" />
+      </li>
+    </ul>
+  </main>
+</BaseLayout>
+<script src="../../scripts/switch.js"></script>
